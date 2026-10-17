@@ -1,0 +1,145 @@
+site_name: Augmented Software Engineering
+site_description: >-
+  A practical foundation for modern software engineering,
+  development tools, and AI-augmented workflows.
+site_url: https://evisp.github.io/augmented-software-engineering/
+site_author: Evis Plaku
+
+repo_url: https://github.com/evisp/augmented-software-engineering
+repo_name: evisp/augmented-software-engineering
+edit_uri: edit/main/docs/
+
+copyright: Holberton School Albania
+
+theme:
+  name: material
+  language: en
+
+  font:
+    text: Host Grotesk
+    code: JetBrains Mono
+
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.indexes
+    - navigation.path
+    - navigation.top
+    - navigation.tracking
+    - navigation.footer
+    - toc.follow
+    - search.highlight
+    - search.share
+    - search.suggest
+    - content.code.copy
+    - content.code.annotate
+    - content.tabs.link
+    - content.action.edit
+
+  icon:
+    repo: fontawesome/brands/github
+    edit: material/pencil
+
+extra_css:
+  - stylesheets/brand.css
+  - stylesheets/extra.css
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
+extra:
+  generator: false
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/evisp
+      name: GitHub
+
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - md_in_html
+  - footnotes
+  - tables
+
+  - toc:
+      permalink: true
+      permalink_title: Link to this section
+      toc_depth: 3
+
+  - pymdownx.arithmatex:
+      generic: true
+
+  - pymdownx.betterem
+  - pymdownx.caret
+  - pymdownx.details
+
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.snippets
+  - pymdownx.superfences
+
+  - pymdownx.tabbed:
+      alternate_style: true
+
+  - pymdownx.tilde
+
+plugins:
+  - search
+
+validation:
+  omitted_files: warn
+  absolute_links: warn
+  unrecognized_links: warn
+  anchors: warn
+
+nav:
+  - Home: index.md
+  - Roadmap: roadmap.md
+
+  - Tools:
+      - 01-tools/index.md
+      - Zero Day: 01-tools/zero-day.md
+      - Git & GitHub: 01-tools/git-and-github.md
+      - VS Code: 01-tools/vscode-setup.md
+      - WSL: 01-tools/wsl-setup.md
+
+  - Foundations:
+      - 02-foundations/index.md
+
+  - Software Development:
+      - 03-software-development/index.md
+
+  - Augmented Engineering:
+      - 04-augmented-engineering/index.md
+
+  - Projects:
+      - 05-projects/index.md

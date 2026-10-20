@@ -15,10 +15,10 @@
         <link rel="canonical" href="https://evisp.github.io/augmented_software_engineering/01-tools/git-and-github/">
       
       
-        <link rel="prev" href="../shell/">
+        <link rel="prev" href="../shell-permissions/">
       
       
-        <link rel="next" href="../../02-foundations/">
+        <link rel="next" href="../github-flow/">
       
       
         
@@ -733,6 +733,10 @@
       
         
       
+        
+      
+        
+      
     
     
     
@@ -795,7 +799,35 @@
   <span class="md-ellipsis">
     
   
-    Shell
+    Shell Basics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../shell-permissions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Shell Permissions
   
 
     
@@ -825,6 +857,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Git & GitHub
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -842,6 +892,218 @@
 
       </a>
       
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#why-this-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why this matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-git-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How Git works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-1-tell-git-who-you-are" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: Tell Git who you are
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-2-let-your-laptop-talk-to-github" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Let your laptop talk to GitHub
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-3-create-a-repository-on-github" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: Create a repository on GitHub
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-4-clone-it-to-your-laptop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4: Clone it to your laptop
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-5-the-everyday-loop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5: The everyday loop
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-6-ignore-what-does-not-belong" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 6: Ignore what does not belong
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-7-work-on-a-branch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 7: Work on a branch
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-8-merge-and-resolve-a-conflict" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 8: Merge, and resolve a conflict
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-9-undo-a-mistake" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 9: Undo a mistake
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#when-something-goes-wrong" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        When something goes wrong
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#explain-it-to-someone" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Explain it to someone
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick reference
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Next
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../github-flow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GitHub Flow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -1314,6 +1576,179 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#why-this-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why this matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-git-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How Git works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-1-tell-git-who-you-are" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: Tell Git who you are
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-2-let-your-laptop-talk-to-github" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Let your laptop talk to GitHub
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-3-create-a-repository-on-github" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: Create a repository on GitHub
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-4-clone-it-to-your-laptop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4: Clone it to your laptop
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-5-the-everyday-loop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5: The everyday loop
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-6-ignore-what-does-not-belong" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 6: Ignore what does not belong
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-7-work-on-a-branch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 7: Work on a branch
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-8-merge-and-resolve-a-conflict" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 8: Merge, and resolve a conflict
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-9-undo-a-mistake" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 9: Undo a mistake
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#when-something-goes-wrong" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        When something goes wrong
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#explain-it-to-someone" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Explain it to someone
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick reference
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Next
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1404,11 +1839,434 @@
 
 
 <h1 id="git-github">Git &amp; GitHub<a class="headerlink" href="#git-github" title="Link to this section">&para;</a></h1>
-<p><span class="badge badge--level">Tools</span></p>
-<div class="admonition info">
-<p class="admonition-title">Coming soon</p>
-<p>This tutorial is being written.</p>
+<p><span class="badge badge--time">75 min</span>
+<span class="badge badge--level">Tools</span>
+<span class="badge">Needs: Shell Basics, a GitHub account</span></p>
+<p>Git saves snapshots of your work. GitHub stores those snapshots online
+so you do not lose them and other people can see them. In this
+tutorial you set both up, push your first repository, then learn to
+branch, merge, resolve a conflict and undo a mistake.</p>
+<h2 id="why-this-matters">Why this matters<a class="headerlink" href="#why-this-matters" title="Link to this section">&para;</a></h2>
+<p>You will write a lot of code in this program. Some of it will work and
+then stop working, and you will want yesterday's version back. Git
+gives you that.</p>
+<p>There is a second reason. When you apply for a job, your GitHub profile
+is one of the first things a hiring manager opens. Every project you
+finish here ends up there, and the Checker reads your work from it.
+Start building that history on day one.</p>
+<h2 id="how-git-works">How Git works<a class="headerlink" href="#how-git-works" title="Link to this section">&para;</a></h2>
+<p>Four places hold your work. Three are on your laptop, one is on
+GitHub. Each command moves your work from one place to the next.</p>
+<figure class="h-figure" markdown="0">
+<svg viewBox="0 0 680 172" role="img" aria-labelledby="git-flow-title git-flow-desc">
+<title id="git-flow-title">How work moves through Git</title>
+<desc id="git-flow-desc">Your working directory, then the staging area using git add, then the local repository history using git commit, then GitHub using git push. The git pull command brings work back from GitHub to your working directory.</desc>
+<defs><marker id="git-flow-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="var(--h-fig-line)"/></marker></defs>
+<rect x="3" y="40" width="146" height="64" rx="10" fill="var(--h-fig-box)" stroke="var(--h-fig-line)"/>
+<text x="76" y="68" text-anchor="middle" font-size="13.5" font-weight="700" fill="var(--h-fig-text)">Working directory</text>
+<text x="76" y="87" text-anchor="middle" font-size="11.5" fill="var(--h-fig-muted)">files you edit</text>
+<rect x="179" y="40" width="146" height="64" rx="10" fill="var(--h-fig-box)" stroke="var(--h-fig-line)"/>
+<text x="252" y="68" text-anchor="middle" font-size="13.5" font-weight="700" fill="var(--h-fig-text)">Staging area</text>
+<text x="252" y="87" text-anchor="middle" font-size="11.5" fill="var(--h-fig-muted)">picked to save</text>
+<rect x="355" y="40" width="146" height="64" rx="10" fill="var(--h-fig-box)" stroke="var(--h-fig-line)"/>
+<text x="428" y="68" text-anchor="middle" font-size="13.5" font-weight="700" fill="var(--h-fig-text)">Local history</text>
+<text x="428" y="87" text-anchor="middle" font-size="11.5" fill="var(--h-fig-muted)">commits on your laptop</text>
+<rect x="531" y="40" width="146" height="64" rx="10" fill="var(--h-cherry)"/>
+<text x="604" y="68" text-anchor="middle" font-size="13.5" font-weight="700" fill="#ffffff">GitHub</text>
+<text x="604" y="87" text-anchor="middle" font-size="11.5" fill="#ffffff" opacity="0.9">online, shareable</text>
+<line x1="153" y1="72" x2="173" y2="72" stroke="var(--h-fig-line)" stroke-width="2" marker-end="url(#git-flow-arrow)"/>
+<line x1="329" y1="72" x2="349" y2="72" stroke="var(--h-fig-line)" stroke-width="2" marker-end="url(#git-flow-arrow)"/>
+<line x1="505" y1="72" x2="525" y2="72" stroke="var(--h-fig-line)" stroke-width="2" marker-end="url(#git-flow-arrow)"/>
+<text x="163" y="28" text-anchor="middle" font-size="12" font-weight="600" fill="var(--h-cherry)">git add</text>
+<text x="339" y="28" text-anchor="middle" font-size="12" font-weight="600" fill="var(--h-cherry)">git commit</text>
+<text x="515" y="28" text-anchor="middle" font-size="12" font-weight="600" fill="var(--h-cherry)">git push</text>
+<polyline points="604,110 604,134 76,134 76,112" fill="none" stroke="var(--h-fig-line)" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#git-flow-arrow)"/>
+<text x="340" y="156" text-anchor="middle" font-size="12" font-weight="600" fill="var(--h-fig-muted)">git pull</text>
+</svg>
+</figure>
+
+<p>Keep this picture in your head. Most Git confusion comes from not
+knowing which of the four boxes your work is sitting in right now.</p>
+<h2 id="step-1-tell-git-who-you-are">Step 1: Tell Git who you are<a class="headerlink" href="#step-1-tell-git-who-you-are" title="Link to this section">&para;</a></h2>
+<p>Git writes your name on every commit. Set it once, in the Ubuntu
+terminal:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>user.name<span class="w"> </span><span class="s2">"Your Full Name"</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>user.email<span class="w"> </span><span class="s2">"your-email@example.com"</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>init.defaultBranch<span class="w"> </span>main
+</span></code></pre></div>
+<p>Use the same email address as your GitHub account. If the two do not
+match, your commits show up on GitHub without your profile attached.
+The last line makes every new repository start on a branch called
+<code>main</code>, the same name GitHub uses.</p>
+<p>Nothing prints when this works. Check it:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>--list
+</span></code></pre></div>
+<h2 id="step-2-let-your-laptop-talk-to-github">Step 2: Let your laptop talk to GitHub<a class="headerlink" href="#step-2-let-your-laptop-talk-to-github" title="Link to this section">&para;</a></h2>
+<p>GitHub does not accept your account password in the terminal. You
+authenticate with a <strong>Personal Access Token</strong> instead: a long random
+string that works like a password, but only for what you allow and only
+until it expires.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Personal access token</label><label for="__tabbed_1_2">GitHub CLI</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<ol>
+<li>On GitHub, open <strong>Settings</strong>, then <strong>Developer settings</strong>, then
+   <strong>Personal access tokens</strong>, then <strong>Fine-grained tokens</strong>.</li>
+<li>Click <strong>Generate new token</strong>. Give it a name and an expiry of
+   90 days.</li>
+<li>Under <strong>Repository access</strong>, choose <strong>All repositories</strong>. Under
+   <strong>Permissions</strong>, set <strong>Contents</strong> to <strong>Read and write</strong>.</li>
+<li>Click <strong>Generate token</strong> and copy it. GitHub shows it once and
+   never again, so store it in a password manager now.</li>
+</ol>
+<p>Then tell Git to remember it:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>credential.helper<span class="w"> </span>store
+</span></code></pre></div>
+<p>The first time you push, Git asks for a username and a password.
+Type your GitHub username, then paste the token as the password.
+Git saves it and stops asking.</p>
 </div>
+<div class="tabbed-block">
+<p>The <code>gh</code> tool creates and stores a token for you through the
+browser.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>gh
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>gh<span class="w"> </span>auth<span class="w"> </span>login
+</span></code></pre></div>
+<p>Choose GitHub.com, HTTPS, <em>yes</em> to authenticate Git with your
+GitHub credentials, then <em>login with a web browser</em>. Copy the
+one-time code, press <span class="keys"><kbd class="key-enter">Enter</kbd></span> and finish in the browser.</p>
+<p>Check it worked with <code>gh auth status</code>.</p>
+</div>
+</div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Never put your token in a URL or a file you commit</p>
+<p>You will find advice online to clone with
+<code>https://username:token@github.com/...</code>. It works, and it leaks.
+Git writes that URL into <code>.git/config</code>, your shell saves it in its
+history, and one screenshot in Slack gives someone else access to
+your account. If a token ever leaks, delete it on GitHub straight
+away and make a new one.</p>
+</div>
+<h2 id="step-3-create-a-repository-on-github">Step 3: Create a repository on GitHub<a class="headerlink" href="#step-3-create-a-repository-on-github" title="Link to this section">&para;</a></h2>
+<p>A <strong>repository</strong>, or repo, is a project folder that Git tracks. It is
+easiest to create it on GitHub and copy it down.</p>
+<ol>
+<li>On GitHub, click the green <strong>New</strong> button.</li>
+<li>Name it <code>git-practice</code>.</li>
+<li>Leave it public, and leave <strong>Add a README file</strong> unchecked.</li>
+<li>Click <strong>Create repository</strong>.</li>
+</ol>
+<h2 id="step-4-clone-it-to-your-laptop">Step 4: Clone it to your laptop<a class="headerlink" href="#step-4-clone-it-to-your-laptop" title="Link to this section">&para;</a></h2>
+<p>Cloning downloads the repo and connects your local folder to GitHub.
+That connection is called a <strong>remote</strong>, and Git names it <code>origin</code>.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nb">cd</span><span class="w"> </span>~/holberton
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/your-username/git-practice.git
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="nb">cd</span><span class="w"> </span>git-practice
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>git<span class="w"> </span>remote<span class="w"> </span>-v
+</span></code></pre></div>
+<p>You should see the clone warn that the repository is empty, and two
+<code>origin</code> lines pointing at GitHub. The warning is fine.</p>
+<h2 id="step-5-the-everyday-loop">Step 5: The everyday loop<a class="headerlink" href="#step-5-the-everyday-loop" title="Link to this section">&para;</a></h2>
+<p>Make a change, check it, stage it, commit it, push it. You will run
+this loop hundreds of times.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">"# Git practice"</span><span class="w"> </span>&gt;<span class="w"> </span>README.md
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>git<span class="w"> </span>status
+</span></code></pre></div>
+<p><code>git status</code> is the most useful command in Git. Run it whenever you are
+unsure where things stand. Right now it lists <code>README.md</code> as
+<em>untracked</em>: Git sees the file but is not saving it yet.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>git<span class="w"> </span>add<span class="w"> </span>README.md<span class="w">                 </span><span class="c1"># stage it</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">"Add README"</span><span class="w">        </span><span class="c1"># save a snapshot locally</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>git<span class="w"> </span>push<span class="w"> </span>-u<span class="w"> </span>origin<span class="w"> </span>main<span class="w">           </span><span class="c1"># send it to GitHub</span>
+</span></code></pre></div>
+<p>The <code>-u</code> links your local <code>main</code> to GitHub's <code>main</code>, so from now on
+<code>git push</code> and <code>git pull</code> are enough. Refresh the repo page in your
+browser. Your file is there.</p>
+<p>To see what you have saved so far:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>git<span class="w"> </span>log<span class="w"> </span>--oneline
+</span></code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Write commit messages in the imperative</p>
+<p>Write "Add login form", not "Added login form". Git's own messages
+read that way, so your history stays consistent. If a message needs
+the word <em>and</em>, you are probably saving two changes at once. Make
+two commits.</p>
+</div>
+<h2 id="step-6-ignore-what-does-not-belong">Step 6: Ignore what does not belong<a class="headerlink" href="#step-6-ignore-what-does-not-belong" title="Link to this section">&para;</a></h2>
+<p>Some files should never be committed: caches, editor settings,
+dependencies you can reinstall, and above all secrets. List them in a
+file called <code>.gitignore</code> at the root of the repo.</p>
+<div class="language-text highlight"><span class="filename">.gitignore</span><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a># Python
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>__pycache__/
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>*.pyc
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>.venv/
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a># JavaScript
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>node_modules/
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a># Secrets and local settings
+</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>.env
+</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a>.vscode/
+</span></code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>git<span class="w"> </span>add<span class="w"> </span>.gitignore
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">"Add .gitignore"</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>git<span class="w"> </span>push
+</span></code></pre></div>
+<p>Now create a file called <code>.env</code> and run <code>git status</code>. Git does not list
+it. Ignored files stay on your laptop and never reach GitHub.</p>
+<div class="admonition warning">
+<p class="admonition-title"><code>.gitignore</code> does not untrack files already committed</p>
+<p>If you committed a file before ignoring it, Git keeps tracking it.
+Stop tracking it with <code>git rm --cached filename</code>, then commit. If it
+was a secret, treat it as leaked: it is still in the history.</p>
+</div>
+<h2 id="step-7-work-on-a-branch">Step 7: Work on a branch<a class="headerlink" href="#step-7-work-on-a-branch" title="Link to this section">&para;</a></h2>
+<p>A <strong>branch</strong> is a separate line of commits. You make one for each
+change, work there without touching <code>main</code>, and merge it back when it
+is ready.</p>
+<figure class="h-figure" markdown="0">
+<svg viewBox="0 0 680 180" role="img" aria-labelledby="git-branch-title git-branch-desc">
+<title id="git-branch-title">A feature branch merged back into main</title>
+<desc id="git-branch-desc">The main branch has two commits. A feature branch starts from the second, with git switch -c, and gets two commits of its own. It is then merged back into main with git merge, creating a merge commit.</desc>
+<line x1="40" y1="120" x2="640" y2="120" stroke="var(--h-fig-line)" stroke-width="3"/>
+<path d="M200 120 C 230 120, 240 56, 280 56 L 420 56 C 470 56, 490 120, 530 120" fill="none" stroke="var(--h-cherry)" stroke-width="3"/>
+<circle cx="90" cy="120" r="12" fill="var(--h-fig-text)"/>
+<circle cx="200" cy="120" r="12" fill="var(--h-fig-text)"/>
+<circle cx="300" cy="56" r="12" fill="var(--h-cherry)"/>
+<circle cx="400" cy="56" r="12" fill="var(--h-cherry)"/>
+<circle cx="530" cy="120" r="15" fill="var(--md-default-bg-color)" stroke="var(--h-fig-text)" stroke-width="3"/>
+<circle cx="530" cy="120" r="6" fill="var(--h-fig-text)"/>
+<text x="40" y="150" font-size="12.5" font-weight="700" fill="var(--h-fig-text)">main</text>
+<text x="300" y="28" font-size="12.5" font-weight="700" fill="var(--h-cherry)">feature/greeting</text>
+<text x="200" y="152" text-anchor="middle" font-size="11.5" font-weight="600" fill="var(--h-fig-muted)" font-family="var(--md-code-font-family, monospace)">git switch -c</text>
+<text x="530" y="158" text-anchor="middle" font-size="11.5" font-weight="600" fill="var(--h-fig-muted)" font-family="var(--md-code-font-family, monospace)">git merge</text>
+<text x="350" y="88" text-anchor="middle" font-size="11" fill="var(--h-fig-muted)">your commits, isolated</text>
+</svg>
+</figure>
+
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>git<span class="w"> </span>switch<span class="w"> </span>-c<span class="w"> </span>feature/greeting<span class="w">      </span><span class="c1"># create the branch and move to it</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">"Hello from a branch"</span><span class="w"> </span>&gt;<span class="w"> </span>greeting.txt
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>git<span class="w"> </span>add<span class="w"> </span>greeting.txt
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">"Add greeting"</span>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>git<span class="w"> </span>push<span class="w"> </span>-u<span class="w"> </span>origin<span class="w"> </span>feature/greeting
+</span></code></pre></div>
+<p><code>git branch</code> lists your branches and marks the current one with <code>*</code>.
+<code>git switch main</code> moves back. Notice that <code>greeting.txt</code> disappears from
+your folder on <code>main</code>: it only exists on the branch so far.</p>
+<h2 id="step-8-merge-and-resolve-a-conflict">Step 8: Merge, and resolve a conflict<a class="headerlink" href="#step-8-merge-and-resolve-a-conflict" title="Link to this section">&para;</a></h2>
+<p>To bring the branch into <code>main</code>, switch to <code>main</code> and merge:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>git<span class="w"> </span>switch<span class="w"> </span>main
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>git<span class="w"> </span>merge<span class="w"> </span>feature/greeting
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>git<span class="w"> </span>push
+</span></code></pre></div>
+<p>Most merges finish by themselves. A <strong>conflict</strong> happens when both
+branches changed the same lines, and Git cannot know which version you
+want. Make one on purpose so you know what it looks like:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>git<span class="w"> </span>switch<span class="w"> </span>-c<span class="w"> </span>feature/title
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">"# Git practice, branch version"</span><span class="w"> </span>&gt;<span class="w"> </span>README.md
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>git<span class="w"> </span>commit<span class="w"> </span>-am<span class="w"> </span><span class="s2">"Change title on branch"</span>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>git<span class="w"> </span>switch<span class="w"> </span>main
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">"# Git practice, main version"</span><span class="w"> </span>&gt;<span class="w"> </span>README.md
+</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a>git<span class="w"> </span>commit<span class="w"> </span>-am<span class="w"> </span><span class="s2">"Change title on main"</span>
+</span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a>
+</span><span id="__span-12-9"><a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a>git<span class="w"> </span>merge<span class="w"> </span>feature/title
+</span></code></pre></div>
+<p>Git stops and reports a conflict in <code>README.md</code>. Open the file:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a># Git practice, main version
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>=======
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a># Git practice, branch version
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>&gt;&gt;&gt;&gt;&gt;&gt;&gt; feature/title
+</span></code></pre></div>
+<p>The part above <code>=======</code> is what <code>main</code> has. The part below is what the
+branch has. Edit the file so it says what it should, delete all three
+marker lines, then finish the merge:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>git<span class="w"> </span>add<span class="w"> </span>README.md
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">"Merge feature/title"</span>
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>git<span class="w"> </span>push
+</span></code></pre></div>
+<p>VS Code highlights conflicts and offers <strong>Accept Current</strong>, <strong>Accept
+Incoming</strong> and <strong>Accept Both</strong> buttons above each one. They do the same
+editing for you, but read the result before you commit.</p>
+<h2 id="step-9-undo-a-mistake">Step 9: Undo a mistake<a class="headerlink" href="#step-9-undo-a-mistake" title="Link to this section">&para;</a></h2>
+<p>Git has two main ways to undo a commit. The difference is whether you
+rewrite history or add to it.</p>
+<figure class="h-figure" markdown="0">
+<svg viewBox="0 0 680 212" role="img" aria-labelledby="git-undo-title git-undo-desc">
+<title id="git-undo-title">git reset compared with git revert</title>
+<desc id="git-undo-desc">With git reset, commit C is removed and the branch points back at B: history is rewritten, so use it only for commits you have not pushed. With git revert, a new commit, C prime, is added that undoes C: history is kept, so it is safe on shared branches.</desc>
+<text x="3" y="26" font-size="12.5" font-weight="700" fill="var(--h-fig-text)" font-family="var(--md-code-font-family, monospace)">git reset --hard HEAD~1</text>
+<line x1="40" y1="62" x2="232" y2="62" stroke="var(--h-fig-line)" stroke-width="3"/>
+<line x1="232" y1="62" x2="320" y2="62" stroke="var(--h-fig-line)" stroke-width="3" stroke-dasharray="5 5" opacity="0.6"/>
+<circle cx="60" cy="62" r="14" fill="var(--h-fig-text)"/><text x="60" y="67" text-anchor="middle" font-size="12" font-weight="700" fill="var(--md-default-bg-color)">A</text>
+<circle cx="160" cy="62" r="14" fill="var(--h-fig-text)"/><text x="160" y="67" text-anchor="middle" font-size="12" font-weight="700" fill="var(--md-default-bg-color)">B</text>
+<circle cx="260" cy="62" r="14" fill="none" stroke="var(--h-fig-line)" stroke-width="2" stroke-dasharray="4 3"/><text x="260" y="67" text-anchor="middle" font-size="12" font-weight="700" fill="var(--h-fig-muted)">C</text>
+<text x="160" y="100" text-anchor="middle" font-size="11" font-weight="700" fill="var(--h-cherry)">main</text>
+<text x="370" y="58" font-size="12" font-weight="600" fill="var(--h-fig-text)">C is gone; main points at B</text>
+<text x="370" y="78" font-size="11.5" fill="var(--h-fig-muted)">Rewrites history. Only for commits</text>
+<text x="370" y="94" font-size="11.5" fill="var(--h-fig-muted)">you have not pushed yet.</text>
+<line x1="3" y1="122" x2="677" y2="122" stroke="var(--h-fig-line)" opacity="0.5"/>
+<text x="3" y="148" font-size="12.5" font-weight="700" fill="var(--h-fig-text)" font-family="var(--md-code-font-family, monospace)">git revert C</text>
+<line x1="40" y1="182" x2="340" y2="182" stroke="var(--h-fig-line)" stroke-width="3"/>
+<circle cx="60" cy="182" r="14" fill="var(--h-fig-text)"/><text x="60" y="187" text-anchor="middle" font-size="12" font-weight="700" fill="var(--md-default-bg-color)">A</text>
+<circle cx="140" cy="182" r="14" fill="var(--h-fig-text)"/><text x="140" y="187" text-anchor="middle" font-size="12" font-weight="700" fill="var(--md-default-bg-color)">B</text>
+<circle cx="220" cy="182" r="14" fill="var(--h-fig-text)"/><text x="220" y="187" text-anchor="middle" font-size="12" font-weight="700" fill="var(--md-default-bg-color)">C</text>
+<circle cx="310" cy="182" r="16" fill="var(--h-cherry)"/><text x="310" y="187" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">C'</text>
+<text x="370" y="178" font-size="12" font-weight="600" fill="var(--h-fig-text)">C' is a new commit that undoes C</text>
+<text x="370" y="198" font-size="11.5" fill="var(--h-fig-muted)">Keeps history. Safe on shared branches.</text>
+</svg>
+</figure>
+
+<p><strong><code>git revert</code></strong> adds a new commit that does the opposite of an old
+one. Nothing disappears, so it is safe on any branch other people use,
+including <code>main</code> after you have pushed.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>git<span class="w"> </span>log<span class="w"> </span>--oneline<span class="w">          </span><span class="c1"># find the commit's short hash, e.g. a1b2c3d</span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>git<span class="w"> </span>revert<span class="w"> </span>a1b2c3d<span class="w">         </span><span class="c1"># Git opens an editor for the message; save and close</span>
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>git<span class="w"> </span>push
+</span></code></pre></div>
+<p><strong><code>git reset</code></strong> moves the branch back to an earlier commit, as if the
+later ones never happened. Use it only on commits you have <em>not</em>
+pushed, because it rewrites history that others may already have.</p>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Commit removed?</th>
+<th>Your changes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>git reset --soft HEAD~1</code></td>
+<td>Yes</td>
+<td>Kept, and still staged</td>
+</tr>
+<tr>
+<td><code>git reset HEAD~1</code></td>
+<td>Yes</td>
+<td>Kept in your files, unstaged</td>
+</tr>
+<tr>
+<td><code>git reset --hard HEAD~1</code></td>
+<td>Yes</td>
+<td><strong>Deleted.</strong> There is no undo button</td>
+</tr>
+</tbody>
+</table>
+<p><code>HEAD~1</code> means "one commit before the current one". The safe default
+when you are unsure is <code>git revert</code>.</p>
+<div class="admonition ai">
+<p class="admonition-title">AI in the loop</p>
+<p>Paste the output of <code>git status</code> or a conflict into Copilot Chat
+and ask what state your repository is in and what your options are.
+Assistants are good at reading Git output. Ask for an explanation
+rather than a command, and never run <code>reset --hard</code> or a force push
+because an assistant suggested it until you know what it deletes.</p>
+</div>
+<h2 id="when-something-goes-wrong">When something goes wrong<a class="headerlink" href="#when-something-goes-wrong" title="Link to this section">&para;</a></h2>
+<details class="note">
+<summary><code>fatal: not a git repository</code></summary>
+<p>You are not inside the repo folder. Run <code>pwd</code>, then <code>cd</code> into the
+folder you cloned.</p>
+</details>
+<details class="note">
+<summary><code>Authentication failed</code> when you push</summary>
+<p>The token is wrong or expired, or you typed your GitHub password
+instead of the token. Make a new token, run <code>rm ~/.git-credentials</code>,
+and push again. Or run <code>gh auth login</code>.</p>
+</details>
+<details class="note">
+<summary><code>Updates were rejected because the remote contains work</code></summary>
+<p>Someone pushed to GitHub after you last pulled. Run <code>git pull</code>,
+resolve any conflicts, then push again.</p>
+</details>
+<details class="note">
+<summary><code>Please tell me who you are</code></summary>
+<p>You skipped Step 1. Set your name and email, then commit again.</p>
+</details>
+<details class="note">
+<summary>I committed to <code>main</code> instead of a branch</summary>
+<p>If you have not pushed yet: <code>git switch -c feature/name</code> to keep the
+commit on a new branch, then <code>git switch main</code> and
+<code>git reset --hard origin/main</code> to put <code>main</code> back the way GitHub has
+it.</p>
+</details>
+<h2 id="explain-it-to-someone">Explain it to someone<a class="headerlink" href="#explain-it-to-someone" title="Link to this section">&para;</a></h2>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> How to configure Git with your name and email</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> How to create a repository on GitHub and clone it locally</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> What the working directory, staging area and history are, and
+      which command moves work between them</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> What <code>.gitignore</code> is for, and what belongs in it</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> How to push and pull, and how a Personal Access Token is used</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> What a branch is, and how to create and switch between them</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> How to merge a branch, and how to resolve a conflict</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> The difference between <code>git reset</code> and <code>git revert</code>, and when to
+      use each</li>
+</ul>
+<h2 id="quick-reference">Quick reference<a class="headerlink" href="#quick-reference" title="Link to this section">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>git status</code></td>
+<td>Show what changed and what is staged</td>
+</tr>
+<tr>
+<td><code>git add file</code> / <code>git add .</code></td>
+<td>Stage one file / everything</td>
+</tr>
+<tr>
+<td><code>git commit -m "message"</code></td>
+<td>Save a snapshot locally</td>
+</tr>
+<tr>
+<td><code>git push</code> / <code>git pull</code></td>
+<td>Send commits to GitHub / bring them down</td>
+</tr>
+<tr>
+<td><code>git log --oneline</code></td>
+<td>List commits, one per line</td>
+</tr>
+<tr>
+<td><code>git switch -c name</code></td>
+<td>Create a branch and move to it</td>
+</tr>
+<tr>
+<td><code>git switch name</code></td>
+<td>Move to an existing branch</td>
+</tr>
+<tr>
+<td><code>git merge name</code></td>
+<td>Merge a branch into the current one</td>
+</tr>
+<tr>
+<td><code>git revert hash</code></td>
+<td>Undo a commit with a new commit</td>
+</tr>
+<tr>
+<td><code>git reset HEAD~1</code></td>
+<td>Remove the last local commit, keep the changes</td>
+</tr>
+<tr>
+<td><code>git rm --cached file</code></td>
+<td>Stop tracking a file without deleting it</td>
+</tr>
+</tbody>
+</table>
+<h2 id="next">Next<a class="headerlink" href="#next" title="Link to this section">&para;</a></h2>
+<p>You can track your own work. Next, work with other people.</p>
+<p><a class="h-button" href="../github-flow/">GitHub Flow</a></p>
+<p>Want to go deeper: the <a href="https://git-scm.com/book">Pro Git book</a> is free
+and thorough, and <a href="https://learngitbranching.js.org/">Learn Git Branching</a>
+lets you practise branching visually.</p>
 
 
 
@@ -1446,7 +2304,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../shell/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Shell">
+          <a href="../shell-permissions/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Shell Permissions">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -1456,20 +2314,20 @@
                 Previous
               </span>
               <div class="md-ellipsis">
-                Shell
+                Shell Permissions
               </div>
             </div>
           </a>
         
         
           
-          <a href="../../02-foundations/" class="md-footer__link md-footer__link--next" aria-label="Next: Foundations">
+          <a href="../github-flow/" class="md-footer__link md-footer__link--next" aria-label="Next: GitHub Flow">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Foundations
+                GitHub Flow
               </div>
             </div>
             <div class="md-footer__button md-icon">

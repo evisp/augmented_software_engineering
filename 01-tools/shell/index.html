@@ -18,7 +18,7 @@
         <link rel="prev" href="../ai-assistant/">
       
       
-        <link rel="next" href="../git-and-github/">
+        <link rel="next" href="../shell-permissions/">
       
       
         
@@ -29,7 +29,7 @@
     
     
       
-        <title>Shell - Augmented Software Engineering</title>
+        <title>Shell Basics - Augmented Software Engineering</title>
       
     
     
@@ -84,7 +84,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#shell" class="md-skip">
+        <a href="#shell-basics" class="md-skip">
           Skip to content
         </a>
       
@@ -118,7 +118,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Shell
+              Shell Basics
             
           </span>
         </div>
@@ -733,6 +733,10 @@
       
         
       
+        
+      
+        
+      
     
     
     
@@ -797,6 +801,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Shell Basics
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -804,7 +826,7 @@
   <span class="md-ellipsis">
     
   
-    Shell
+    Shell Basics
   
 
     
@@ -814,6 +836,185 @@
 
       </a>
       
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#why-this-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why this matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#terminal-shell-and-prompt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Terminal, shell and prompt
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rtfm-read-the-manual" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RTFM: read the manual
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-filesystem-is-a-tree" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The filesystem is a tree
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#move-around" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Move around
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#and-hidden-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ., .. and hidden files
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#use-the-history" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Use the history
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#write-your-first-script" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Write your first script
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#when-something-goes-wrong" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        When something goes wrong
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#explain-it-to-someone" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Explain it to someone
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick reference
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Next
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../shell-permissions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Shell Permissions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -834,6 +1035,34 @@
     
   
     Git & GitHub
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../github-flow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GitHub Flow
   
 
     
@@ -1314,6 +1543,146 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#why-this-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why this matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#terminal-shell-and-prompt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Terminal, shell and prompt
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rtfm-read-the-manual" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RTFM: read the manual
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-filesystem-is-a-tree" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The filesystem is a tree
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#move-around" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Move around
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#and-hidden-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ., .. and hidden files
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#use-the-history" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Use the history
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#write-your-first-script" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Write your first script
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#when-something-goes-wrong" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        When something goes wrong
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#explain-it-to-someone" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Explain it to someone
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick reference
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Next
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1403,12 +1772,385 @@
   
 
 
-<h1 id="shell">Shell<a class="headerlink" href="#shell" title="Link to this section">&para;</a></h1>
-<p><span class="badge badge--level">Tools</span></p>
-<div class="admonition info">
-<p class="admonition-title">Coming soon</p>
-<p>This tutorial is being written.</p>
+<h1 id="shell-basics">Shell Basics<a class="headerlink" href="#shell-basics" title="Link to this section">&para;</a></h1>
+<p><span class="badge badge--time">50 min</span>
+<span class="badge badge--level">Tools</span>
+<span class="badge">Needs: Ubuntu in WSL, or a Mac or Linux terminal</span></p>
+<p>The shell is the program that reads what you type in the terminal and
+makes it happen. In this tutorial you learn what it is, how to move
+around the filesystem with it, and how to find answers on your own.</p>
+<h2 id="why-this-matters">Why this matters<a class="headerlink" href="#why-this-matters" title="Link to this section">&para;</a></h2>
+<p>Servers have no mouse. When you deploy code, debug a container or fix
+something on a remote machine, the shell is all you get. Holberton's
+Checker also runs everything from a shell, so the faster you are here,
+the faster every project goes.</p>
+<p>It is also simpler than it looks. A dozen commands cover most of what
+you will do in a day.</p>
+<h2 id="terminal-shell-and-prompt">Terminal, shell and prompt<a class="headerlink" href="#terminal-shell-and-prompt" title="Link to this section">&para;</a></h2>
+<p>People use <em>terminal</em> and <em>shell</em> as if they mean the same thing. They
+do not.</p>
+<figure class="h-figure" markdown="0">
+<svg viewBox="0 0 680 150" role="img" aria-labelledby="sh-layers-title sh-layers-desc">
+<title id="sh-layers-title">Terminal, shell and the system</title>
+<desc id="sh-layers-desc">The terminal is the window: it shows text and sends your keystrokes. The shell, usually bash, reads each command and runs it. The system underneath holds the programs and files that the command uses, such as ls, python3 and your folders.</desc>
+<defs><marker id="sh-layers-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="var(--h-fig-line)"/></marker></defs>
+<rect x="3" y="20" width="200" height="96" rx="12" fill="var(--h-fig-box)" stroke="var(--h-fig-line)"/>
+<text x="22" y="50" font-size="11" font-weight="700" fill="var(--h-fig-muted)">THE WINDOW</text>
+<text x="22" y="74" font-size="15" font-weight="700" fill="var(--h-fig-text)">Terminal</text>
+<text x="22" y="96" font-size="11.5" fill="var(--h-fig-muted)">shows text, sends keystrokes</text>
+<rect x="240" y="20" width="200" height="96" rx="12" fill="var(--h-cherry)"/>
+<text x="259" y="50" font-size="11" font-weight="700" fill="#ffffff" opacity="0.85">THE INTERPRETER</text>
+<text x="259" y="74" font-size="15" font-weight="700" fill="#ffffff">Shell (bash)</text>
+<text x="259" y="96" font-size="11.5" fill="#ffffff" opacity="0.9">reads a command, runs it</text>
+<rect x="477" y="20" width="200" height="96" rx="12" fill="var(--h-fig-box)" stroke="var(--h-fig-line)"/>
+<text x="496" y="50" font-size="11" font-weight="700" fill="var(--h-fig-muted)">THE SYSTEM</text>
+<text x="496" y="74" font-size="15" font-weight="700" fill="var(--h-fig-text)">Programs and files</text>
+<text x="496" y="96" font-size="11.5" fill="var(--h-fig-muted)">ls, python3, your folders</text>
+<line x1="207" y1="68" x2="234" y2="68" stroke="var(--h-fig-line)" stroke-width="2" marker-end="url(#sh-layers-arrow)"/>
+<line x1="444" y1="68" x2="471" y2="68" stroke="var(--h-fig-line)" stroke-width="2" marker-end="url(#sh-layers-arrow)"/>
+<text x="221" y="140" text-anchor="middle" font-size="11.5" font-weight="600" fill="var(--h-fig-muted)">you type</text>
+<text x="458" y="140" text-anchor="middle" font-size="11.5" font-weight="600" fill="var(--h-fig-muted)">it runs</text>
+</svg>
+</figure>
+
+<ul>
+<li><strong>The terminal</strong> is the window. It draws text and passes your keys
+  along. Windows Terminal and the VS Code panel are both terminals.</li>
+<li><strong>The shell</strong> is the program inside it that reads a command,
+  works out what you meant and runs it. On Ubuntu the default shell is
+  <strong>bash</strong>. You can check yours with <code>echo $SHELL</code>.</li>
+<li><strong>The prompt</strong> is the text the shell prints when it is ready for your
+  next command.</li>
+</ul>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>yourname@LAPTOP:~/holberton$
+</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Part</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>yourname</code></td>
+<td>the user you are logged in as</td>
+</tr>
+<tr>
+<td><code>LAPTOP</code></td>
+<td>the name of the machine</td>
+</tr>
+<tr>
+<td><code>~/holberton</code></td>
+<td>your current folder, the <em>working directory</em></td>
+</tr>
+<tr>
+<td><code>$</code></td>
+<td>you are a normal user. It becomes <code>#</code> when you are root</td>
+</tr>
+</tbody>
+</table>
+<h2 id="rtfm-read-the-manual">RTFM: read the manual<a class="headerlink" href="#rtfm-read-the-manual" title="Link to this section">&para;</a></h2>
+<p><em>RTFM</em> stands for "read the fine manual", and it is the first advice
+any experienced developer gives. Almost every command ships with its
+own documentation, written by the people who built it.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>man<span class="w"> </span>ls
+</span></code></pre></div>
+<p>This opens the manual page for <code>ls</code>. Inside it:</p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="keys"><kbd class="key-space">Space</kbd></span> / <span class="keys"><kbd class="key-b">B</kbd></span></td>
+<td>Page down / page up</td>
+</tr>
+<tr>
+<td><span class="keys"><kbd class="key-slash">/</kbd></span> then a word</td>
+<td>Search. <span class="keys"><kbd class="key-n">N</kbd></span> jumps to the next match</td>
+</tr>
+<tr>
+<td><span class="keys"><kbd class="key-q">Q</kbd></span></td>
+<td>Quit</td>
+</tr>
+</tbody>
+</table>
+<p>Some commands are not separate programs but are built into the shell
+itself, such as <code>cd</code>. Those use <code>help</code>:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nb">type</span><span class="w"> </span><span class="nb">cd</span><span class="w">        </span><span class="c1"># cd is a shell builtin</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="nb">help</span><span class="w"> </span><span class="nb">cd</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="nb">type</span><span class="w"> </span>ls<span class="w">        </span><span class="c1"># ls is /usr/bin/ls</span>
+</span></code></pre></div>
+<p>For a quick summary of any program, try <code>ls --help</code>.</p>
+<div class="admonition ai">
+<p class="admonition-title">AI in the loop</p>
+<p>An assistant is a fast way to understand a command: ask
+<em>"what does <code>ls -la</code> do, flag by flag?"</em>. But assistants sometimes
+invent flags that do not exist. Treat the answer as a lead, then
+confirm it with <code>man</code>. The manual describes the version actually
+installed on your machine.</p>
 </div>
+<h2 id="the-filesystem-is-a-tree">The filesystem is a tree<a class="headerlink" href="#the-filesystem-is-a-tree" title="Link to this section">&para;</a></h2>
+<p>Linux keeps every file in a single tree. There are no drive letters.
+The top of the tree is the <strong>root directory</strong>, written <code>/</code>.</p>
+<figure class="h-figure" markdown="0">
+<svg viewBox="0 0 680 290" role="img" aria-labelledby="sh-tree-title sh-tree-desc">
+<title id="sh-tree-title">The Linux directory tree</title>
+<desc id="sh-tree-desc">The root directory, slash, sits at the top. Below it are bin, etc, home, root, tmp and usr. Slash home contains your home folder, which contains holberton. Slash root, a different directory, is the home folder of the root user.</desc>
+<rect x="300" y="8" width="80" height="36" rx="8" fill="var(--h-cherry)"/>
+<text x="340" y="32" text-anchor="middle" font-size="16" font-weight="700" fill="#ffffff" font-family="var(--md-code-font-family, monospace)">/</text>
+<text x="394" y="31" font-size="11.5" font-weight="600" fill="var(--h-cherry)">the root directory</text>
+<line x1="340" y1="44" x2="340" y2="66" stroke="var(--h-fig-line)" stroke-width="2"/>
+<line x1="65" y1="66" x2="615" y2="66" stroke="var(--h-fig-line)" stroke-width="2"/>
+<line x1="65" y1="66" x2="65" y2="88" stroke="var(--h-fig-line)" stroke-width="2"/>
+<line x1="175" y1="66" x2="175" y2="88" stroke="var(--h-fig-line)" stroke-width="2"/>
+<line x1="285" y1="66" x2="285" y2="88" stroke="var(--h-fig-line)" stroke-width="2"/>
+<line x1="395" y1="66" x2="395" y2="88" stroke="var(--h-fig-line)" stroke-width="2"/>
+<line x1="505" y1="66" x2="505" y2="88" stroke="var(--h-fig-line)" stroke-width="2"/>
+<line x1="615" y1="66" x2="615" y2="88" stroke="var(--h-fig-line)" stroke-width="2"/>
+<g font-family="var(--md-code-font-family, monospace)" font-size="13" text-anchor="middle">
+<rect x="25" y="88" width="80" height="32" rx="8" fill="var(--h-fig-box)" stroke="var(--h-fig-line)"/>
+<text x="65" y="109" fill="var(--h-fig-text)">bin</text>
+<rect x="135" y="88" width="80" height="32" rx="8" fill="var(--h-fig-box)" stroke="var(--h-fig-line)"/>
+<text x="175" y="109" fill="var(--h-fig-text)">etc</text>
+<rect x="245" y="88" width="80" height="32" rx="8" fill="var(--h-fig-box)" stroke="var(--h-fig-text)" stroke-width="1.5"/>
+<text x="285" y="109" fill="var(--h-fig-text)" font-weight="700">home</text>
+<rect x="355" y="88" width="80" height="32" rx="8" fill="var(--h-fig-box)" stroke="var(--h-cherry)" stroke-dasharray="4 3" stroke-width="1.5"/>
+<text x="395" y="109" fill="var(--h-cherry)" font-weight="700">root</text>
+<rect x="465" y="88" width="80" height="32" rx="8" fill="var(--h-fig-box)" stroke="var(--h-fig-line)"/>
+<text x="505" y="109" fill="var(--h-fig-text)">tmp</text>
+<rect x="575" y="88" width="80" height="32" rx="8" fill="var(--h-fig-box)" stroke="var(--h-fig-line)"/>
+<text x="615" y="109" fill="var(--h-fig-text)">usr</text>
+<rect x="245" y="160" width="80" height="32" rx="8" fill="var(--h-fig-box)" stroke="var(--h-fig-text)" stroke-width="1.5"/>
+<text x="285" y="181" fill="var(--h-fig-text)" font-weight="700">you</text>
+<rect x="231" y="232" width="108" height="32" rx="8" fill="var(--h-fig-box)" stroke="var(--h-fig-line)"/>
+<text x="285" y="253" fill="var(--h-fig-text)">holberton</text>
+</g>
+<line x1="285" y1="120" x2="285" y2="160" stroke="var(--h-fig-line)" stroke-width="2"/>
+<line x1="285" y1="192" x2="285" y2="232" stroke="var(--h-fig-line)" stroke-width="2"/>
+<text x="232" y="172" text-anchor="end" font-size="11.5" font-weight="600" fill="var(--h-fig-text)">/home/you</text>
+<text x="232" y="188" text-anchor="end" font-size="11.5" fill="var(--h-fig-muted)">your home directory, also ~</text>
+<text x="218" y="253" text-anchor="end" font-size="11.5" fill="var(--h-fig-muted)">~/holberton</text>
+<text x="395" y="140" text-anchor="middle" font-size="11.5" font-weight="600" fill="var(--h-cherry)">/root</text>
+<text x="395" y="156" text-anchor="middle" font-size="11" fill="var(--h-fig-muted)">home of the root user</text>
+</svg>
+</figure>
+
+<p>Three places on that tree matter most:</p>
+<ul>
+<li><strong><code>/</code> is the root directory</strong>, the top of everything.</li>
+<li><strong><code>/home/you</code> is your home directory</strong>, written <code>~</code> for short. Your
+  files and settings live here.</li>
+<li><strong><code>/root</code> is the home directory of the user called root</strong>, the
+  administrator account. It is just one folder inside <code>/</code>, not the top
+  of the tree. The names are confusing; the picture is not.</li>
+</ul>
+<p>Every file has a <strong>path</strong> that says where it sits in the tree:</p>
+<ul>
+<li>An <strong>absolute path</strong> starts at the root: <code>/home/you/holberton</code>.</li>
+<li>A <strong>relative path</strong> starts from where you are now: <code>holberton</code>, or
+  <code>../tmp</code>.</li>
+</ul>
+<h2 id="move-around">Move around<a class="headerlink" href="#move-around" title="Link to this section">&para;</a></h2>
+<p>You are always <em>in</em> one directory, called the <strong>working directory</strong>.
+Three commands are enough to move around.</p>
+<p><strong>Where am I?</strong> <code>pwd</code> prints the working directory.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nb">pwd</span>
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>/home/you
+</span></code></pre></div>
+<p><strong>What is here?</strong> <code>ls</code> lists the contents.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>ls<span class="w">            </span><span class="c1"># names only</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>ls<span class="w"> </span>-l<span class="w">         </span><span class="c1"># long format: permissions, owner, size, date</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>ls<span class="w"> </span>-la<span class="w">        </span><span class="c1"># long format, including hidden files</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>ls<span class="w"> </span>/etc<span class="w">       </span><span class="c1"># list another directory without going there</span>
+</span></code></pre></div>
+<p><strong>Go somewhere.</strong> <code>cd</code> changes the working directory.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nb">cd</span><span class="w"> </span>holberton<span class="w">          </span><span class="c1"># relative: into holberton, below where you are</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="nb">cd</span><span class="w"> </span>/tmp<span class="w">               </span><span class="c1"># absolute: straight to /tmp</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="nb">cd</span><span class="w"> </span>..<span class="w">                 </span><span class="c1"># up one level</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="nb">cd</span><span class="w">                    </span><span class="c1"># home, from anywhere (same as cd ~)</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="nb">cd</span><span class="w"> </span>-<span class="w">                  </span><span class="c1"># back to the previous directory, and print it</span>
+</span></code></pre></div>
+<p><code>cd -</code> is the one people forget. It flips between your last two
+locations, which is handy when you are working in two folders at once.</p>
+<h2 id="and-hidden-files"><code>.</code>, <code>..</code> and hidden files<a class="headerlink" href="#and-hidden-files" title="Link to this section">&para;</a></h2>
+<p>Run <code>ls -la</code> in your home folder:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>drwxr-x--- 5 you you 4096 Oct 20 09:12 .
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>drwxr-xr-x 3 root root 4096 Oct 19 18:40 ..
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>-rw-r--r-- 1 you you  220 Oct 19 18:40 .bash_logout
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>-rw-r--r-- 1 you you 3771 Oct 19 18:40 .bashrc
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>drwxr-xr-x 2 you you 4096 Oct 20 09:12 holberton
+</span></code></pre></div>
+<ul>
+<li><strong><code>.</code></strong> is the directory you are in. <code>./script.sh</code> means "the
+  <code>script.sh</code> in this folder".</li>
+<li><strong><code>..</code></strong> is the directory above it. <code>cd ..</code> goes up one level.</li>
+<li><strong>Hidden files</strong> are any files whose name starts with a dot, such as
+  <code>.bashrc</code>. Plain <code>ls</code> skips them; <code>ls -a</code> shows them. They usually
+  hold settings, which is why they are kept out of the way.</li>
+</ul>
+<p>There is nothing secret about a hidden file. The dot only changes
+whether <code>ls</code> shows it by default.</p>
+<h2 id="use-the-history">Use the history<a class="headerlink" href="#use-the-history" title="Link to this section">&para;</a></h2>
+<p>The shell remembers what you typed.</p>
+<table>
+<thead>
+<tr>
+<th>Do this</th>
+<th>What happens</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="keys"><kbd class="key-arrow-up">Up</kbd></span> / <span class="keys"><kbd class="key-arrow-down">Down</kbd></span></td>
+<td>Walk back and forward through previous commands</td>
+</tr>
+<tr>
+<td><code>history</code></td>
+<td>List recent commands, numbered</td>
+</tr>
+<tr>
+<td><code>!42</code></td>
+<td>Run command number 42 from that list again</td>
+</tr>
+<tr>
+<td><code>!!</code></td>
+<td>Run the last command again. <code>sudo !!</code> reruns it as root</td>
+</tr>
+<tr>
+<td><span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-r">R</kbd></span> then type</td>
+<td>Search backwards for a command containing that text</td>
+</tr>
+</tbody>
+</table>
+<p><span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-r">R</kbd></span> saves more time than anything else on this page. Try it now:
+press it, type <code>cd</code>, and press <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-r">R</kbd></span> again to see older matches.</p>
+<h2 id="write-your-first-script">Write your first script<a class="headerlink" href="#write-your-first-script" title="Link to this section">&para;</a></h2>
+<p>A shell script is a text file of commands that run one after the
+other. The first line is the <strong>shebang</strong>: <code>#!</code> followed by the path to
+the program that should run the file.</p>
+<div class="language-bash highlight"><span class="filename">hello_shell</span><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="ch">#!/bin/bash</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">"Hello from the shell"</span>
+</span></code></pre></div>
+<p>The shebang tells Linux to run this file with <code>/bin/bash</code>. Without it,
+Linux has to guess, and Holberton's checkers will reject the file.</p>
+<p>Create it, make it executable, and run it:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="nb">cd</span><span class="w"> </span>~/holberton
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>code<span class="w"> </span>hello_shell<span class="w">        </span><span class="c1"># write the two lines and save</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>chmod<span class="w"> </span>u+x<span class="w"> </span>hello_shell
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>./hello_shell
+</span></code></pre></div>
+<p><code>chmod u+x</code> gives you, the owner, permission to execute the file. You
+learn exactly how that works in <a href="../shell-permissions/">Shell Permissions</a>.
+The <code>./</code> says "the file in this folder", because the shell does not
+look in the current folder for programs unless you tell it to.</p>
+<div class="admonition tip">
+<p class="admonition-title">Holberton script conventions</p>
+<p>Projects usually ask for the shebang <code>#!/bin/bash</code> on the first
+line, a final newline at the end of the file, and nothing else on
+the first line. The VS Code settings from the
+<a href="../vscode-setup/#step-5-settings-that-keep-the-checker-happy">VS Code tutorial</a>
+add the final newline for you.</p>
+</div>
+<h2 id="when-something-goes-wrong">When something goes wrong<a class="headerlink" href="#when-something-goes-wrong" title="Link to this section">&para;</a></h2>
+<details class="note">
+<summary><code>Permission denied</code> when running a script</summary>
+<p>The file is not executable. Run <code>chmod u+x filename</code>, then try
+<code>./filename</code> again.</p>
+</details>
+<details class="note">
+<summary><code>command not found</code></summary>
+<p>Check the spelling first. If you are running your own script, add
+<code>./</code> in front of the name. If it is a program, it may not be
+installed: <code>sudo apt install name</code> usually fixes it.</p>
+</details>
+<details class="note">
+<summary><code>No such file or directory</code></summary>
+<p>The path is wrong relative to where you are. Run <code>pwd</code> to see where
+you are and <code>ls</code> to see what is actually there. Remember that names
+are case sensitive: <code>Holberton</code> and <code>holberton</code> are different.</p>
+</details>
+<details class="note">
+<summary>I am stuck inside a manual page</summary>
+<p>Press <span class="keys"><kbd class="key-q">Q</kbd></span>. The same works for <code>less</code> and most other full-screen
+viewers.</p>
+</details>
+<h2 id="explain-it-to-someone">Explain it to someone<a class="headerlink" href="#explain-it-to-someone" title="Link to this section">&para;</a></h2>
+<p>The project asks you to explain each of these without looking anything
+up. Tick them off when you can.</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> What RTFM means, and how to open a manual page</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> What a shebang is, and why the first line of a script needs one</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> What the shell is, and how it differs from a terminal</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> What the prompt shows</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> How to reuse previous commands with the history</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> What <code>cd</code>, <code>pwd</code> and <code>ls</code> do</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> What <code>.</code> and <code>..</code> are</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> What the working directory is, how to print it and how to change it</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> What the root directory is, and what the home directory is</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> The difference between <code>/</code> and <code>/root</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> What makes a file hidden, and how to list hidden files</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> What <code>cd -</code> does</li>
+</ul>
+<h2 id="quick-reference">Quick reference<a class="headerlink" href="#quick-reference" title="Link to this section">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>pwd</code></td>
+<td>Print the working directory</td>
+</tr>
+<tr>
+<td><code>ls -la</code></td>
+<td>List everything here, hidden files included, in long format</td>
+</tr>
+<tr>
+<td><code>cd path</code></td>
+<td>Change to <code>path</code></td>
+</tr>
+<tr>
+<td><code>cd</code> or <code>cd ~</code></td>
+<td>Go to your home directory</td>
+</tr>
+<tr>
+<td><code>cd ..</code> / <code>cd -</code></td>
+<td>Up one level / back to the previous directory</td>
+</tr>
+<tr>
+<td><code>man command</code></td>
+<td>Read the manual for a command</td>
+</tr>
+<tr>
+<td><code>help builtin</code></td>
+<td>Read the help for a shell builtin such as <code>cd</code></td>
+</tr>
+<tr>
+<td><code>type command</code></td>
+<td>Say whether a command is a builtin or a program</td>
+</tr>
+<tr>
+<td><code>history</code></td>
+<td>List recent commands</td>
+</tr>
+<tr>
+<td><code>echo $SHELL</code></td>
+<td>Show which shell you are using</td>
+</tr>
+</tbody>
+</table>
+<h2 id="next">Next<a class="headerlink" href="#next" title="Link to this section">&para;</a></h2>
+<p>You can move around. Now learn who is allowed to do what.</p>
+<p><a class="h-button" href="../shell-permissions/">Shell Permissions</a></p>
 
 
 
@@ -1463,13 +2205,13 @@
         
         
           
-          <a href="../git-and-github/" class="md-footer__link md-footer__link--next" aria-label="Next: Git &amp; GitHub">
+          <a href="../shell-permissions/" class="md-footer__link md-footer__link--next" aria-label="Next: Shell Permissions">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Git & GitHub
+                Shell Permissions
               </div>
             </div>
             <div class="md-footer__button md-icon">

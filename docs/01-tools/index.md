@@ -18,7 +18,7 @@ Work through them in order. Each one assumes the one before it is done.
 
     ---
 
-    What to expect, what to install first, and how the program works.
+    How learning works at Holberton, and the accounts you need on day one.
 
     [:octicons-arrow-right-24: Start](zero-day.md)
 
@@ -42,7 +42,7 @@ Work through them in order. Each one assumes the one before it is done.
 
     ---
 
-    An AI assistant in the editor, and how to use it without losing the thread.
+    Copilot, Claude or ChatGPT, and Clippy: which to use when, and how to ask well.
 
     [:octicons-arrow-right-24: Set up the assistant](ai-assistant.md)
 

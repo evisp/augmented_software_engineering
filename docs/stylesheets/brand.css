@@ -22,6 +22,7 @@
      .tri-band          numbered stage header (roadmap)
      !!! ai             "AI in the loop" callout
      !!! prompt         a prompt to try with an AI assistant
+     .h-figure          inline SVG diagram that works in both schemes
      .h-tagline         footer tagline (overrides/partials/copyright.html)
    ========================================================================== */
 
@@ -1108,7 +1109,57 @@
 .md-typeset .h-split__bar > span { background: var(--c); }
 
 /* --------------------------------------------------------------------------
-   18. Accessibility floor and small screens
+   18. Diagrams  —  inline SVG inside <figure class="h-figure">
+   Colours come from tokens so every diagram works in light and dark:
+     fill="var(--h-fig-box)"    box background
+     stroke="var(--h-fig-line)" box outline and arrows
+     fill="var(--h-fig-text)"   main labels
+     fill="var(--h-fig-muted)"  secondary labels
+     fill="var(--h-cherry)"     accent box or command label
+   On phones the diagram keeps a readable width and scrolls sideways.
+   -------------------------------------------------------------------------- */
+
+[data-md-color-scheme="default"] {
+  --h-fig-box:   var(--h-light-grey);
+  --h-fig-line:  var(--h-steel);
+  --h-fig-text:  var(--h-midnight);
+  --h-fig-muted: var(--h-graphite);
+}
+
+[data-md-color-scheme="slate"] {
+  --h-fig-box:   #26262e;
+  --h-fig-line:  var(--h-graphite);
+  --h-fig-text:  #eceef2;
+  --h-fig-muted: var(--h-steel);
+}
+
+.md-typeset figure.h-figure {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  margin: 1.4rem 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.md-typeset .h-figure svg {
+  display: block;
+  width: 100%;
+  min-width: 560px;
+  height: auto;
+  font-family: var(--md-text-font-family, system-ui, sans-serif);
+}
+
+.md-typeset .h-figure figcaption {
+  max-width: none;
+  margin: 0.4rem 0 0;
+  font-size: 0.66rem;
+  color: var(--md-default-fg-color--light);
+  text-align: left;
+}
+
+/* --------------------------------------------------------------------------
+   19. Accessibility floor and small screens
    -------------------------------------------------------------------------- */
 
 :focus-visible {

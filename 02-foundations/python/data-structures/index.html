@@ -1,0 +1,2737 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A practical foundation for modern software engineering, development tools, and AI-augmented workflows.">
+      
+      
+        <meta name="author" content="Evis Plaku">
+      
+      
+        <link rel="canonical" href="https://evisp.github.io/augmented_software_engineering/02-foundations/python/data-structures/">
+      
+      
+        <link rel="prev" href="../functions/">
+      
+      
+        <link rel="next" href="../exceptions/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Core Data Structures - Augmented Software Engineering</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Host+Grotesk:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Host Grotesk";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/brand.css">
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#core-data-structures" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Augmented Software Engineering" class="md-header__button md-logo" aria-label="Augmented Software Engineering" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Augmented Software Engineering
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Core Data Structures
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/evisp/augmented_software_engineering" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    evisp/augmented_software_engineering
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../roadmap/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Roadmap
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../01-tools/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Tools
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Foundations
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../03-software-development/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Software Development
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../04-portfolio/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Portfolio
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Augmented Software Engineering" class="md-nav__button md-logo" aria-label="Augmented Software Engineering" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Augmented Software Engineering
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/evisp/augmented_software_engineering" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    evisp/augmented_software_engineering
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../roadmap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Roadmap
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../01-tools/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tools
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Tools
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Getting Started
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01-tools/zero-day/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Zero Day
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01-tools/wsl-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    WSL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01-tools/vscode-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VS Code
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01-tools/ai-assistant/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Assistant
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Shell & Version Control
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Shell & Version Control
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01-tools/shell/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Shell Basics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01-tools/shell-permissions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Shell Permissions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01-tools/git-and-github/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Git & GitHub
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01-tools/github-flow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GitHub Flow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Foundations
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Foundations
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python Fundamentals
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_2" id="__nav_4_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Python Fundamentals
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../environment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Environment & First Programs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hello-world/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hello, World
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../control-flow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Control Flow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../functions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Functions & Modularity
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Core Data Structures
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Core Data Structures
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#why-this-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why this matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-four-collections" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The four collections
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-1-lists" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: Lists
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 1: Lists">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#loop-with-or-without-the-index" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Loop with or without the index
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-2-two-names-one-list" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Two names, one list
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 2: Two names, one list">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#build-a-new-list-with-a-comprehension" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Build a new list with a comprehension
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-3-access-elements-safely" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: Access elements safely
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-4-matrices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4: Matrices
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-5-tuples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5: Tuples
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-6-sets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 6: Sets
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-7-dictionaries" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 7: Dictionaries
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-8-think-about-edge-cases-first" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 8: Think about edge cases first
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#when-something-goes-wrong" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        When something goes wrong
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#explain-it-to-someone" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Explain it to someone
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick reference
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Next
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../exceptions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exception Handling
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../oop/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Object-Oriented Design
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../03-software-development/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Software Development
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Software Development
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../03-software-development/data-and-apis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data & APIs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../03-software-development/web-frontend/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Web Front-end
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../03-software-development/javascript-node/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    JavaScript & Node.js
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../04-portfolio/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Portfolio
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Portfolio
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../04-portfolio/ai-builds/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI-Augmented Builds
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../04-portfolio/hbnb/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HBnB
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#why-this-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why this matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-four-collections" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The four collections
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-1-lists" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: Lists
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 1: Lists">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#loop-with-or-without-the-index" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Loop with or without the index
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-2-two-names-one-list" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Two names, one list
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 2: Two names, one list">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#build-a-new-list-with-a-comprehension" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Build a new list with a comprehension
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-3-access-elements-safely" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: Access elements safely
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-4-matrices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4: Matrices
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-5-tuples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5: Tuples
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-6-sets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 6: Sets
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-7-dictionaries" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 7: Dictionaries
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-8-think-about-edge-cases-first" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 8: Think about edge cases first
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#when-something-goes-wrong" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        When something goes wrong
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#explain-it-to-someone" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Explain it to someone
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick reference
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Next
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Foundations
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Python Fundamentals
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/evisp/augmented_software_engineering/edit/main/docs/02-foundations/python/data-structures.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="core-data-structures">Core Data Structures<a class="headerlink" href="#core-data-structures" title="Link to this section">&para;</a></h1>
+<p><span class="badge badge--time">90 min</span>
+<span class="badge badge--level">Python</span>
+<span class="badge">Needs: Functions &amp; Modularity</span></p>
+<p>Real programs work with collections: a list of users, a grid of
+values, a set of tags, a table of prices. Python has four built-in
+collections, and each is good at one thing. This tutorial covers all
+four, how to use them without crashing on unexpected input, and the
+one behaviour that surprises everyone: two names for the same list.</p>
+<h2 id="why-this-matters">Why this matters<a class="headerlink" href="#why-this-matters" title="Link to this section">&para;</a></h2>
+<p>Choosing the right collection makes code shorter, faster and easier to
+read. Checking whether a word is in a set of ten thousand words is
+instant; in a list, Python checks them one by one.</p>
+<p>The other half of this page is about <strong>edge cases</strong>: empty lists,
+missing keys, repeated values, indices that do not exist. Your code
+will meet all of them, because real data is messy and the Checker
+tests with exactly these inputs on purpose.</p>
+<h2 id="the-four-collections">The four collections<a class="headerlink" href="#the-four-collections" title="Link to this section">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Example</th>
+<th>Ordered</th>
+<th>Changeable</th>
+<th>Duplicates</th>
+<th>Use it for</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>list</strong></td>
+<td><code>[3, 1, 3]</code></td>
+<td>yes</td>
+<td>yes</td>
+<td>yes</td>
+<td>A sequence you add to, change and loop over</td>
+</tr>
+<tr>
+<td><strong>tuple</strong></td>
+<td><code>(3, 4)</code></td>
+<td>yes</td>
+<td>no</td>
+<td>yes</td>
+<td>A fixed group of values, such as a point or several return values</td>
+</tr>
+<tr>
+<td><strong>set</strong></td>
+<td><code>{1, 3}</code></td>
+<td>no</td>
+<td>yes</td>
+<td>no</td>
+<td>Unique items, membership tests, comparing groups</td>
+</tr>
+<tr>
+<td><strong>dict</strong></td>
+<td><code>{"a": 1}</code></td>
+<td>yes</td>
+<td>yes</td>
+<td>keys: no</td>
+<td>Looking values up by a key</td>
+</tr>
+</tbody>
+</table>
+<h2 id="step-1-lists">Step 1: Lists<a class="headerlink" href="#step-1-lists" title="Link to this section">&para;</a></h2>
+<p>A <strong>list</strong> is an ordered, changeable sequence. Indexing and slicing work
+exactly as they do on strings.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">langs</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"python"</span><span class="p">,</span> <span class="s2">"c"</span><span class="p">,</span> <span class="s2">"javascript"</span><span class="p">]</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">langs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>               <span class="c1"># 'python'</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">langs</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>              <span class="c1"># 'javascript'</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nb">len</span><span class="p">(</span><span class="n">langs</span><span class="p">)</span>             <span class="c1"># 3</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="n">langs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">"sql"</span><span class="p">)</span>    <span class="c1"># add to the end</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="n">langs</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s2">"bash"</span><span class="p">)</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="n">langs</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>            <span class="c1"># remove and return the last item: 'sql'</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="n">langs</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">"c"</span><span class="p">)</span>      <span class="c1"># remove the first "c"</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="s2">"go"</span> <span class="ow">in</span> <span class="n">langs</span>          <span class="c1"># False</span>
+</span></code></pre></div>
+<p>Unlike strings, lists are <strong>mutable</strong>: <code>append</code>, <code>insert</code>, <code>pop</code> and
+<code>remove</code> change the list itself and return nothing useful (except
+<code>pop</code>). Compare two ways to sort:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">nums</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">s</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span>       <span class="c1"># a NEW sorted list; nums is unchanged</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="n">nums</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>            <span class="c1"># sorts nums itself; returns None</span>
+</span></code></pre></div>
+<p><code>new_list = old_list.sort()</code> is a common bug: <code>new_list</code> is <code>None</code>.</p>
+<h3 id="loop-with-or-without-the-index">Loop with or without the index<a class="headerlink" href="#loop-with-or-without-the-index" title="Link to this section">&para;</a></h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">for</span> <span class="n">lang</span> <span class="ow">in</span> <span class="n">langs</span><span class="p">:</span>                 <span class="c1"># when you only need the items</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">lang</span><span class="p">)</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">langs</span><span class="p">)):</span>        <span class="c1"># when you need the position too</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">langs</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+</span></code></pre></div>
+<h2 id="step-2-two-names-one-list">Step 2: Two names, one list<a class="headerlink" href="#step-2-two-names-one-list" title="Link to this section">&para;</a></h2>
+<p>This is the behaviour behind most list bugs.</p>
+<figure class="h-figure" markdown="0">
+<svg viewBox="0 0 680 210" role="img" aria-labelledby="ds-alias-title ds-alias-desc">
+<title id="ds-alias-title">Assignment shares a list; copy makes a new one</title>
+<desc id="ds-alias-desc">After b equals a, both names point to the same list object, so appending through b also changes what a shows. After c equals a dot copy, c points to a separate new list, so changing c leaves a alone.</desc>
+<defs><marker id="ds-alias-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="var(--h-fig-line)"/></marker>
+<marker id="ds-alias-arrow-c" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="var(--h-cherry)"/></marker></defs>
+<text x="3" y="20" font-size="12" font-weight="700" fill="var(--h-fig-text)" font-family="var(--md-code-font-family, monospace)">b = a</text>
+<text x="3" y="38" font-size="11" fill="var(--h-fig-muted)">two names, one list</text>
+<g font-family="var(--md-code-font-family, monospace)" font-size="14" font-weight="700">
+<rect x="20" y="58" width="44" height="34" rx="8" fill="var(--h-fig-box)" stroke="var(--h-fig-line)"/><text x="42" y="80" text-anchor="middle" fill="var(--h-fig-text)">a</text>
+<rect x="20" y="118" width="44" height="34" rx="8" fill="var(--h-fig-box)" stroke="var(--h-fig-line)"/><text x="42" y="140" text-anchor="middle" fill="var(--h-fig-text)">b</text>
+<rect x="150" y="86" width="150" height="38" rx="8" fill="var(--h-cherry)"/><text x="225" y="110" text-anchor="middle" fill="#ffffff">[1, 2, 3, 4]</text>
+</g>
+<line x1="68" y1="75" x2="144" y2="98" stroke="var(--h-cherry)" stroke-width="2" marker-end="url(#ds-alias-arrow-c)"/>
+<line x1="68" y1="135" x2="144" y2="113" stroke="var(--h-cherry)" stroke-width="2" marker-end="url(#ds-alias-arrow-c)"/>
+<text x="20" y="186" font-size="11.5" fill="var(--h-fig-muted)" font-family="var(--md-code-font-family, monospace)">b.append(4)  →  a is [1, 2, 3, 4] too</text>
+<line x1="340" y1="8" x2="340" y2="200" stroke="var(--h-fig-line)" opacity="0.5"/>
+<text x="370" y="20" font-size="12" font-weight="700" fill="var(--h-fig-text)" font-family="var(--md-code-font-family, monospace)">c = a.copy()</text>
+<text x="370" y="38" font-size="11" fill="var(--h-fig-muted)">two names, two lists</text>
+<g font-family="var(--md-code-font-family, monospace)" font-size="14" font-weight="700">
+<rect x="387" y="58" width="44" height="34" rx="8" fill="var(--h-fig-box)" stroke="var(--h-fig-line)"/><text x="409" y="80" text-anchor="middle" fill="var(--h-fig-text)">a</text>
+<rect x="387" y="118" width="44" height="34" rx="8" fill="var(--h-fig-box)" stroke="var(--h-fig-line)"/><text x="409" y="140" text-anchor="middle" fill="var(--h-fig-text)">c</text>
+<rect x="500" y="56" width="170" height="38" rx="8" fill="var(--h-fig-box)" stroke="var(--h-fig-text)" stroke-width="1.5"/><text x="585" y="80" text-anchor="middle" fill="var(--h-fig-text)">[1, 2, 3, 4]</text>
+<rect x="500" y="116" width="170" height="38" rx="8" fill="var(--h-cherry)"/><text x="585" y="140" text-anchor="middle" fill="#ffffff">[1, 2, 3, 4, 5]</text>
+</g>
+<line x1="435" y1="75" x2="494" y2="75" stroke="var(--h-fig-line)" stroke-width="2" marker-end="url(#ds-alias-arrow)"/>
+<line x1="435" y1="135" x2="494" y2="135" stroke="var(--h-cherry)" stroke-width="2" marker-end="url(#ds-alias-arrow-c)"/>
+<text x="387" y="186" font-size="11.5" fill="var(--h-fig-muted)" font-family="var(--md-code-font-family, monospace)">c.append(5)  →  a is unchanged</text>
+</svg>
+</figure>
+
+<p>A variable does not hold a list. It <em>points to</em> one. <code>b = a</code> does not
+copy anything; it gives the same list a second name.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">b</span> <span class="o">=</span> <span class="n">a</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="n">b</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>        <span class="c1"># [1, 2, 3, 4]  a changed too: it is the same list</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="n">c</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>    <span class="c1"># a.copy(), a[:] and list(a) all make a new list</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="n">c</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>        <span class="c1"># [1, 2, 3, 4]  unchanged</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>        <span class="c1"># [1, 2, 3, 4, 5]</span>
+</span></code></pre></div>
+<p>The same thing happens when you pass a list to a function. The
+parameter is another name for the caller's list, so a function that
+changes it changes the caller's data:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">add_bonus</span><span class="p">(</span><span class="n">scores</span><span class="p">):</span>           <span class="c1"># changes the list it was given</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">scores</span><span class="p">)):</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>        <span class="n">scores</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">5</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="k">def</span><span class="w"> </span><span class="nf">with_bonus</span><span class="p">(</span><span class="n">scores</span><span class="p">):</span>          <span class="c1"># builds and returns a new list</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>    <span class="k">return</span> <span class="p">[</span><span class="n">s</span> <span class="o">+</span> <span class="mi">5</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">scores</span><span class="p">]</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="n">marks</span> <span class="o">=</span> <span class="p">[</span><span class="mi">70</span><span class="p">,</span> <span class="mi">85</span><span class="p">]</span>
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="n">new</span> <span class="o">=</span> <span class="n">with_bonus</span><span class="p">(</span><span class="n">marks</span><span class="p">)</span>          <span class="c1"># marks is still [70, 85]; new is [75, 90]</span>
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="n">add_bonus</span><span class="p">(</span><span class="n">marks</span><span class="p">)</span>                 <span class="c1"># marks is now [75, 90]</span>
+</span></code></pre></div>
+<p>Both are valid. What matters is that the function's name and docstring
+make clear which one it does. When a task says <em>without modifying the
+original</em>, build and return a new collection.</p>
+<h3 id="build-a-new-list-with-a-comprehension">Build a new list with a comprehension<a class="headerlink" href="#build-a-new-list-with-a-comprehension" title="Link to this section">&para;</a></h3>
+<p>The <code>with_bonus</code> function used a <strong>list comprehension</strong>: a short way to
+build a new list from an existing one.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="p">[</span><span class="n">n</span> <span class="o">*</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]]</span>                 <span class="c1"># [2, 4, 6]</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="p">[</span><span class="n">n</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">13</span><span class="p">]</span> <span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span>  <span class="c1"># [4, 10]  only the even ones</span>
+</span></code></pre></div>
+<p>Read it as "<em>this expression</em>, for each item, if <em>this condition</em>". It
+never changes the original list.</p>
+<h2 id="step-3-access-elements-safely">Step 3: Access elements safely<a class="headerlink" href="#step-3-access-elements-safely" title="Link to this section">&para;</a></h2>
+<p><code>items[i]</code> raises an <code>IndexError</code> when <code>i</code> is out of range. When a
+function should cope with bad input instead of crashing, check first:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">item_at</span><span class="p">(</span><span class="n">items</span><span class="p">,</span> <span class="n">index</span><span class="p">):</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">    </span><span class="sd">"""Return the item at index, or None if there is none."""</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>    <span class="k">if</span> <span class="n">index</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">index</span> <span class="o">&gt;=</span> <span class="nb">len</span><span class="p">(</span><span class="n">items</span><span class="p">):</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>        <span class="k">return</span> <span class="kc">None</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>    <span class="k">return</span> <span class="n">items</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="n">item_at</span><span class="p">([</span><span class="s2">"a"</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">],</span> <span class="mi">1</span><span class="p">)</span>     <span class="c1"># 'b'</span>
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="n">item_at</span><span class="p">([</span><span class="s2">"a"</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">],</span> <span class="mi">5</span><span class="p">)</span>     <span class="c1"># None</span>
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="n">item_at</span><span class="p">([],</span> <span class="mi">0</span><span class="p">)</span>             <span class="c1"># None: the empty list is handled too</span>
+</span></code></pre></div>
+<p>Note the decision to reject negative indices. Python would accept
+<code>items[-1]</code>, but if the task defines index as a position counted from
+0, a negative number is invalid input. Read what the task means by
+<em>valid</em>, then check exactly that.</p>
+<p>The same idea, without changing the original:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">replaced</span><span class="p">(</span><span class="n">items</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">    </span><span class="sd">"""Return a copy of items with one element replaced."""</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>    <span class="n">copy</span> <span class="o">=</span> <span class="n">items</span><span class="p">[:]</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>    <span class="k">if</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">index</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">items</span><span class="p">):</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>        <span class="n">copy</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>    <span class="k">return</span> <span class="n">copy</span>
+</span></code></pre></div>
+<h2 id="step-4-matrices">Step 4: Matrices<a class="headerlink" href="#step-4-matrices" title="Link to this section">&para;</a></h2>
+<p>A <strong>matrix</strong> is a list of lists: each inner list is a row.</p>
+<figure class="h-figure" markdown="0">
+<svg viewBox="0 0 680 196" role="img" aria-labelledby="ds-mx-title ds-mx-desc">
+<title id="ds-mx-title">A matrix as a list of rows</title>
+<desc id="ds-mx-desc">grid has two rows and three columns. grid at 0 is the row 1, 2, 3; grid at 1 is the row 4, 5, 6. grid at 1, 2 picks row 1, then column 2 inside it, which is 6. The outer loop goes over rows and the inner loop over the numbers in each row.</desc>
+<g font-size="11.5" font-weight="700" text-anchor="middle" fill="var(--h-fig-muted)" font-family="var(--md-code-font-family, monospace)">
+<text x="200" y="22">col 0</text><text x="270" y="22">col 1</text><text x="340" y="22">col 2</text>
+<text x="104" y="68" text-anchor="end">grid[0]</text>
+<text x="104" y="128" text-anchor="end">grid[1]</text>
+</g>
+<g font-family="var(--md-code-font-family, monospace)" font-size="18" font-weight="700" text-anchor="middle">
+<rect x="170" y="36" width="60" height="50" rx="8" fill="var(--h-fig-box)" stroke="var(--h-fig-line)"/><text x="200" y="68" fill="var(--h-fig-text)">1</text>
+<rect x="240" y="36" width="60" height="50" rx="8" fill="var(--h-fig-box)" stroke="var(--h-fig-line)"/><text x="270" y="68" fill="var(--h-fig-text)">2</text>
+<rect x="310" y="36" width="60" height="50" rx="8" fill="var(--h-fig-box)" stroke="var(--h-fig-line)"/><text x="340" y="68" fill="var(--h-fig-text)">3</text>
+<rect x="170" y="96" width="60" height="50" rx="8" fill="var(--h-fig-box)" stroke="var(--h-fig-line)"/><text x="200" y="128" fill="var(--h-fig-text)">4</text>
+<rect x="240" y="96" width="60" height="50" rx="8" fill="var(--h-fig-box)" stroke="var(--h-fig-line)"/><text x="270" y="128" fill="var(--h-fig-text)">5</text>
+<rect x="310" y="96" width="60" height="50" rx="8" fill="var(--h-cherry)"/><text x="340" y="128" fill="#ffffff">6</text>
+</g>
+<rect x="160" y="30" width="220" height="62" rx="12" fill="none" stroke="var(--h-fig-line)" stroke-dasharray="5 4"/>
+<rect x="160" y="90" width="220" height="62" rx="12" fill="none" stroke="var(--h-fig-line)" stroke-dasharray="5 4"/>
+<text x="420" y="104" font-size="14" font-weight="700" fill="var(--h-cherry)" font-family="var(--md-code-font-family, monospace)">grid[1][2] → 6</text>
+<text x="420" y="126" font-size="11.5" fill="var(--h-fig-muted)">row 1 first, then column 2</text>
+<text x="420" y="56" font-size="11.5" fill="var(--h-fig-muted)">each row is a list</text>
+<text x="420" y="72" font-size="11.5" fill="var(--h-fig-muted)" font-family="var(--md-code-font-family, monospace)">len(grid) = 2, len(grid[0]) = 3</text>
+<text x="270" y="186" text-anchor="middle" font-size="12" font-weight="600" fill="var(--h-fig-text)">outer loop: rows · inner loop: numbers in the row</text>
+</svg>
+</figure>
+
+<div class="language-python highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">grid</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>        <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]]</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="n">grid</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span>     <span class="c1"># 6: row 1, then column 2</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="nb">len</span><span class="p">(</span><span class="n">grid</span><span class="p">)</span>      <span class="c1"># 2 rows</span>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="nb">len</span><span class="p">(</span><span class="n">grid</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>   <span class="c1"># 3 columns</span>
+</span></code></pre></div>
+<p>To print it, loop over rows, and over the numbers in each row. The
+cleanest way to put exactly one space <em>between</em> numbers, and none at
+the end, is <code>join</code>, which glues strings together with a separator:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">grid</span><span class="p">:</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">" "</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">row</span><span class="p">))</span>
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>1 2 3
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>4 5 6
+</span></code></pre></div>
+<p><code>join</code> only accepts strings, so each number is converted with <code>str</code>
+first, or with an f-string such as <code>f"{n:2}"</code> to align columns. A
+comprehension inside a comprehension builds a new matrix and leaves the
+original alone:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="n">times_ten</span> <span class="o">=</span> <span class="p">[[</span><span class="n">n</span> <span class="o">*</span> <span class="mi">10</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">row</span><span class="p">]</span> <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">grid</span><span class="p">]</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="c1"># [[10, 20, 30], [40, 50, 60]]; grid is unchanged</span>
+</span></code></pre></div>
+<p>Edge case: an empty matrix, <code>[[]]</code>, has one row with no numbers. The
+loop above prints one empty line, which is usually exactly what the
+task expects.</p>
+<h2 id="step-5-tuples">Step 5: Tuples<a class="headerlink" href="#step-5-tuples" title="Link to this section">&para;</a></h2>
+<p>A <strong>tuple</strong> is like a list that cannot be changed. Use one for a fixed
+group of values that belong together.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="n">point</span> <span class="o">=</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">point</span>          <span class="c1"># unpacking: x is 3, y is 4</span>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="n">point</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>          <span class="c1"># TypeError: tuples cannot be changed</span>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="p">,</span> <span class="n">x</span>           <span class="c1"># swap two variables in one line</span>
+</span></code></pre></div>
+<p>Tuples are the clean way to <strong>return several values</strong> from a function.
+<code>return a, b</code> returns a tuple, and the caller unpacks it:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">min_max</span><span class="p">(</span><span class="n">numbers</span><span class="p">):</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="w">    </span><span class="sd">"""Return the smallest and largest number, or (None, None) if empty."""</span>
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">numbers</span><span class="p">:</span>
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>        <span class="k">return</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span>
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>    <span class="k">return</span> <span class="nb">min</span><span class="p">(</span><span class="n">numbers</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span>
+</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>
+</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>
+</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a><span class="n">low</span><span class="p">,</span> <span class="n">high</span> <span class="o">=</span> <span class="n">min_max</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>    <span class="c1"># low is 1, high is 9</span>
+</span><span id="__span-13-9"><a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a><span class="n">min_max</span><span class="p">([])</span>                       <span class="c1"># (None, None)</span>
+</span></code></pre></div>
+<p>Notice the empty case returns the <strong>same shape</strong>: two values. The
+caller can always write <code>low, high = min_max(...)</code> without checking
+first. Returning a single <code>None</code> there would crash the unpacking.</p>
+<h2 id="step-6-sets">Step 6: Sets<a class="headerlink" href="#step-6-sets" title="Link to this section">&para;</a></h2>
+<p>A <strong>set</strong> holds unique values, in no particular order. Its strength is
+comparing groups.</p>
+<figure class="h-figure" markdown="0">
+<svg viewBox="0 0 680 220" role="img" aria-labelledby="ds-set-title ds-set-desc">
+<title id="ds-set-title">Intersection and symmetric difference of two sets</title>
+<desc id="ds-set-desc">Alice knows python, git and sql. Bob knows git, javascript and python. The intersection, alice and bob, is the overlap: git and python. The symmetric difference, alice caret bob, is everything in exactly one of the two sets: sql and javascript.</desc>
+<g opacity="0.95">
+<circle cx="120" cy="104" r="78" fill="var(--h-fig-box)" stroke="var(--h-fig-line)" stroke-width="1.5"/>
+<circle cx="210" cy="104" r="78" fill="none" stroke="var(--h-fig-line)" stroke-width="1.5"/>
+<path d="M165 40.5 A78 78 0 0 1 165 167.5 A78 78 0 0 1 165 40.5 Z" fill="var(--h-cherry)"/>
+</g>
+<text x="80" y="20" text-anchor="middle" font-size="12" font-weight="700" fill="var(--h-fig-text)">alice</text>
+<text x="250" y="20" text-anchor="middle" font-size="12" font-weight="700" fill="var(--h-fig-text)">bob</text>
+<g font-family="var(--md-code-font-family, monospace)" font-size="12" text-anchor="middle">
+<text x="92" y="108" fill="var(--h-fig-text)">sql</text>
+<text x="165" y="96" fill="#ffffff" font-weight="700">git</text>
+<text x="165" y="116" fill="#ffffff" font-weight="700">python</text>
+<text x="246" y="108" fill="var(--h-fig-text)">javascript</text>
+</g>
+<text x="165" y="206" text-anchor="middle" font-size="12" font-weight="700" fill="var(--h-cherry)" font-family="var(--md-code-font-family, monospace)">alice &amp; bob</text>
+<g opacity="0.95">
+<circle cx="460" cy="104" r="78" fill="var(--h-cherry)"/>
+<circle cx="550" cy="104" r="78" fill="var(--h-cherry)"/>
+<path d="M505 40.5 A78 78 0 0 1 505 167.5 A78 78 0 0 1 505 40.5 Z" fill="var(--md-default-bg-color)" stroke="var(--h-fig-line)" stroke-width="1.5"/>
+</g>
+<text x="420" y="20" text-anchor="middle" font-size="12" font-weight="700" fill="var(--h-fig-text)">alice</text>
+<text x="590" y="20" text-anchor="middle" font-size="12" font-weight="700" fill="var(--h-fig-text)">bob</text>
+<g font-family="var(--md-code-font-family, monospace)" font-size="12" text-anchor="middle">
+<text x="432" y="108" fill="#ffffff" font-weight="700">sql</text>
+<text x="505" y="96" fill="var(--h-fig-muted)">git</text>
+<text x="505" y="116" fill="var(--h-fig-muted)">python</text>
+<text x="586" y="108" fill="#ffffff" font-weight="700">javascript</text>
+</g>
+<text x="505" y="206" text-anchor="middle" font-size="12" font-weight="700" fill="var(--h-cherry)" font-family="var(--md-code-font-family, monospace)">alice ^ bob</text>
+</svg>
+</figure>
+
+<div class="language-python highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="n">alice</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"python"</span><span class="p">,</span> <span class="s2">"git"</span><span class="p">,</span> <span class="s2">"sql"</span><span class="p">}</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="n">bob</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"git"</span><span class="p">,</span> <span class="s2">"javascript"</span><span class="p">,</span> <span class="s2">"python"</span><span class="p">}</span>
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="n">alice</span> <span class="o">&amp;</span> <span class="n">bob</span>     <span class="c1"># intersection:         {'git', 'python'}   in both</span>
+</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="n">alice</span> <span class="o">|</span> <span class="n">bob</span>     <span class="c1"># union:                all four            in either</span>
+</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a><span class="n">alice</span> <span class="o">-</span> <span class="n">bob</span>     <span class="c1"># difference:           {'sql'}             only in alice</span>
+</span><span id="__span-14-7"><a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a><span class="n">alice</span> <span class="o">^</span> <span class="n">bob</span>     <span class="c1"># symmetric difference: {'javascript', 'sql'}  in exactly one</span>
+</span></code></pre></div>
+<p>Sets also remove duplicates: <code>set([3, 1, 3, 2, 1])</code> is <code>{1, 2, 3}</code>, and
+<code>len(set(items))</code> counts the distinct values in a list.</p>
+<div class="admonition warning">
+<p class="admonition-title">Sets have no order</p>
+<p>Printing a set can show its items in any order, and the order may
+change between runs. When output must be exact, sort it first:
+<code>sorted(alice &amp; bob)</code> always gives <code>['git', 'python']</code>.</p>
+</div>
+<h2 id="step-7-dictionaries">Step 7: Dictionaries<a class="headerlink" href="#step-7-dictionaries" title="Link to this section">&para;</a></h2>
+<p>A <strong>dictionary</strong> maps keys to values. You look a value up by its key,
+not by a position.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="n">stock</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"apples"</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="s2">"pears"</span><span class="p">:</span> <span class="mi">2</span><span class="p">}</span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="n">stock</span><span class="p">[</span><span class="s2">"apples"</span><span class="p">]</span>          <span class="c1"># 5</span>
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="n">stock</span><span class="p">[</span><span class="s2">"kiwis"</span><span class="p">]</span>           <span class="c1"># KeyError: 'kiwis'</span>
+</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="n">stock</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"kiwis"</span><span class="p">)</span>       <span class="c1"># None: no error</span>
+</span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="n">stock</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"kiwis"</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>    <span class="c1"># 0: a default of your choice</span>
+</span><span id="__span-15-7"><a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a><span class="s2">"pears"</span> <span class="ow">in</span> <span class="n">stock</span>         <span class="c1"># True: `in` checks keys</span>
+</span><span id="__span-15-8"><a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a>
+</span><span id="__span-15-9"><a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a><span class="n">stock</span><span class="p">[</span><span class="s2">"kiwis"</span><span class="p">]</span> <span class="o">=</span> <span class="mi">7</span>       <span class="c1"># add a new key</span>
+</span><span id="__span-15-10"><a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a><span class="n">stock</span><span class="p">[</span><span class="s2">"apples"</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>     <span class="c1"># update an existing one</span>
+</span><span id="__span-15-11"><a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a><span class="k">del</span> <span class="n">stock</span><span class="p">[</span><span class="s2">"pears"</span><span class="p">]</span>       <span class="c1"># remove a key (KeyError if it is missing)</span>
+</span></code></pre></div>
+<p>Loop over keys, or over keys and values together. For exact output,
+sort the keys:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">stock</span><span class="p">):</span>
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">stock</span><span class="p">[</span><span class="n">name</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">qty</span> <span class="ow">in</span> <span class="n">stock</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>    <span class="o">...</span>
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>apples: 6
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>kiwis: 7
+</span></code></pre></div>
+<p>A dictionary is the natural way to <strong>count repeated values</strong>. Use
+<code>get</code> with a default of <code>0</code>, so the first time a word appears is not a
+special case:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"git"</span><span class="p">,</span> <span class="s2">"python"</span><span class="p">,</span> <span class="s2">"git"</span><span class="p">,</span> <span class="s2">"sql"</span><span class="p">,</span> <span class="s2">"git"</span><span class="p">]</span>
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="n">counts</span> <span class="o">=</span> <span class="p">{}</span>
+</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">words</span><span class="p">:</span>
+</span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>    <span class="n">counts</span><span class="p">[</span><span class="n">word</span><span class="p">]</span> <span class="o">=</span> <span class="n">counts</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+</span><span id="__span-18-5"><a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a><span class="c1"># {'git': 3, 'python': 1, 'sql': 1}</span>
+</span></code></pre></div>
+<h2 id="step-8-think-about-edge-cases-first">Step 8: Think about edge cases first<a class="headerlink" href="#step-8-think-about-edge-cases-first" title="Link to this section">&para;</a></h2>
+<p>Before you write a function, list the awkward inputs and decide what it
+should do with each. Most failed checks are one of these.</p>
+<table>
+<thead>
+<tr>
+<th>Input</th>
+<th>Question to ask</th>
+<th>Usual answer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Empty list <code>[]</code></td>
+<td>What is the max of nothing?</td>
+<td>Return <code>None</code>, or the documented default</td>
+</tr>
+<tr>
+<td>Index out of range, or negative</td>
+<td>Crash, or return something?</td>
+<td>Check bounds; follow the task</td>
+</tr>
+<tr>
+<td>Missing key</td>
+<td><code>d[key]</code> or <code>d.get(key)</code>?</td>
+<td><code>get</code> with a default when missing is normal</td>
+</tr>
+<tr>
+<td>Repeated values</td>
+<td>Count them, or once each?</td>
+<td><code>dict</code> to count, <code>set</code> to deduplicate</td>
+</tr>
+<tr>
+<td><code>None</code> passed instead of a list</td>
+<td>Is that valid input?</td>
+<td>Check <code>if items is None</code> if the task allows it</td>
+</tr>
+<tr>
+<td>Original must not change</td>
+<td>Am I mutating it?</td>
+<td>Build and return a new collection</td>
+</tr>
+</tbody>
+</table>
+<p>Then test the function with each of them, not only with the friendly
+example from the task.</p>
+<div class="admonition ai">
+<p class="admonition-title">AI in the loop</p>
+<p>Assistants are good at finding edge cases you missed. Write your
+function first, then ask: <em>"List inputs that could break this
+function or make it return something unexpected. Don't fix the
+code."</em> Test each one yourself. Asking for the cases rather than
+the fix keeps the reasoning on your side.</p>
+</div>
+<h2 id="when-something-goes-wrong">When something goes wrong<a class="headerlink" href="#when-something-goes-wrong" title="Link to this section">&para;</a></h2>
+<details class="note">
+<summary>My original list changed and I did not touch it</summary>
+<p>Somewhere you have two names for one list: an assignment such as
+<code>b = a</code>, or a function that modifies its parameter. Copy with
+<code>a[:]</code> or <code>a.copy()</code>, or build a new list.</p>
+</details>
+<details class="note">
+<summary><code>AttributeError: 'NoneType' object has no attribute ...</code></summary>
+<p>You stored the result of a method that changes a list in place,
+such as <code>nums = nums.sort()</code>. Use <code>nums.sort()</code> on its own line, or
+<code>nums = sorted(nums)</code>.</p>
+</details>
+<details class="note">
+<summary><code>KeyError</code> with a dictionary</summary>
+<p>The key is not there. Check with <code>key in d</code>, or read it with
+<code>d.get(key, default)</code>.</p>
+</details>
+<details class="note">
+<summary>My set output is in a different order from the expected output</summary>
+<p>Sets have no order. Sort before printing.</p>
+</details>
+<details class="note">
+<summary><code>TypeError: sequence item 0: expected str instance, int found</code></summary>
+<p><code>join</code> needs strings. Convert each item: <code>" ".join(str(n) for n in row)</code>.</p>
+</details>
+<h2 id="explain-it-to-someone">Explain it to someone<a class="headerlink" href="#explain-it-to-someone" title="Link to this section">&para;</a></h2>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> When to use a list, a tuple, a set and a dictionary</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> How to loop over a list and a matrix and print exact, formatted output</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> How to read or change a list element without risking an <code>IndexError</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Why <code>b = a</code> does not copy a list, and three ways that do</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> How to return a new collection instead of changing the input</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> How to return several values with a tuple, and unpack them</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> How to compute an intersection and a symmetric difference with sets</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> How to add, update, read and delete dictionary entries, safely</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> How you handle empty inputs, missing keys and repeated values</li>
+</ul>
+<h2 id="quick-reference">Quick reference<a class="headerlink" href="#quick-reference" title="Link to this section">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>lst.append(x)</code>, <code>lst.pop()</code></td>
+<td>Add to the end / remove the last</td>
+</tr>
+<tr>
+<td><code>sorted(lst)</code> vs <code>lst.sort()</code></td>
+<td>New sorted list / sort in place, returns <code>None</code></td>
+</tr>
+<tr>
+<td><code>lst.copy()</code>, <code>lst[:]</code></td>
+<td>A new list with the same items</td>
+</tr>
+<tr>
+<td><code>[f(x) for x in lst if cond]</code></td>
+<td>Build a new list</td>
+</tr>
+<tr>
+<td><code>" ".join(str(x) for x in row)</code></td>
+<td>Items joined by single spaces</td>
+</tr>
+<tr>
+<td><code>return a, b</code> / <code>a, b = f()</code></td>
+<td>Return several values / unpack them</td>
+</tr>
+<tr>
+<td><code>s1 &amp; s2</code>, <code>s1 ^ s2</code></td>
+<td>Intersection / symmetric difference</td>
+</tr>
+<tr>
+<td><code>d.get(k, default)</code></td>
+<td>Read a key without a <code>KeyError</code></td>
+</tr>
+<tr>
+<td><code>d[k] = d.get(k, 0) + 1</code></td>
+<td>Count occurrences</td>
+</tr>
+<tr>
+<td><code>for k in sorted(d):</code></td>
+<td>Loop over keys in a fixed order</td>
+</tr>
+</tbody>
+</table>
+<h2 id="next">Next<a class="headerlink" href="#next" title="Link to this section">&para;</a></h2>
+<p>Your functions now handle awkward input by checking for it. Next, learn
+what to do when something fails anyway.</p>
+<p><a class="h-button" href="../exceptions/">Exception Handling</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../functions/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Functions &amp; Modularity">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Functions & Modularity
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../exceptions/" class="md-footer__link md-footer__link--next" aria-label="Next: Exception Handling">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Exception Handling
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    
+    <div class="h-tagline">Don't learn tech. <span class="h-tagline__accent">Build it.</span></div>
+  
+  
+    <div class="md-copyright__highlight">&copy; 2026 Holberton School Albania</div>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://github.com/evisp" target="_blank" rel="noopener" title="GitHub" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.indexes", "navigation.path", "navigation.top", "navigation.tracking", "navigation.footer", "toc.follow", "search.highlight", "search.share", "search.suggest", "content.code.copy", "content.code.annotate", "content.tabs.link", "content.action.edit"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

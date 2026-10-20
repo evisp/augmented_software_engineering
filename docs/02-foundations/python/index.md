@@ -9,8 +9,8 @@ projects, each with a tutorial to read first.
 <span class="badge">6 projects</span>
 <span class="badge">Needs: the Tools stage</span>
 
-<p class="h-progress-label"><span>Tutorials published</span><span>3 of 6</span></p>
-<div class="h-progress" role="img" aria-label="3 of 6 tutorials published"><span style="width: 50%"></span></div>
+<p class="h-progress-label"><span>Tutorials published</span><span>6 of 6</span></p>
+<div class="h-progress" role="img" aria-label="6 of 6 tutorials published"><span style="width: 100%"></span></div>
 
 ## The path
 
@@ -57,28 +57,34 @@ the intranet.
 
     ---
 
-    Define and reuse functions, and split code into modules.
+    `print` versus `return`, `__name__`, and importing from other files.
 
-    <span class="badge badge--soon">Coming soon</span>
+    <span class="badge badge--ready">Ready</span>
     <span class="badge">8 h</span>
+
+    [:octicons-arrow-right-24: Start](functions.md)
 
 -   :material-code-brackets: **5 · Core Data Structures**
 
     ---
 
-    Lists, tuples, sets and dictionaries, and when to use each.
+    Lists, matrices, tuples, sets and dictionaries, and their edge cases.
 
-    <span class="badge badge--soon">Coming soon</span>
+    <span class="badge badge--ready">Ready</span>
     <span class="badge">8 h</span>
+
+    [:octicons-arrow-right-24: Start](data-structures.md)
 
 -   :material-alert-circle-outline: **6 · Exception Handling**
 
     ---
 
-    Catch, raise and recover from errors without hiding them.
+    Read tracebacks, catch and raise exceptions, and fail predictably.
 
-    <span class="badge badge--soon">Coming soon</span>
+    <span class="badge badge--ready">Ready</span>
     <span class="badge">8 h</span>
+
+    [:octicons-arrow-right-24: Start](exceptions.md)
 
 </div>
 

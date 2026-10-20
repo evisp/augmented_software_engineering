@@ -350,7 +350,7 @@ as trailing spaces, run `cat -A got.txt`: every line end is shown as
 
 ## Next
 
-The next tutorial in this module, Functions & Modularity, is being
-written. Go back to the module page to see what is coming.
+Your programs can decide and repeat. Next, organise them into
+functions you can reuse and import.
 
-[Python Fundamentals](index.md){ .h-button }
+[Functions & Modularity](functions.md){ .h-button }

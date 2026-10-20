@@ -1,6 +1,8 @@
 # Projects
 
-Practical projects that bring the curriculum together.
+Practical projects that bring the different skills together into a portfolio.
 
-Projects will be added once the Foundation curriculum
-has been finalized.
+!!! info "Coming soon"
+
+    This section is being written. Follow the [roadmap](../roadmap.md)
+    to see where it fits in the program.

@@ -9,10 +9,13 @@ repo_url: https://github.com/evisp/augmented-software-engineering
 repo_name: evisp/augmented-software-engineering
 edit_uri: edit/main/docs/
 
-copyright: Holberton School Albania
+copyright: >-
+  &copy; 2026 Holberton School Albania &middot;
+  Augmented Software Engineering
 
 theme:
   name: material
+  custom_dir: overrides
   language: en
 
   font:
@@ -67,6 +70,7 @@ extra_javascript:
 
 extra:
   generator: false
+  tagline: Don't learn tech. Build it.
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/evisp
@@ -105,10 +109,21 @@ markdown_extensions:
   - pymdownx.keys
   - pymdownx.mark
   - pymdownx.snippets
-  - pymdownx.superfences
 
+  # Mermaid diagrams: ```mermaid fences (Git branching, workflows)
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+
+  # Windows / macOS / Linux tabs
   - pymdownx.tabbed:
       alternate_style: true
+
+  # "Before you continue" checklists: - [ ] item
+  - pymdownx.tasklist:
+      custom_checkbox: true
 
   - pymdownx.tilde
 
@@ -128,9 +143,9 @@ nav:
   - Tools:
       - 01-tools/index.md
       - Zero Day: 01-tools/zero-day.md
-      - Git & GitHub: 01-tools/git-and-github.md
-      - VS Code: 01-tools/vscode-setup.md
       - WSL: 01-tools/wsl-setup.md
+      - VS Code: 01-tools/vscode-setup.md
+      - Git & GitHub: 01-tools/git-and-github.md
 
   - Foundations:
       - 02-foundations/index.md

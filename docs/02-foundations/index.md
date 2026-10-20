@@ -1,6 +1,8 @@
 # Foundations
 
-The core knowledge required for software development.
+The core knowledge every software engineer relies on: programming fundamentals, data structures, and the habits of thinking behind good software.
 
-The curriculum for this section will be added once the
-Foundation program is finalized.
+!!! info "Coming soon"
+
+    This section is being written. Follow the [roadmap](../roadmap.md)
+    to see where it fits in the program.

@@ -1,7 +1,8 @@
 # Software Development
 
-The practices and concepts used to design, build, test,
-debug, and maintain software.
+How software is designed, built, tested, debugged and maintained by a team.
 
-The curriculum for this section will be added once the
-Foundation program is finalized.
+!!! info "Coming soon"
+
+    This section is being written. Follow the [roadmap](../roadmap.md)
+    to see where it fits in the program.

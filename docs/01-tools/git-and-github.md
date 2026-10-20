@@ -1,3 +1,7 @@
 # Git & GitHub
 
-This module is currently being prepared.
+<span class="badge badge--level">Tools</span>
+
+!!! info "Coming soon"
+
+    This tutorial is being written.

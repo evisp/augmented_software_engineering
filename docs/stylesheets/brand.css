@@ -1,18 +1,22 @@
 /* ==========================================================================
-   Holberton ML Handbook — brand layer
+   Augmented Software Engineering — Holberton brand layer
    Place at: docs/stylesheets/brand.css
-   Loaded via `extra_css` in mkdocs.yml.
+   Loaded via `extra_css` in mkdocs.yml (before extra.css).
 
-   Everything here follows the 2026 Holberton Brand Guidelines:
+   Follows the 2026 Holberton Brand Guidelines:
    Cherry #E31C3F is an accent for links, actions and active state.
    Midnight #292728 carries structure. Host Grotesk carries the type.
 
-   Components this file provides (usage examples at the bottom):
-     .hero            page-top banner for the homepage
-     .grid.cards      module / tutorial cards (Material built-in, restyled)
-     .card-locked     greyed-out card for a module not yet released
-     .badge           inline meta pill (time, level, prerequisite)
-     !!! ml           "ML connection" callout
+   Components (usage examples at the bottom of this file):
+     .hero              homepage banner
+     .grid.cards        section / tutorial cards (Material built-in, restyled)
+     .card-locked       one greyed-out card for content not yet released
+     .grid.cards.locked a whole grid of not-yet-released cards
+     .badge             inline meta pill (time, level, prerequisite)
+     .tri-band          numbered stage header (roadmap)
+     !!! ai             "AI in the loop" callout
+     !!! prompt         a prompt to try with an AI assistant
+     .h-tagline         footer tagline band (rendered by overrides/main.html)
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
@@ -72,46 +76,50 @@
 
 /* Interactive accent: links on hover, active nav, search highlight. */
 [data-md-color-accent="custom"] {
-  --md-accent-fg-color:         var(--h-cherry);
+  --md-accent-fg-color:              var(--h-cherry);
   --md-accent-fg-color--transparent: var(--h-cherry-wash);
-  --md-accent-bg-color:         var(--h-ice);
-  --md-accent-bg-color--light:  rgba(255, 255, 255, 0.72);
+  --md-accent-bg-color:              var(--h-ice);
+  --md-accent-bg-color--light:       rgba(255, 255, 255, 0.72);
 }
 
 /* Light scheme */
 [data-md-color-scheme="default"] {
-  --md-default-bg-color:        var(--h-ice);
-  --md-default-fg-color:        var(--h-midnight);
-  --md-default-fg-color--light: var(--h-graphite);
-  --md-default-fg-color--lighter: var(--h-space);
+  --md-default-bg-color:           var(--h-ice);
+  --md-default-fg-color:           var(--h-midnight);
+  --md-default-fg-color--light:    var(--h-graphite);
+  --md-default-fg-color--lighter:  var(--h-space);
   --md-default-fg-color--lightest: var(--h-smoke);
-  --md-typeset-color:           var(--h-midnight);
-  --md-typeset-a-color:         var(--h-cherry);
-  --md-code-bg-color:           var(--h-light-grey);
-  --md-code-fg-color:           var(--h-arsenic);
-  --md-footer-bg-color:         var(--h-midnight);
-  --md-footer-bg-color--dark:   var(--h-black);
+  --md-typeset-color:              var(--h-midnight);
+  --md-typeset-a-color:            var(--h-cherry);
+  --md-code-bg-color:              var(--h-light-grey);
+  --md-code-fg-color:              var(--h-arsenic);
+  --md-footer-bg-color:            var(--h-midnight);
+  --md-footer-bg-color--dark:      var(--h-black);
 
   --h-surface:      var(--h-light-grey);
   --h-surface-line: var(--h-smoke);
+  --h-prompt-bg:    var(--h-cyan-light);
+  --h-prompt-fg:    var(--h-cyan);
 }
 
 /* Dark scheme */
 [data-md-color-scheme="slate"] {
-  --md-default-bg-color:        var(--h-phantom);
-  --md-default-fg-color:        #eceef2;
-  --md-default-fg-color--light: var(--h-steel);
-  --md-default-fg-color--lighter: var(--h-space);
+  --md-default-bg-color:           var(--h-phantom);
+  --md-default-fg-color:           #eceef2;
+  --md-default-fg-color--light:    var(--h-steel);
+  --md-default-fg-color--lighter:  var(--h-space);
   --md-default-fg-color--lightest: var(--h-graphite);
-  --md-typeset-color:           #eceef2;
-  --md-typeset-a-color:         #ff5570;      /* lifted for contrast on dark */
-  --md-code-bg-color:           #17171c;
-  --md-code-fg-color:           var(--h-cloud);
-  --md-footer-bg-color:         var(--h-black);
-  --md-footer-bg-color--dark:   var(--h-black);
+  --md-typeset-color:              #eceef2;
+  --md-typeset-a-color:            #ff5570;      /* lifted for contrast on dark */
+  --md-code-bg-color:              #17171c;
+  --md-code-fg-color:              var(--h-cloud);
+  --md-footer-bg-color:            var(--h-black);
+  --md-footer-bg-color--dark:      var(--h-black);
 
   --h-surface:      #26262e;
   --h-surface-line: var(--h-arsenic);
+  --h-prompt-bg:    rgba(46, 82, 255, 0.16);
+  --h-prompt-fg:    #9fb0ff;
 }
 
 /* --------------------------------------------------------------------------
@@ -175,6 +183,10 @@
   text-decoration-color: currentColor;
 }
 
+.md-typeset strong {
+  font-weight: 600;
+}
+
 /* Header wordmark */
 .md-header__title {
   font-weight: 600;
@@ -221,7 +233,6 @@
   font-weight: 600;
 }
 
-/* Search */
 .md-search__form {
   border-radius: var(--h-radius);
 }
@@ -231,36 +242,69 @@
    -------------------------------------------------------------------------- */
 
 .hero {
-  background: var(--h-midnight);
+  position: relative;
+  overflow: hidden;
   color: var(--h-ice);
   border-radius: var(--h-radius-lg);
-  padding: 3.2rem 2.2rem 2.6rem;
+  padding: 3.8rem 2.6rem 3rem;
   margin: 0 0 2.4rem;
+  background:
+    radial-gradient(90% 130% at 88% 8%, rgba(227, 28, 63, 0.30) 0%, rgba(227, 28, 63, 0) 62%),
+    linear-gradient(160deg, #332f31 0%, var(--h-midnight) 48%, #171617 100%);
 }
 
-.hero h1 {
-  color: var(--h-ice) !important;
-  font-size: 2.4rem;
+/* Cherry edge down the left, the brand's own framing device */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 5px;
+  background: var(--h-cherry);
+}
+
+.md-typeset .hero h1 {
+  color: var(--h-ice);
+  font-size: 2.9rem;
   font-weight: 700;
-  letter-spacing: -0.03em;
-  line-height: 1.05;
+  letter-spacing: -0.035em;
+  line-height: 1.02;
+  max-width: 16ch;
   margin: 0 0 0.6rem;
 }
 
-.hero p {
-  color: var(--h-steel);
-  font-size: 0.92rem;
+/* The lede rule above doesn't apply inside the hero */
+.md-typeset .hero p,
+.md-typeset .hero h1 + p {
+  color: #c8cbd4;
+  font-size: 0.95rem;
   line-height: 1.6;
-  max-width: 54ch;
-  margin: 0 0 1.6rem;
+  max-width: 50ch;
+  margin: 0 0 1.2rem;
 }
 
-.hero .h-rule {
-  width: 3.4rem;
-  height: 4px;
+.md-typeset .hero .hero__kicker {
+  color: var(--h-ice);
+  font-size: 1.15rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  margin-bottom: 0.5rem;
+}
+
+.md-typeset .hero strong {
+  color: var(--h-ice);
+}
+
+.md-typeset .hero .h-rule {
+  width: 2.6rem;
+  height: 3px;
   background: var(--h-cherry);
   border: 0;
+  opacity: 0.9;
   margin: 0 0 1.4rem;
+}
+
+.md-typeset .hero p:last-child {
+  margin: 1.8rem 0 0;
 }
 
 /* Primary action button */
@@ -269,8 +313,8 @@
   background: var(--h-cherry);
   color: var(--h-ice);
   font-weight: 600;
-  font-size: 0.78rem;
-  padding: 0.62rem 1.4rem;
+  font-size: 0.8rem;
+  padding: 0.72rem 1.7rem;
   border-radius: 100px;
   text-decoration: none;
   transition: background 120ms ease;
@@ -289,7 +333,8 @@
   margin-left: 0.4rem;
 }
 
-.md-typeset .h-button--ghost:hover {
+.md-typeset .h-button--ghost:hover,
+.md-typeset .h-button--ghost:focus-visible {
   background: rgba(255, 255, 255, 0.08);
 }
 
@@ -316,24 +361,31 @@
 }
 
 .md-typeset .grid.cards .twemoji,
-.md-typeset .grid.cards .lucide,
 .md-typeset .grid.cards svg {
   color: var(--h-cherry);
 }
 
-/* A module that has not been released yet. */
-.md-typeset .grid.cards > ul > li.card-locked {
+/* One card that has not been released yet, or a whole locked grid. */
+.md-typeset .grid.cards > ul > li.card-locked,
+.md-typeset .grid.cards.locked > ul > li {
   background: var(--h-surface);
   border-style: dashed;
   color: var(--md-default-fg-color--lighter);
 }
 
-.md-typeset .grid.cards > ul > li.card-locked:hover {
+.md-typeset .grid.cards > ul > li.card-locked:hover,
+.md-typeset .grid.cards.locked > ul > li:hover {
   border-color: var(--h-surface-line);
 }
 
-.md-typeset .grid.cards > ul > li.card-locked strong {
+.md-typeset .grid.cards > ul > li.card-locked strong,
+.md-typeset .grid.cards.locked > ul > li strong {
   color: var(--md-default-fg-color--light);
+}
+
+.md-typeset .grid.cards > ul > li.card-locked svg,
+.md-typeset .grid.cards.locked > ul > li svg {
+  color: var(--h-space);
 }
 
 /* --------------------------------------------------------------------------
@@ -360,47 +412,16 @@
 }
 
 .md-typeset .badge--level {
-  background: var(--h-cyan-light);
-  color: var(--h-cyan);
+  background: var(--h-prompt-bg);
+  color: var(--h-prompt-fg);
   box-shadow: none;
-}
-
-[data-md-color-scheme="slate"] .md-typeset .badge--level {
-  background: rgba(46, 82, 255, 0.18);
-  color: #9fb0ff;
 }
 
 /* --------------------------------------------------------------------------
-   8. "ML connection" callout  —  !!! ml "ML connection"
+   8. Callouts
    -------------------------------------------------------------------------- */
 
-:root {
-  --md-admonition-icon--ml: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2 4 6v6c0 5 3.4 9.4 8 10 4.6-.6 8-5 8-10V6l-8-4Zm0 5a2 2 0 1 1 0 4 2 2 0 0 1 0-4Zm0 5.5c1.9 0 3.5 1 3.5 2.2v.8h-7v-.8c0-1.2 1.6-2.2 3.5-2.2Z"/></svg>');
-}
-
-.md-typeset .admonition.ml,
-.md-typeset details.ml {
-  border-color: var(--h-cherry);
-  border-left-width: 3px;
-  border-radius: var(--h-radius);
-  box-shadow: none;
-  font-size: 0.74rem;
-}
-
-.md-typeset .ml > .admonition-title,
-.md-typeset .ml > summary {
-  background: var(--h-cherry-wash);
-  font-weight: 600;
-}
-
-.md-typeset .ml > .admonition-title::before,
-.md-typeset .ml > summary::before {
-  background-color: var(--h-cherry);
-  -webkit-mask-image: var(--md-admonition-icon--ml);
-          mask-image: var(--md-admonition-icon--ml);
-}
-
-/* Quieten the stock admonitions so the ML one stands out */
+/* Quieten the stock admonitions so the custom ones stand out */
 .md-typeset .admonition,
 .md-typeset details {
   border-radius: var(--h-radius);
@@ -409,12 +430,65 @@
   border-left-width: 3px;
 }
 
+:root {
+  /* sparkles */
+  --md-admonition-icon--ai: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 3l1.9 5.1L17 10l-5.1 1.9L10 17l-1.9-5.1L3 10l5.1-1.9L10 3Zm8 10 .95 2.05L21 16l-2.05.95L18 19l-.95-2.05L15 16l2.05-.95L18 13Z"/></svg>');
+  /* chat bubble with cursor */
+  --md-admonition-icon--prompt: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 3h16a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H8l-4 4V5a2 2 0 0 1 2-2Zm3.3 5.3L6 9.6 8.4 12 6 14.4l1.3 1.3L11 12 7.3 8.3ZM12 14v2h6v-2h-6Z"/></svg>');
+}
+
+/* !!! ai "AI in the loop" — where an assistant fits into the workflow */
+.md-typeset .admonition.ai,
+.md-typeset details.ai {
+  border-color: var(--h-cherry);
+  font-size: 0.74rem;
+}
+
+.md-typeset .ai > .admonition-title,
+.md-typeset .ai > summary {
+  background: var(--h-cherry-wash);
+  font-weight: 600;
+}
+
+.md-typeset .ai > .admonition-title::before,
+.md-typeset .ai > summary::before {
+  background-color: var(--h-cherry);
+  -webkit-mask-image: var(--md-admonition-icon--ai);
+          mask-image: var(--md-admonition-icon--ai);
+}
+
+/* !!! prompt "Try this prompt" — a prompt to paste into an assistant */
+.md-typeset .admonition.prompt,
+.md-typeset details.prompt {
+  border-color: var(--h-prompt-fg);
+  font-size: 0.74rem;
+}
+
+.md-typeset .prompt > .admonition-title,
+.md-typeset .prompt > summary {
+  background: var(--h-prompt-bg);
+  font-weight: 600;
+}
+
+.md-typeset .prompt > .admonition-title::before,
+.md-typeset .prompt > summary::before {
+  background-color: var(--h-prompt-fg);
+  -webkit-mask-image: var(--md-admonition-icon--prompt);
+          mask-image: var(--md-admonition-icon--prompt);
+}
+
+.md-typeset .prompt > .admonition-title::after,
+.md-typeset .prompt > summary::after {
+  color: var(--h-prompt-fg);
+}
+
 /* --------------------------------------------------------------------------
-   9. Code, tables, quotes, images
+   9. Code, tables, quotes, images, task lists
    -------------------------------------------------------------------------- */
 
 .md-typeset pre > code {
   border-radius: var(--h-radius);
+  line-height: 1.5;
 }
 
 .md-typeset code {
@@ -451,6 +525,17 @@
   max-width: 100%;
 }
 
+/* Checked task-list boxes in Cherry */
+.md-typeset .task-list-control [type="checkbox"]:checked + .task-list-indicator::before {
+  background-color: var(--h-cherry);
+}
+
+/* Keyboard keys (pymdownx.keys) */
+.md-typeset kbd {
+  border-radius: 4px;
+  font-size: 0.82em;
+}
+
 /* MathJax: keep display equations from overflowing on phones */
 .md-typeset mjx-container[display="true"] {
   overflow-x: auto;
@@ -459,121 +544,7 @@
 }
 
 /* --------------------------------------------------------------------------
-   10. Footer
-   -------------------------------------------------------------------------- */
-
-.md-footer-meta {
-  background: var(--h-black);
-}
-
-.md-footer__link:hover {
-  opacity: 1;
-}
-
-/* --------------------------------------------------------------------------
-   11. Accessibility floor
-   -------------------------------------------------------------------------- */
-
-:focus-visible {
-  outline: 2px solid var(--h-cherry);
-  outline-offset: 2px;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  * {
-    transition-duration: 0.01ms !important;
-    animation-duration: 0.01ms !important;
-  }
-}
-
-@media screen and (max-width: 44.9375em) {
-  .hero {
-    padding: 2.2rem 1.4rem 1.8rem;
-    border-radius: var(--h-radius);
-  }
-  .hero h1 {
-    font-size: 1.75rem;
-  }
-  .md-typeset h1 {
-    font-size: 1.6rem;
-  }
-}
-
-/* Upcoming modules: a whole grid of not-yet-released cards. */
-.md-typeset .grid.cards.locked > ul > li {
-  background: var(--h-surface);
-  border-style: dashed;
-  color: var(--md-default-fg-color--lighter);
-}
-.md-typeset .grid.cards.locked > ul > li:hover {
-  border-color: var(--h-surface-line);
-}
-.md-typeset .grid.cards.locked > ul > li strong {
-  color: var(--md-default-fg-color--light);
-}
-.md-typeset .grid.cards.locked > ul > li svg {
-  color: var(--h-space);
-}
-
-/* --------------------------------------------------------------------------
-   Hero, second pass. Appended after the original rules so it wins.
-   Adds depth to the Midnight panel, a Cherry edge, and a larger type scale.
-   -------------------------------------------------------------------------- */
-
-.hero {
-  position: relative;
-  overflow: hidden;
-  background:
-    radial-gradient(90% 130% at 88% 8%, rgba(227, 28, 63, 0.30) 0%, rgba(227, 28, 63, 0) 62%),
-    linear-gradient(160deg, #332F31 0%, var(--h-midnight) 48%, #171617 100%);
-  padding: 3.8rem 2.6rem 3rem;
-}
-
-/* Cherry edge down the left, the brand's own framing device */
-.hero::before {
-  content: "";
-  position: absolute;
-  inset: 0 auto 0 0;
-  width: 5px;
-  background: var(--h-cherry);
-}
-
-.hero h1 {
-  font-size: 2.9rem;
-  letter-spacing: -0.035em;
-  line-height: 1.02;
-  max-width: 16ch;
-}
-
-.hero p {
-  color: #C8CBD4;
-  font-size: 0.95rem;
-  max-width: 50ch;
-}
-
-.hero .h-rule {
-  width: 2.6rem;
-  height: 3px;
-  opacity: 0.9;
-}
-
-.md-typeset .hero .h-button {
-  padding: 0.72rem 1.7rem;
-  font-size: 0.8rem;
-}
-
-@media screen and (max-width: 44.9375em) {
-  .hero {
-    padding: 2.4rem 1.5rem 2rem;
-  }
-  .hero h1 {
-    font-size: 2rem;
-    max-width: none;
-  }
-}
-
-/* --------------------------------------------------------------------------
-   Trimester band header, used on the roadmap page.
+   10. Roadmap stage header
    -------------------------------------------------------------------------- */
 
 .md-typeset .tri-band {
@@ -585,7 +556,7 @@
   border-left: 4px solid var(--h-cherry);
   border-radius: 0 var(--h-radius) var(--h-radius) 0;
   padding: 0.85rem 1.1rem;
-  margin: 2rem 0 1.2rem;
+  margin: 2.4rem 0 1rem;
 }
 
 .md-typeset .tri-band__num {
@@ -616,56 +587,159 @@
   color: var(--md-default-fg-color--light);
 }
 
+/* A stage that has not opened yet */
+.md-typeset .tri-band--upcoming {
+  border-left-color: var(--h-steel);
+}
+
+.md-typeset .tri-band--upcoming .tri-band__num {
+  background: var(--h-steel);
+}
+
+/* --------------------------------------------------------------------------
+   11. Footer and tagline band
+   -------------------------------------------------------------------------- */
+
+.h-tagline {
+  background: var(--h-midnight);
+  color: var(--h-ice);
+  border-top: 3px solid var(--h-cherry);
+}
+
+[data-md-color-scheme="slate"] .h-tagline {
+  background: #141416;
+}
+
+.h-tagline__inner {
+  padding: 2.2rem 0.8rem 2rem;
+}
+
+.h-tagline__rule {
+  width: 2.6rem;
+  height: 3px;
+  background: var(--h-cherry);
+  border: 0;
+  margin: 0 0 1rem;
+}
+
+.h-tagline__text {
+  margin: 0;
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+
+.md-footer-meta {
+  background: var(--h-black);
+}
+
+.md-footer__link:hover {
+  opacity: 1;
+}
+
+/* --------------------------------------------------------------------------
+   12. Accessibility floor and small screens
+   -------------------------------------------------------------------------- */
+
+:focus-visible {
+  outline: 2px solid var(--h-cherry);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
+
 @media screen and (max-width: 44.9375em) {
+  .hero {
+    padding: 2.4rem 1.5rem 2rem;
+    border-radius: var(--h-radius);
+  }
+  .md-typeset .hero h1 {
+    font-size: 2rem;
+    max-width: none;
+  }
+  .md-typeset .h-button--ghost {
+    margin: 0.5rem 0 0;
+  }
+  .md-typeset h1 {
+    font-size: 1.6rem;
+  }
   .md-typeset .tri-band__when {
     margin-left: 0;
     flex-basis: 100%;
+  }
+  .h-tagline__text {
+    font-size: 1.25rem;
   }
 }
 
 /* ==========================================================================
    USAGE
 
-   Hero — in docs/index.md, above everything else:
+   Hero — top of docs/index.md:
 
      <div class="hero" markdown>
-     # Don't learn tech. Build it.
+     # Augmented Software Engineering
      <hr class="h-rule">
-     Nine months, three trimesters, one portfolio. Start with the tools,
-     then build your way through machine learning.
-     [Start with Tools](01-tools/index.md){ .h-button }
+     Build software. Use AI. Understand what you build.
+     { .hero__kicker }
+     [Start here](01-tools/index.md){ .h-button }
+     [View roadmap](roadmap.md){ .h-button .h-button--ghost }
      </div>
 
    Cards — needs `attr_list` and `md_in_html`:
 
      <div class="grid cards" markdown>
 
-     -   **Git and GitHub**
+     -   :material-git: **Git and GitHub**
 
          ---
 
          Track every change and collaborate without conflicts.
 
-         [Open tutorial](git-and-github.md)
+         [:octicons-arrow-right-24: Open tutorial](git-and-github.md)
 
-     -   :material-lock: **Linear algebra** { .card-locked }
+     -   :material-lock: **Testing** { .card-locked }
 
          ---
 
-         Unlocks in week 3.
+         Coming soon.
 
      </div>
 
-   Badges — put them directly under the page title:
+   Badges — directly under the page title:
 
-     <span class="badge badge--time">70 min</span>
-     <span class="badge badge--level">Foundations</span>
-     <span class="badge">Requires: Linear algebra</span>
+     <span class="badge badge--time">45 min</span>
+     <span class="badge badge--level">Tools</span>
+     <span class="badge">Requires: WSL</span>
 
-   ML connection callout:
+   AI callout — where an assistant fits, and where it doesn't:
 
-     !!! ml "ML connection"
+     !!! ai "AI in the loop"
 
-         Mean squared error is a summation: it adds the squared error
-         across all $n$ data points.
+         Ask an assistant to explain an error message, then check its
+         explanation against the docs before you act on it.
+
+   Prompt callout — a prompt students can copy:
+
+     !!! prompt "Try this prompt"
+
+         ```text
+         Explain what `git rebase -i HEAD~3` does, step by step.
+         ```
+
+   Roadmap stage header:
+
+     <div class="tri-band" markdown>
+     <span class="tri-band__num">1</span>
+     <span class="tri-band__role">Tools</span>
+     <span class="tri-band__when">Set up</span>
+     </div>
+
+   Add `tri-band--upcoming` for a stage that has not opened yet.
    ========================================================================== */

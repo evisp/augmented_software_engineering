@@ -252,7 +252,7 @@
   overflow: hidden;
   color: var(--h-ice);
   border-radius: var(--h-radius-lg);
-  padding: 3.8rem 2.6rem 3rem;
+  padding: 2.6rem 2.6rem 2.2rem;
   margin: 0 0 2.4rem;
   background:
     radial-gradient(90% 130% at 88% 8%, rgba(227, 28, 63, 0.30) 0%, rgba(227, 28, 63, 0) 62%),
@@ -270,11 +270,11 @@
 
 .md-typeset .hero h1 {
   color: var(--h-ice);
-  font-size: 2.9rem;
+  font-size: 2.5rem;
   font-weight: 700;
   letter-spacing: -0.035em;
-  line-height: 1.02;
-  max-width: 16ch;
+  line-height: 1.05;
+  max-width: none;
   margin: 0 0 0.6rem;
 }
 
@@ -282,10 +282,10 @@
 .md-typeset .hero p,
 .md-typeset .hero h1 + p {
   color: #c8cbd4;
-  font-size: 0.95rem;
-  line-height: 1.6;
-  max-width: 50ch;
-  margin: 0 0 1.2rem;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  max-width: 56ch;
+  margin: 0 0 1rem;
 }
 
 .md-typeset .hero .hero__kicker {
@@ -306,11 +306,12 @@
   background: var(--h-cherry);
   border: 0;
   opacity: 0.9;
-  margin: 0 0 1.4rem;
+  margin: 0 0 1rem;
 }
 
-.md-typeset .hero p:last-child {
-  margin: 1.8rem 0 0;
+/* the paragraph holding the buttons */
+.md-typeset .hero p:has(> .h-button) {
+  margin: 1.4rem 0 0;
 }
 
 /* Primary action button */
@@ -789,7 +790,7 @@
   border: 0;
   border-top: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 0;
-  margin: 2rem 0 0;
+  margin: 1.6rem 0 0;
   max-width: 34rem;
 }
 
@@ -827,7 +828,8 @@
 
 .md-typeset .h-journey > ol {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(0, 1fr);
   gap: 1.4rem;
   list-style: none;
   counter-reset: h-step;
@@ -897,6 +899,7 @@
 
 @media screen and (max-width: 59.9375em) {
   .md-typeset .h-journey > ol {
+    grid-auto-flow: row;
     grid-template-columns: minmax(0, 1fr);
     gap: 1.6rem;
   }
@@ -909,6 +912,35 @@
     left: 0.88rem;
     right: auto;
     width: 2px;
+    height: auto;
+  }
+}
+
+/* .h-journey--extra: the last step runs alongside the others (career
+   readiness), so it gets an outlined "+" marker and a dashed connector. */
+.md-typeset .h-journey--extra > ol > li:nth-last-child(2)::after {
+  background: none;
+  border-top: 2px dashed var(--h-surface-line);
+  height: 0;
+}
+
+.md-typeset .h-journey--extra > ol > li:last-child::before {
+  content: "+";
+  background: var(--md-default-bg-color);
+  color: var(--h-cherry);
+  box-shadow: inset 0 0 0 2px var(--h-cherry);
+  font-size: 1rem;
+}
+
+.md-typeset .h-journey--extra > ol > li:last-child .h-meta {
+  color: var(--md-default-fg-color--light);
+}
+
+@media screen and (max-width: 59.9375em) {
+  .md-typeset .h-journey--extra > ol > li:nth-last-child(2)::after {
+    border-top: 0;
+    border-left: 2px dashed var(--h-surface-line);
+    width: 0;
     height: auto;
   }
 }
@@ -1093,12 +1125,15 @@
 
 @media screen and (max-width: 44.9375em) {
   .hero {
-    padding: 2.4rem 1.5rem 2rem;
+    padding: 1.8rem 1.3rem 1.6rem;
     border-radius: var(--h-radius);
   }
   .md-typeset .hero h1 {
-    font-size: 2rem;
+    font-size: 1.9rem;
     max-width: none;
+  }
+  .md-typeset .hero .hero__kicker {
+    font-size: 1rem;
   }
   .md-typeset .h-button--ghost {
     margin: 0.5rem 0 0;

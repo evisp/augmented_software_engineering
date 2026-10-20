@@ -13,9 +13,9 @@ hide:
 Build software. Use AI. Understand what you build.
 { .hero__kicker }
 
-A part-time program at Holberton School Albania. You learn the tools,
-the fundamentals and the full web stack, then build a portfolio with an
-AI assistant at your side.
+A part-time program at Holberton School Albania. Learn the tools, the
+fundamentals and the full web stack, then build a portfolio with an AI
+assistant at your side.
 
 [Start here](01-tools/index.md){ .h-button }
 [View roadmap](roadmap.md){ .h-button .h-button--ghost }
@@ -31,10 +31,10 @@ AI assistant at your side.
 
 ## The journey
 
-Each stage builds on the one before. Half of the program is spent on
-your portfolio.
+Four stages, each building on the one before, with career preparation
+running alongside the whole way.
 
-<div class="h-journey" markdown>
+<div class="h-journey h-journey--extra" markdown>
 
 1.  **Tools**
 
@@ -71,6 +71,13 @@ your portfolio.
 
     [:octicons-arrow-right-24: Explore](04-portfolio/index.md)
 
+5.  **Career Ready**
+
+    <span class="h-meta">Alongside every stage</span>
+
+    Personal projects, mock interviews, CV and portfolio reviews, and
+    practice presenting your work.
+
 </div>
 
 ## What you will build
@@ -104,26 +111,51 @@ employer.
 
 ## How you will work
 
-<div class="h-principles" markdown>
+The Holberton way: you learn by building, with your peers, and you
+leave able to explain and present what you built.
 
--   **Build first**
+<div class="grid cards cols-3" markdown>
 
-    Every topic ends in something that runs. You learn a concept by
-    using it, breaking it and fixing it.
+-   :material-hammer-wrench: **Project-based learning**
 
--   **AI as a pair, not a replacement**
+    ---
+
+    You learn by doing. Every concept comes with a project that has to
+    run, pass the checks and be pushed to GitHub.
+
+-   :material-account-group-outline: **Peer learning**
+
+    ---
+
+    You learn with and from your cohort: pair programming, code
+    reviews and explaining your solution to someone else.
+
+-   :material-robot-outline: **AI as a pair, not a replacement**
+
+    ---
 
     You prompt, review and correct AI output. The assistant writes a
     draft; you are responsible for what gets merged.
 
--   **Understand what you ship**
+-   :material-magnify-scan: **Understand what you ship**
+
+    ---
 
     If you can't explain it, you don't commit it. Reading and debugging
     code matter as much as writing it.
 
--   **Work like a professional**
+-   :material-account-voice: **Soft skills**
 
-    Git, pull requests, code review and a real development environment
-    from the first day.
+    ---
+
+    Communication, teamwork, giving and receiving feedback, and
+    presenting your work clearly to technical and non-technical people.
+
+-   :material-briefcase-outline: **Work like a professional**
+
+    ---
+
+    Git, pull requests, deadlines and code review from day one, and
+    mock interviews to prepare for the real thing.
 
 </div>

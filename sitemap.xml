@@ -1,47 +1,79 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-         <loc>https://evisp.github.io/augmented-software-engineering/</loc>
+         <loc>https://evisp.github.io/augmented_software_engineering/</loc>
          <lastmod>2026-10-20</lastmod>
     </url>
     <url>
-         <loc>https://evisp.github.io/augmented-software-engineering/roadmap/</loc>
+         <loc>https://evisp.github.io/augmented_software_engineering/roadmap/</loc>
          <lastmod>2026-10-20</lastmod>
     </url>
     <url>
-         <loc>https://evisp.github.io/augmented-software-engineering/01-tools/</loc>
+         <loc>https://evisp.github.io/augmented_software_engineering/01-tools/</loc>
          <lastmod>2026-10-20</lastmod>
     </url>
     <url>
-         <loc>https://evisp.github.io/augmented-software-engineering/01-tools/git-and-github/</loc>
+         <loc>https://evisp.github.io/augmented_software_engineering/01-tools/ai-assistant/</loc>
          <lastmod>2026-10-20</lastmod>
     </url>
     <url>
-         <loc>https://evisp.github.io/augmented-software-engineering/01-tools/vscode-setup/</loc>
+         <loc>https://evisp.github.io/augmented_software_engineering/01-tools/git-and-github/</loc>
          <lastmod>2026-10-20</lastmod>
     </url>
     <url>
-         <loc>https://evisp.github.io/augmented-software-engineering/01-tools/wsl-setup/</loc>
+         <loc>https://evisp.github.io/augmented_software_engineering/01-tools/shell/</loc>
          <lastmod>2026-10-20</lastmod>
     </url>
     <url>
-         <loc>https://evisp.github.io/augmented-software-engineering/01-tools/zero-day/</loc>
+         <loc>https://evisp.github.io/augmented_software_engineering/01-tools/vscode-setup/</loc>
          <lastmod>2026-10-20</lastmod>
     </url>
     <url>
-         <loc>https://evisp.github.io/augmented-software-engineering/02-foundations/</loc>
+         <loc>https://evisp.github.io/augmented_software_engineering/01-tools/wsl-setup/</loc>
          <lastmod>2026-10-20</lastmod>
     </url>
     <url>
-         <loc>https://evisp.github.io/augmented-software-engineering/03-software-development/</loc>
+         <loc>https://evisp.github.io/augmented_software_engineering/01-tools/zero-day/</loc>
          <lastmod>2026-10-20</lastmod>
     </url>
     <url>
-         <loc>https://evisp.github.io/augmented-software-engineering/04-augmented-engineering/</loc>
+         <loc>https://evisp.github.io/augmented_software_engineering/02-foundations/</loc>
          <lastmod>2026-10-20</lastmod>
     </url>
     <url>
-         <loc>https://evisp.github.io/augmented-software-engineering/05-projects/</loc>
+         <loc>https://evisp.github.io/augmented_software_engineering/02-foundations/oop/</loc>
+         <lastmod>2026-10-20</lastmod>
+    </url>
+    <url>
+         <loc>https://evisp.github.io/augmented_software_engineering/02-foundations/python/</loc>
+         <lastmod>2026-10-20</lastmod>
+    </url>
+    <url>
+         <loc>https://evisp.github.io/augmented_software_engineering/03-software-development/</loc>
+         <lastmod>2026-10-20</lastmod>
+    </url>
+    <url>
+         <loc>https://evisp.github.io/augmented_software_engineering/03-software-development/data-and-apis/</loc>
+         <lastmod>2026-10-20</lastmod>
+    </url>
+    <url>
+         <loc>https://evisp.github.io/augmented_software_engineering/03-software-development/javascript-node/</loc>
+         <lastmod>2026-10-20</lastmod>
+    </url>
+    <url>
+         <loc>https://evisp.github.io/augmented_software_engineering/03-software-development/web-frontend/</loc>
+         <lastmod>2026-10-20</lastmod>
+    </url>
+    <url>
+         <loc>https://evisp.github.io/augmented_software_engineering/04-portfolio/</loc>
+         <lastmod>2026-10-20</lastmod>
+    </url>
+    <url>
+         <loc>https://evisp.github.io/augmented_software_engineering/04-portfolio/ai-builds/</loc>
+         <lastmod>2026-10-20</lastmod>
+    </url>
+    <url>
+         <loc>https://evisp.github.io/augmented_software_engineering/04-portfolio/hbnb/</loc>
          <lastmod>2026-10-20</lastmod>
     </url>
 </urlset>

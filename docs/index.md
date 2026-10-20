@@ -13,107 +13,117 @@ hide:
 Build software. Use AI. Understand what you build.
 { .hero__kicker }
 
-A practical foundation in software engineering, the tools professionals
-use every day, and the AI-assisted workflows that are changing how
-software gets made.
+A part-time program at Holberton School Albania. You learn the tools,
+the fundamentals and the full web stack, then build a portfolio with an
+AI assistant at your side.
 
 [Start here](01-tools/index.md){ .h-button }
 [View roadmap](roadmap.md){ .h-button .h-button--ghost }
 
+<div class="h-stats">
+  <div><strong>4</strong><span>stages</span></div>
+  <div><strong>9</strong><span>modules</span></div>
+  <div><strong>43</strong><span>projects</span></div>
+  <div><strong>776</strong><span>hours</span></div>
 </div>
-
-## What this is
-
-This handbook is the learning environment for the Augmented Software
-Engineering program at Holberton School Albania.
-
-It teaches software engineering the way it is practised now: with AI
-assistants in the editor, the terminal and the code review. You will
-use those assistants from the start. You will also learn enough of the
-fundamentals to check what they produce, fix it when it is wrong, and
-explain every line you ship.
-
-## How you will work
-
-<div class="grid cards" markdown>
-
--   :material-hammer-wrench: **Build first**
-
-    ---
-
-    Every topic ends in something that runs. You learn a concept by
-    using it, breaking it and fixing it.
-
--   :material-robot-outline: **AI as a pair, not a replacement**
-
-    ---
-
-    You will prompt, review and correct AI output. The assistant writes
-    a draft; you are responsible for what gets merged.
-
--   :material-magnify-scan: **Understand what you ship**
-
-    ---
-
-    If you can't explain it, you don't commit it. Reading code and
-    debugging matter as much as writing it.
-
--   :material-source-branch: **Work like a professional**
-
-    ---
-
-    Git, pull requests, code review and a real development environment
-    from the first day.
 
 </div>
 
 ## The journey
 
-<div class="grid cards" markdown>
+Each stage builds on the one before. Half of the program is spent on
+your portfolio.
 
--   :material-tools: **1 · Tools**
+<div class="h-journey" markdown>
+
+1.  **Tools**
+
+    <span class="h-meta">60 h · 8 projects</span>
+
+    The shell, VS Code, Git, GitHub and an AI assistant, set up and
+    used from day one.
+
+    [:octicons-arrow-right-24: Explore](01-tools/index.md)
+
+2.  **Foundations**
+
+    <span class="h-meta">88 h · 11 projects</span>
+
+    Python from first program to classes, inheritance, UML and design
+    patterns.
+
+    [:octicons-arrow-right-24: Explore](02-foundations/index.md)
+
+3.  **Software Development**
+
+    <span class="h-meta">228 h · 15 projects</span>
+
+    Databases and APIs, HTML and CSS, modern JavaScript and Node.js.
+
+    [:octicons-arrow-right-24: Explore](03-software-development/index.md)
+
+4.  **Portfolio**
+
+    <span class="h-meta">400 h · 9 projects</span>
+
+    Five AI-augmented builds, then HBnB: a full-stack application built
+    in four phases.
+
+    [:octicons-arrow-right-24: Explore](04-portfolio/index.md)
+
+</div>
+
+## What you will build
+
+The last stage is your portfolio: two tracks of work you can show to an
+employer.
+
+<div class="grid cards cols-2 h-modules--portfolio" markdown>
+
+-   :material-creation-outline: **AI-Augmented Builds**
 
     ---
 
-    Set up your machine and learn the tools you will use every day:
-    the terminal, WSL, VS Code, Git and GitHub.
+    Take a product from idea to MVP with an AI assistant: write the
+    specification, design the architecture, mock up the UI, prototype
+    the API and assemble the MVP.
 
-    [:octicons-arrow-right-24: Explore Tools](01-tools/index.md)
+    [:octicons-arrow-right-24: 5 projects · 40 h](04-portfolio/ai-builds/index.md)
 
--   :material-layers-outline: **2 · Foundations**
-
-    ---
-
-    Programming fundamentals, data structures and the habits of thinking
-    behind good software.
-
-    [:octicons-arrow-right-24: Explore Foundations](02-foundations/index.md)
-
--   :material-code-braces: **3 · Software Development**
+-   :material-home-city-outline: **HBnB**
 
     ---
 
-    Design, build, test, debug and maintain software that other people
-    can read and change.
+    A rental-listing web application, modelled on Airbnb and built in
+    four phases: UML design, business logic and API, authentication and
+    database, and a web client.
 
-    [:octicons-arrow-right-24: Explore Software Development](03-software-development/index.md)
+    [:octicons-arrow-right-24: 4 phases · 360 h](04-portfolio/hbnb/index.md)
 
--   :material-creation-outline: **4 · Augmented Engineering**
+</div>
 
-    ---
+## How you will work
 
-    Bring AI into the workflow: prompting, AI pair programming,
-    reviewing generated code and building with models.
+<div class="h-principles" markdown>
 
-    [:octicons-arrow-right-24: Explore Augmented Engineering](04-augmented-engineering/index.md)
+-   **Build first**
 
--   :material-rocket-launch-outline: **5 · Projects**
+    Every topic ends in something that runs. You learn a concept by
+    using it, breaking it and fixing it.
 
-    ---
+-   **AI as a pair, not a replacement**
 
-    Put everything together by building real things, and leave with a
-    portfolio that shows it.
+    You prompt, review and correct AI output. The assistant writes a
+    draft; you are responsible for what gets merged.
 
-    [:octicons-arrow-right-24: Explore Projects](05-projects/index.md)
+-   **Understand what you ship**
+
+    If you can't explain it, you don't commit it. Reading and debugging
+    code matter as much as writing it.
+
+-   **Work like a professional**
+
+    Git, pull requests, code review and a real development environment
+    from the first day.
 
 </div>

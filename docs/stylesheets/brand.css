@@ -13,10 +13,16 @@
      .card-locked       one greyed-out card for content not yet released
      .grid.cards.locked a whole grid of not-yet-released cards
      .badge             inline meta pill (time, level, prerequisite)
+     .cols-2/-3/-4      fixed column count for a card grid (no lone last card)
+     .h-modules         module card with a numbered project list and hours
+     .h-stats           four numbers at a glance
+     .h-journey         numbered stage stepper (homepage)
+     .h-principles      two-column principles list (homepage)
+     .h-split           hours-per-stage bar (roadmap)
      .tri-band          numbered stage header (roadmap)
      !!! ai             "AI in the loop" callout
      !!! prompt         a prompt to try with an AI assistant
-     .h-tagline         footer tagline band (rendered by overrides/main.html)
+     .h-tagline         footer tagline (overrides/partials/copyright.html)
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
@@ -587,6 +593,25 @@
   color: var(--md-default-fg-color--light);
 }
 
+/* Markdown form: the band holds the section's own H2, so it shows in the TOC */
+.md-typeset .tri-band > p {
+  margin: 0;
+  display: flex;
+}
+
+.md-typeset .tri-band > p:last-child {
+  margin-left: auto;
+}
+
+.md-typeset .tri-band > h2 {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
 /* A stage that has not opened yet */
 .md-typeset .tri-band--upcoming {
   border-left-color: var(--h-steel);
@@ -597,49 +622,461 @@
 }
 
 /* --------------------------------------------------------------------------
-   11. Footer and tagline band
+   11. Footer
+   Prev/next links sit on a light surface; a slim Midnight bar below carries
+   the tagline and copyright. No heavy black block.
    -------------------------------------------------------------------------- */
 
-.h-tagline {
-  background: var(--h-midnight);
-  color: var(--h-ice);
-  border-top: 3px solid var(--h-cherry);
+[data-md-color-scheme="default"] {
+  --md-footer-bg-color:          var(--h-light-grey);
+  --md-footer-bg-color--dark:    var(--h-midnight);
+  --md-footer-fg-color:          var(--h-midnight);
+  --md-footer-fg-color--light:   var(--h-graphite);
+  --md-footer-fg-color--lighter: var(--h-space);
 }
 
-[data-md-color-scheme="slate"] .h-tagline {
-  background: #141416;
+[data-md-color-scheme="slate"] {
+  --md-footer-bg-color:          #19191e;
+  --md-footer-bg-color--dark:    #111114;
+  --md-footer-fg-color:          #eceef2;
+  --md-footer-fg-color--light:   var(--h-steel);
+  --md-footer-fg-color--lighter: var(--h-space);
 }
 
-.h-tagline__inner {
-  padding: 2.2rem 0.8rem 2rem;
+.md-footer {
+  border-top: 1px solid var(--h-surface-line);
 }
 
-.h-tagline__rule {
-  width: 2.6rem;
-  height: 3px;
-  background: var(--h-cherry);
-  border: 0;
-  margin: 0 0 1rem;
+.md-footer__inner {
+  padding: 0.2rem;
 }
 
-.h-tagline__text {
-  margin: 0;
-  font-size: 1.6rem;
-  font-weight: 700;
-  letter-spacing: -0.03em;
-  line-height: 1.1;
-}
-
-.md-footer-meta {
-  background: var(--h-black);
-}
-
-.md-footer__link:hover {
+.md-footer__link {
+  padding-top: 0.9rem;
+  padding-bottom: 0.7rem;
   opacity: 1;
 }
 
+.md-footer__title {
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.md-footer__direction {
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--md-footer-fg-color--lighter);
+}
+
+.md-footer__link:hover .md-footer__title,
+.md-footer__link:focus-visible .md-footer__title {
+  color: var(--md-typeset-a-color);
+}
+
+.md-footer-meta {
+  background: var(--md-footer-bg-color--dark);
+  border-top: 2px solid var(--h-cherry);
+}
+
+.md-footer-meta__inner {
+  align-items: center;
+}
+
+.md-copyright {
+  color: var(--h-space);
+  font-size: 0.6rem;
+}
+
+.md-footer-meta .md-social__link svg {
+  fill: var(--h-steel);
+}
+
+.md-footer-meta .md-social__link:hover svg {
+  fill: var(--h-ice);
+}
+
+.h-tagline {
+  color: var(--h-ice);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin-bottom: 0.15rem;
+}
+
+.h-tagline__accent {
+  color: var(--h-cherry);
+}
+
+[data-md-color-scheme="slate"] .h-tagline__accent {
+  color: #ff5570;
+}
+
 /* --------------------------------------------------------------------------
-   12. Accessibility floor and small screens
+   12. Card grids with a fixed column count
+   Material's default grid fills columns automatically, which leaves a lone
+   card on the last row. Pick the count that divides the number of cards:
+     .cols-2  for 2 or 4 cards      .cols-3  for 3 or 6 cards
+     .cols-4  for 4 or 8 cards
+   -------------------------------------------------------------------------- */
+
+.md-typeset .grid.cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.md-typeset .grid.cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.md-typeset .grid.cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+
+@media screen and (max-width: 59.9375em) {
+  .md-typeset .grid.cols-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .md-typeset .grid.cols-3 { grid-template-columns: minmax(0, 1fr); }
+}
+
+@media screen and (max-width: 44.9375em) {
+  .md-typeset .grid.cols-2,
+  .md-typeset .grid.cols-4 { grid-template-columns: minmax(0, 1fr); }
+}
+
+/* Cards: keep the link at the bottom so a row of cards lines up */
+.md-typeset .grid.cards > ul > li {
+  display: flex;
+  flex-direction: column;
+}
+
+.md-typeset .grid.cards > ul > li > p:last-child:has(> a:only-child) {
+  margin-top: auto;
+  padding-top: 0.4rem;
+}
+
+/* --------------------------------------------------------------------------
+   13. Stats strip  —  numbers at a glance (hero, roadmap)
+   -------------------------------------------------------------------------- */
+
+.md-typeset .h-stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0;
+  margin: 1.4rem 0 1.6rem;
+  border: 1px solid var(--h-surface-line);
+  border-radius: var(--h-radius);
+  overflow: hidden;
+}
+
+.md-typeset .h-stats > div {
+  padding: 0.9rem 1rem;
+  border-left: 1px solid var(--h-surface-line);
+}
+
+.md-typeset .h-stats > div:first-child {
+  border-left: 0;
+}
+
+.md-typeset .h-stats strong {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  color: var(--md-default-fg-color);
+}
+
+.md-typeset .h-stats span {
+  font-size: 0.66rem;
+  font-weight: 600;
+  color: var(--md-default-fg-color--light);
+}
+
+/* Inside the hero: no box, white numbers, Cherry divider */
+.md-typeset .hero .h-stats {
+  border: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 0;
+  margin: 2rem 0 0;
+  max-width: 34rem;
+}
+
+.md-typeset .hero .h-stats > div {
+  border-left: 0;
+  padding: 1rem 1rem 0 0;
+}
+
+.md-typeset .hero .h-stats strong {
+  color: var(--h-ice);
+}
+
+.md-typeset .hero .h-stats span {
+  color: var(--h-space);
+}
+
+@media screen and (max-width: 44.9375em) {
+  .md-typeset .h-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .md-typeset .h-stats > div:nth-child(3) {
+    border-left: 0;
+  }
+  .md-typeset .h-stats > div:nth-child(n + 3) {
+    border-top: 1px solid var(--h-surface-line);
+  }
+  .md-typeset .hero .h-stats > div:nth-child(n + 3) {
+    border-top: 0;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   14. Journey stepper (homepage)  —  an ordered list inside .h-journey
+   -------------------------------------------------------------------------- */
+
+.md-typeset .h-journey > ol {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.4rem;
+  list-style: none;
+  counter-reset: h-step;
+  margin: 1.4rem 0 0;
+  padding: 0;
+}
+
+.md-typeset .h-journey > ol > li {
+  position: relative;
+  counter-increment: h-step;
+  margin: 0;
+  padding: 2.6rem 0 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Number */
+.md-typeset .h-journey > ol > li::before {
+  content: counter(h-step);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1.8rem;
+  height: 1.8rem;
+  border-radius: 100px;
+  background: var(--h-cherry);
+  color: var(--h-ice);
+  font-size: 0.78rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+/* Connector to the next step */
+.md-typeset .h-journey > ol > li:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 0.88rem;
+  left: 2.3rem;
+  right: -0.9rem;
+  height: 2px;
+  background: var(--h-surface-line);
+}
+
+.md-typeset .h-journey > ol > li > p {
+  margin: 0 0 0.4rem;
+}
+
+.md-typeset .h-journey > ol > li > p:first-child {
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.md-typeset .h-journey .h-meta {
+  font-size: 0.66rem;
+  font-weight: 600;
+  color: var(--h-cherry);
+}
+
+.md-typeset .h-journey > ol > li > p:last-child {
+  margin-top: auto;
+  padding-top: 0.4rem;
+}
+
+@media screen and (max-width: 59.9375em) {
+  .md-typeset .h-journey > ol {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.6rem;
+  }
+  .md-typeset .h-journey > ol > li {
+    padding: 0 0 0 2.8rem;
+  }
+  .md-typeset .h-journey > ol > li:not(:last-child)::after {
+    top: 2.1rem;
+    bottom: -1.4rem;
+    left: 0.88rem;
+    right: auto;
+    width: 2px;
+    height: auto;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   15. Principles (homepage)  —  a bullet list inside .h-principles
+   -------------------------------------------------------------------------- */
+
+.md-typeset .h-principles > ul {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.4rem 2.4rem;
+  list-style: none;
+  margin: 1.2rem 0 0;
+  padding: 0;
+}
+
+.md-typeset .h-principles > ul > li {
+  margin: 0;
+  padding: 0 0 0 1rem;
+  border-left: 2px solid var(--h-cherry);
+}
+
+.md-typeset .h-principles > ul > li > p {
+  margin: 0 0 0.3rem;
+}
+
+.md-typeset .h-principles > ul > li > p:first-child {
+  font-size: 0.86rem;
+  font-weight: 700;
+}
+
+.md-typeset .h-principles > ul > li > p:last-child {
+  color: var(--md-default-fg-color--light);
+}
+
+@media screen and (max-width: 44.9375em) {
+  .md-typeset .h-principles > ul {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   16. Module cards (roadmap, stage pages)
+   A card with a nested ordered list of projects; hours in <span class="h-h">.
+   -------------------------------------------------------------------------- */
+
+.md-typeset .h-modules > ul > li > ol {
+  list-style: none;
+  margin: 0.2rem 0 0.6rem;
+  padding: 0;
+  counter-reset: h-proj;
+}
+
+.md-typeset .h-modules > ul > li > ol > li {
+  counter-increment: h-proj;
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  margin: 0;
+  padding: 0.32rem 0;
+  font-size: 0.7rem;
+  line-height: 1.4;
+  border-bottom: 1px dashed var(--h-surface-line);
+}
+
+.md-typeset .h-modules > ul > li > ol > li:last-child {
+  border-bottom: 0;
+}
+
+.md-typeset .h-modules > ul > li > ol > li::before {
+  content: counter(h-proj, decimal-leading-zero);
+  flex: 0 0 auto;
+  font-family: var(--md-code-font-family);
+  font-size: 0.6rem;
+  color: var(--md-default-fg-color--lighter);
+}
+
+.md-typeset .h-h {
+  margin-left: auto;
+  flex: 0 0 auto;
+  font-size: 0.62rem;
+  font-weight: 600;
+  white-space: nowrap;
+  color: var(--md-default-fg-color--light);
+}
+
+/* Module card title row: name left, total hours right */
+.md-typeset .h-modules > ul > li > p:first-child {
+  display: flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  margin: 0;
+}
+
+.md-typeset .h-modules > ul > li > p:first-child .h-h {
+  font-size: 0.66rem;
+  color: var(--h-cherry);
+}
+
+.md-typeset .h-modules > ul > li > p:nth-child(3) {
+  color: var(--md-default-fg-color--light);
+  font-size: 0.72rem;
+}
+
+/* Portfolio modules get a Cherry frame */
+.md-typeset .grid.cards.h-modules--portfolio > ul > li {
+  border-color: var(--h-cherry-line);
+  background: linear-gradient(180deg, var(--h-cherry-wash), transparent 7rem);
+}
+
+/* --------------------------------------------------------------------------
+   17. Time split bar (roadmap)  —  share of hours per stage
+   -------------------------------------------------------------------------- */
+
+.md-typeset .h-split {
+  margin: 1rem 0 2rem;
+}
+
+.md-typeset .h-split__bar {
+  display: flex;
+  height: 0.9rem;
+  border-radius: 100px;
+  overflow: hidden;
+  gap: 3px;
+}
+
+.md-typeset .h-split__bar > span {
+  display: block;
+  min-width: 0.6rem;
+}
+
+.md-typeset .h-split__legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.4rem;
+  margin-top: 0.7rem;
+  font-size: 0.68rem;
+  color: var(--md-default-fg-color--light);
+}
+
+.md-typeset .h-split__legend > span::before {
+  content: "";
+  display: inline-block;
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 2px;
+  margin-right: 0.4rem;
+  background: var(--c);
+}
+
+.md-typeset .h-split__legend strong {
+  color: var(--md-default-fg-color);
+}
+
+.md-typeset .h-split .s1 { --c: var(--h-steel); }
+.md-typeset .h-split .s2 { --c: var(--h-graphite); }
+.md-typeset .h-split .s3 { --c: var(--h-midnight); }
+.md-typeset .h-split .s4 { --c: var(--h-cherry); }
+
+[data-md-color-scheme="slate"] .md-typeset .h-split .s1 { --c: var(--h-arsenic); }
+[data-md-color-scheme="slate"] .md-typeset .h-split .s2 { --c: var(--h-graphite); }
+[data-md-color-scheme="slate"] .md-typeset .h-split .s3 { --c: var(--h-steel); }
+
+.md-typeset .h-split__bar > span { background: var(--c); }
+
+/* --------------------------------------------------------------------------
+   18. Accessibility floor and small screens
    -------------------------------------------------------------------------- */
 
 :focus-visible {
@@ -669,12 +1106,10 @@
   .md-typeset h1 {
     font-size: 1.6rem;
   }
-  .md-typeset .tri-band__when {
+  .md-typeset .tri-band__when,
+  .md-typeset .tri-band > p:last-child {
     margin-left: 0;
     flex-basis: 100%;
-  }
-  .h-tagline__text {
-    font-size: 1.25rem;
   }
 }
 
@@ -733,12 +1168,39 @@
          Explain what `git rebase -i HEAD~3` does, step by step.
          ```
 
-   Roadmap stage header:
+   Card grid with a fixed column count — pick one that divides the cards:
+
+     <div class="grid cards cols-3" markdown>
+     ...
+     </div>
+
+   Module card — project list with hours, right-aligned:
+
+     <div class="grid cards cols-2 h-modules" markdown>
+
+     -   **Python Fundamentals** <span class="h-h">48 h</span>
+
+         ---
+
+         One-line description.
+
+         1. Control Flow <span class="h-h">8 h</span>
+         2. Functions & Modularity <span class="h-h">8 h</span>
+
+         [:octicons-arrow-right-24: Open module](python/index.md)
+
+     </div>
+
+   Add `h-modules--portfolio` for the Cherry-framed portfolio cards.
+
+   Roadmap stage header — the H2 sits inside, so it appears in the TOC:
 
      <div class="tri-band" markdown>
      <span class="tri-band__num">1</span>
-     <span class="tri-band__role">Tools</span>
-     <span class="tri-band__when">Set up</span>
+
+     ## Tools
+
+     <span class="tri-band__when">60 h · 8 projects</span>
      </div>
 
    Add `tri-band--upcoming` for a stage that has not opened yet.

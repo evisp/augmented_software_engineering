@@ -2,16 +2,15 @@ site_name: Augmented Software Engineering
 site_description: >-
   A practical foundation for modern software engineering,
   development tools, and AI-augmented workflows.
-site_url: https://evisp.github.io/augmented-software-engineering/
+site_url: https://evisp.github.io/augmented_software_engineering/
 site_author: Evis Plaku
 
-repo_url: https://github.com/evisp/augmented-software-engineering
-repo_name: evisp/augmented-software-engineering
+repo_url: https://github.com/evisp/augmented_software_engineering
+repo_name: evisp/augmented_software_engineering
 edit_uri: edit/main/docs/
 
 copyright: >-
-  &copy; 2026 Holberton School Albania &middot;
-  Augmented Software Engineering
+  &copy; 2026 Holberton School Albania
 
 theme:
   name: material
@@ -142,19 +141,27 @@ nav:
 
   - Tools:
       - 01-tools/index.md
-      - Zero Day: 01-tools/zero-day.md
-      - WSL: 01-tools/wsl-setup.md
-      - VS Code: 01-tools/vscode-setup.md
-      - Git & GitHub: 01-tools/git-and-github.md
+      - Getting Started:
+          - Zero Day: 01-tools/zero-day.md
+          - WSL: 01-tools/wsl-setup.md
+          - VS Code: 01-tools/vscode-setup.md
+          - AI Assistant: 01-tools/ai-assistant.md
+      - Shell & Version Control:
+          - Shell: 01-tools/shell.md
+          - Git & GitHub: 01-tools/git-and-github.md
 
   - Foundations:
       - 02-foundations/index.md
+      - Python Fundamentals: 02-foundations/python/index.md
+      - Object-Oriented Design: 02-foundations/oop/index.md
 
   - Software Development:
       - 03-software-development/index.md
+      - Data & APIs: 03-software-development/data-and-apis/index.md
+      - Web Front-end: 03-software-development/web-frontend/index.md
+      - JavaScript & Node.js: 03-software-development/javascript-node/index.md
 
-  - Augmented Engineering:
-      - 04-augmented-engineering/index.md
-
-  - Projects:
-      - 05-projects/index.md
+  - Portfolio:
+      - 04-portfolio/index.md
+      - AI-Augmented Builds: 04-portfolio/ai-builds/index.md
+      - HBnB: 04-portfolio/hbnb/index.md

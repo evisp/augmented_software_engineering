@@ -1,0 +1,20 @@
+{#-
+  Footer meta bar: tagline on the left, copyright under it.
+  Tagline text comes from `extra.tagline` in mkdocs.yml; the part after
+  the first ". " is shown in Cherry ("Don't learn tech. Build it.").
+-#}
+<div class="md-copyright">
+  {% if config.extra.tagline %}
+    {% set parts = config.extra.tagline.split(". ", 1) %}
+    <div class="h-tagline">
+      {%- if parts | length == 2 -%}
+        {{ parts[0] }}. <span class="h-tagline__accent">{{ parts[1] }}</span>
+      {%- else -%}
+        {{ config.extra.tagline }}
+      {%- endif -%}
+    </div>
+  {% endif %}
+  {% if config.copyright %}
+    <div class="md-copyright__highlight">{{ config.copyright }}</div>
+  {% endif %}
+</div>

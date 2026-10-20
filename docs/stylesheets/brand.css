@@ -375,6 +375,7 @@
 
 /* One card that has not been released yet, or a whole locked grid. */
 .md-typeset .grid.cards > ul > li.card-locked,
+.md-typeset .grid.cards > ul > li:has(.badge--soon),
 .md-typeset .grid.cards.locked > ul > li {
   background: var(--h-surface);
   border-style: dashed;
@@ -382,16 +383,19 @@
 }
 
 .md-typeset .grid.cards > ul > li.card-locked:hover,
+.md-typeset .grid.cards > ul > li:has(.badge--soon):hover,
 .md-typeset .grid.cards.locked > ul > li:hover {
   border-color: var(--h-surface-line);
 }
 
 .md-typeset .grid.cards > ul > li.card-locked strong,
+.md-typeset .grid.cards > ul > li:has(.badge--soon) strong,
 .md-typeset .grid.cards.locked > ul > li strong {
   color: var(--md-default-fg-color--light);
 }
 
 .md-typeset .grid.cards > ul > li.card-locked svg,
+.md-typeset .grid.cards > ul > li:has(.badge--soon) svg,
 .md-typeset .grid.cards.locked > ul > li svg {
   color: var(--h-space);
 }
@@ -423,6 +427,49 @@
   background: var(--h-prompt-bg);
   color: var(--h-prompt-fg);
   box-shadow: none;
+}
+
+/* Tutorial status: ready, or coming soon (a card holding --soon greys out) */
+.md-typeset .badge--ready {
+  background: var(--h-green-light);
+  color: #0a7a2f;
+  box-shadow: none;
+}
+
+[data-md-color-scheme="slate"] .md-typeset .badge--ready {
+  background: rgba(2, 203, 59, 0.16);
+  color: #5fe38a;
+}
+
+.md-typeset .badge--soon {
+  background: transparent;
+  color: var(--md-default-fg-color--lighter);
+  box-shadow: inset 0 0 0 1px var(--h-surface-line);
+}
+
+/* Progress bar  —  <div class="h-progress"><span style="width: 50%"></span></div> */
+.md-typeset .h-progress {
+  height: 0.5rem;
+  margin: 0.3rem 0 0.5rem;
+  border-radius: 100px;
+  background: var(--h-surface-line);
+  overflow: hidden;
+}
+
+.md-typeset .h-progress > span {
+  display: block;
+  height: 100%;
+  border-radius: 100px;
+  background: var(--h-cherry);
+}
+
+.md-typeset .h-progress-label {
+  display: flex;
+  justify-content: space-between;
+  margin: 1.2rem 0 0;
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: var(--md-default-fg-color--light);
 }
 
 /* --------------------------------------------------------------------------
@@ -893,7 +940,7 @@
   color: var(--h-cherry);
 }
 
-.md-typeset .h-journey > ol > li > p:last-child {
+.md-typeset .h-journey > ol > li > p:last-child:has(> a) {
   margin-top: auto;
   padding-top: 0.4rem;
 }
@@ -1225,11 +1272,13 @@
 
          [:octicons-arrow-right-24: Open tutorial](git-and-github.md)
 
-     -   :material-lock: **Testing** { .card-locked }
+     -   :material-lock-outline: **Testing**
 
          ---
 
-         Coming soon.
+         <span class="badge badge--soon">Coming soon</span>
+
+     A card that contains a `badge--soon` badge is greyed out automatically.
 
      </div>
 

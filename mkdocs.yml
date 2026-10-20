@@ -154,7 +154,11 @@ nav:
 
   - Foundations:
       - 02-foundations/index.md
-      - Python Fundamentals: 02-foundations/python/index.md
+      - Python Fundamentals:
+          - 02-foundations/python/index.md
+          - Environment & First Programs: 02-foundations/python/environment.md
+          - Hello, World: 02-foundations/python/hello-world.md
+          - Control Flow: 02-foundations/python/control-flow.md
       - Object-Oriented Design: 02-foundations/oop/index.md
 
   - Software Development:

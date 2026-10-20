@@ -147,8 +147,10 @@ nav:
           - VS Code: 01-tools/vscode-setup.md
           - AI Assistant: 01-tools/ai-assistant.md
       - Shell & Version Control:
-          - Shell: 01-tools/shell.md
+          - Shell Basics: 01-tools/shell.md
+          - Shell Permissions: 01-tools/shell-permissions.md
           - Git & GitHub: 01-tools/git-and-github.md
+          - GitHub Flow: 01-tools/github-flow.md
 
   - Foundations:
       - 02-foundations/index.md

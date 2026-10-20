@@ -12,7 +12,9 @@ of the program.
 
 Work through them in order. Each one assumes the one before it is done.
 
-<div class="grid cards cols-3" markdown>
+### Getting Started
+
+<div class="grid cards cols-2" markdown>
 
 -   :material-flag-checkered: **Zero Day**
 
@@ -26,7 +28,7 @@ Work through them in order. Each one assumes the one before it is done.
 
     ---
 
-    Run Linux on Windows, the environment most of the program uses.
+    Run Linux on Windows, the environment the whole program uses.
 
     [:octicons-arrow-right-24: Set up WSL](wsl-setup.md)
 
@@ -34,7 +36,7 @@ Work through them in order. Each one assumes the one before it is done.
 
     ---
 
-    Your editor: extensions, the integrated terminal and debugging.
+    Your editor, connected to Linux, with settings that keep the Checker happy.
 
     [:octicons-arrow-right-24: Set up VS Code](vscode-setup.md)
 
@@ -44,23 +46,45 @@ Work through them in order. Each one assumes the one before it is done.
 
     Copilot, Claude or ChatGPT, and Clippy: which to use when, and how to ask well.
 
-    [:octicons-arrow-right-24: Set up the assistant](ai-assistant.md)
+    [:octicons-arrow-right-24: Set up the assistants](ai-assistant.md)
 
--   :material-console: **Shell**
+</div>
+
+### Shell & Version Control
+
+<div class="grid cards cols-2" markdown>
+
+-   :material-console: **Shell Basics**
 
     ---
 
-    Navigate the file system, run commands and manage permissions.
+    Terminal, shell and prompt; moving around the filesystem; reading the manual.
 
     [:octicons-arrow-right-24: Learn the shell](shell.md)
+
+-   :material-shield-key-outline: **Shell Permissions**
+
+    ---
+
+    Read and change permissions, owners and groups; act as root safely.
+
+    [:octicons-arrow-right-24: Learn permissions](shell-permissions.md)
 
 -   :material-git: **Git & GitHub**
 
     ---
 
-    Track every change, collaborate without conflicts, and publish your work.
+    Commit, push, branch, merge, resolve conflicts and undo mistakes.
 
     [:octicons-arrow-right-24: Learn Git](git-and-github.md)
+
+-   :material-source-pull: **GitHub Flow**
+
+    ---
+
+    Forks, pull requests, code review, releases and a changelog, with a partner.
+
+    [:octicons-arrow-right-24: Learn GitHub Flow](github-flow.md)
 
 </div>
 

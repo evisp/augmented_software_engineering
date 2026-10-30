@@ -9,8 +9,8 @@ and design patterns. Five projects, one running example.
 <span class="badge">5 projects</span>
 <span class="badge">Needs: Python Fundamentals</span>
 
-<p class="h-progress-label"><span>Tutorials published</span><span>2 of 5</span></p>
-<div class="h-progress" role="img" aria-label="2 of 5 tutorials published"><span style="width: 40%"></span></div>
+<p class="h-progress-label"><span>Tutorials published</span><span>3 of 5</span></p>
+<div class="h-progress" role="img" aria-label="3 of 5 tutorials published"><span style="width: 60%"></span></div>
 
 ## One example, five projects
 
@@ -22,11 +22,11 @@ it easy to change.
 <figure class="h-figure" markdown="0">
 <svg viewBox="0 0 680 130" role="img" aria-labelledby="oop-idx-plan-title oop-idx-plan-desc">
 <title id="oop-idx-plan-title">How the wallet grows across the module</title>
-<desc id="oop-idx-plan-desc">Version 1, Classes: the Account class. Version 2, Inheritance: savings and checking accounts. Both are ready. Version 3, Abstract classes: contracts and mixins. Version 4, UML: drawing the design. Version 5, Patterns: Strategy and Observer.</desc>
+<desc id="oop-idx-plan-desc">Version 1, Classes: the Account class. Version 2, Inheritance: savings and checking accounts. Version 3, Abstract classes: contracts and mixins. All three are ready. Version 4, UML: drawing the design. Version 5, Patterns: Strategy and Observer.</desc>
 <defs><marker id="oop-idx-plan-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="var(--h-fig-line)"/></marker></defs>
 <rect x="3" y="20" width="122" height="90" rx="10" fill="var(--h-cherry)"/>
 <rect x="141" y="20" width="122" height="90" rx="10" fill="var(--h-cherry)"/>
-<rect x="279" y="20" width="122" height="90" rx="10" fill="var(--h-fig-box)" stroke="var(--h-fig-line)" stroke-dasharray="5 4"/>
+<rect x="279" y="20" width="122" height="90" rx="10" fill="var(--h-cherry)"/>
 <rect x="417" y="20" width="122" height="90" rx="10" fill="var(--h-fig-box)" stroke="var(--h-fig-line)" stroke-dasharray="5 4"/>
 <rect x="555" y="20" width="122" height="90" rx="10" fill="var(--h-fig-box)" stroke="var(--h-fig-line)" stroke-dasharray="5 4"/>
 <g text-anchor="middle">
@@ -36,9 +36,9 @@ it easy to change.
 <text x="202" y="44" font-size="11" font-weight="700" fill="#ffffff" opacity="0.85">v2 · READY</text>
 <text x="202" y="70" font-size="14" font-weight="700" fill="#ffffff">Inheritance</text>
 <text x="202" y="90" font-size="11" fill="#ffffff" opacity="0.9">savings, checking</text>
-<text x="340" y="44" font-size="11" font-weight="700" fill="var(--h-fig-muted)">v3</text>
-<text x="340" y="70" font-size="14" font-weight="700" fill="var(--h-fig-text)">Abstract</text>
-<text x="340" y="90" font-size="11" fill="var(--h-fig-muted)">contracts, mixins</text>
+<text x="340" y="44" font-size="11" font-weight="700" fill="#ffffff" opacity="0.85">v3 · READY</text>
+<text x="340" y="70" font-size="14" font-weight="700" fill="#ffffff">Abstract</text>
+<text x="340" y="90" font-size="11" fill="#ffffff" opacity="0.9">contracts, mixins</text>
 <text x="478" y="44" font-size="11" font-weight="700" fill="var(--h-fig-muted)">v4</text>
 <text x="478" y="70" font-size="14" font-weight="700" fill="var(--h-fig-text)">UML</text>
 <text x="478" y="90" font-size="11" fill="var(--h-fig-muted)">draw the design</text>
@@ -98,8 +98,10 @@ it easy to change.
 
     Contracts with `ABC`, duck typing, extending built-ins, and mixins.
 
-    <span class="badge badge--soon">Coming soon</span>
+    <span class="badge badge--ready">Ready</span>
     <span class="badge">8 h</span>
+
+    [:octicons-arrow-right-24: Start](abstract-classes.md)
 
 </div>
 

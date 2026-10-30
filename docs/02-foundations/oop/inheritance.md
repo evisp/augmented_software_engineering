@@ -794,4 +794,4 @@ Total: 1120 ALL
 account type to define `month_end`. Next you turn the base class into a
 contract that every account type must fulfil.
 
-[Object-Oriented Design](index.md){ .h-button }
+[Abstract Classes & Interfaces](abstract-classes.md){ .h-button }

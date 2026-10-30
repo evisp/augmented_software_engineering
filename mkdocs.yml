@@ -166,6 +166,7 @@ nav:
           - 02-foundations/oop/index.md
           - Classes & Object Model: 02-foundations/oop/classes.md
           - Inheritance & Polymorphism: 02-foundations/oop/inheritance.md
+          - Abstract Classes & Interfaces: 02-foundations/oop/abstract-classes.md
 
   - Software Development:
       - 03-software-development/index.md

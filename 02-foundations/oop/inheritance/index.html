@@ -1,0 +1,3145 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A practical foundation for modern software engineering, development tools, and AI-augmented workflows.">
+      
+      
+        <meta name="author" content="Evis Plaku">
+      
+      
+        <link rel="canonical" href="https://evisp.github.io/augmented_software_engineering/02-foundations/oop/inheritance/">
+      
+      
+        <link rel="prev" href="../classes/">
+      
+      
+        <link rel="next" href="../../../03-software-development/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.0">
+    
+    
+      
+        <title>Inheritance & Polymorphism - Augmented Software Engineering</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.57a0d79d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.fb2fffe2.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Host+Grotesk:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Host Grotesk";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/brand.css">
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#inheritance-polymorphism" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Augmented Software Engineering" class="md-header__button md-logo" aria-label="Augmented Software Engineering" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Augmented Software Engineering
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Inheritance & Polymorphism
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/evisp/augmented_software_engineering" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    evisp/augmented_software_engineering
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../roadmap/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Roadmap
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../01-tools/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Tools
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Foundations
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../03-software-development/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Software Development
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../04-portfolio/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Portfolio
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Augmented Software Engineering" class="md-nav__button md-logo" aria-label="Augmented Software Engineering" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Augmented Software Engineering
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/evisp/augmented_software_engineering" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    evisp/augmented_software_engineering
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../roadmap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Roadmap
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../01-tools/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tools
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Tools
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Getting Started
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01-tools/zero-day/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Zero Day
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01-tools/wsl-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    WSL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01-tools/vscode-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VS Code
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01-tools/ai-assistant/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Assistant
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Shell & Version Control
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Shell & Version Control
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01-tools/shell/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Shell Basics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01-tools/shell-permissions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Shell Permissions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01-tools/git-and-github/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Git & GitHub
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01-tools/github-flow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GitHub Flow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Foundations
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Foundations
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../python/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python Fundamentals
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_2" id="__nav_4_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Python Fundamentals
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/environment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Environment & First Programs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/hello-world/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hello, World
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/control-flow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Control Flow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/functions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Functions & Modularity
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/data-structures/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Core Data Structures
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/exceptions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exception Handling
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Object-Oriented Design
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_3" id="__nav_4_3_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Object-Oriented Design
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../classes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Classes & Object Model
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inheritance & Polymorphism
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inheritance & Polymorphism
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#why-this-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why this matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#where-we-left-off" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Where we left off
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-1-parent-and-child-classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: Parent and child classes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-2-extend-the-constructor-with-super" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Extend the constructor with super()
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-3-add-new-behaviour" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: Add new behaviour
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-4-override-a-method" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4: Override a method
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 4: Override a method">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-python-finds-a-method" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How Python finds a method
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-5-extend-an-inherited-method-with-super" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5: Extend an inherited method with super()
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 5: Extend an inherited method with super()">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#one-change-to-version-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        One change to version 1
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-6-polymorphism-one-call-many-behaviours" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 6: Polymorphism: one call, many behaviours
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-7-check-relationships-with-isinstance-and-issubclass" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 7: Check relationships with isinstance and issubclass
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-8-design-simple-hierarchies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 8: Design simple hierarchies
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-code-so-far" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The code so far
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#when-something-goes-wrong" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        When something goes wrong
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#explain-it-to-someone" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Explain it to someone
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick reference
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Next
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../03-software-development/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Software Development
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Software Development
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../03-software-development/data-and-apis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data & APIs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../03-software-development/web-frontend/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Web Front-end
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../03-software-development/javascript-node/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    JavaScript & Node.js
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../04-portfolio/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Portfolio
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Portfolio
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../04-portfolio/ai-builds/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI-Augmented Builds
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../04-portfolio/hbnb/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HBnB
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#why-this-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why this matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#where-we-left-off" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Where we left off
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-1-parent-and-child-classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: Parent and child classes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-2-extend-the-constructor-with-super" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Extend the constructor with super()
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-3-add-new-behaviour" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: Add new behaviour
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-4-override-a-method" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4: Override a method
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 4: Override a method">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-python-finds-a-method" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How Python finds a method
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-5-extend-an-inherited-method-with-super" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5: Extend an inherited method with super()
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 5: Extend an inherited method with super()">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#one-change-to-version-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        One change to version 1
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-6-polymorphism-one-call-many-behaviours" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 6: Polymorphism: one call, many behaviours
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-7-check-relationships-with-isinstance-and-issubclass" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 7: Check relationships with isinstance and issubclass
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-8-design-simple-hierarchies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 8: Design simple hierarchies
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-code-so-far" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The code so far
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#when-something-goes-wrong" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        When something goes wrong
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#explain-it-to-someone" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Explain it to someone
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick reference
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Next
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Foundations
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Object-Oriented Design
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/evisp/augmented_software_engineering/edit/main/docs/02-foundations/oop/inheritance.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="inheritance-polymorphism">Inheritance &amp; Polymorphism<a class="headerlink" href="#inheritance-polymorphism" title="Link to this section">&para;</a></h1>
+<p><span class="badge badge--time">75 min</span>
+<span class="badge badge--level">Object-Oriented Design</span>
+<span class="badge">Needs: Classes &amp; Object Model</span></p>
+<p>The wallet has one kind of account. A real wallet needs several:
+savings accounts that earn interest, checking accounts that may go
+below zero. They share almost everything an <code>Account</code> already does.
+<strong>Inheritance</strong> lets you write that shared part once and add only what
+is different. <strong>Polymorphism</strong> then lets the rest of your program treat
+every account the same way, even though each behaves in its own way.</p>
+<h2 id="why-this-matters">Why this matters<a class="headerlink" href="#why-this-matters" title="Link to this section">&para;</a></h2>
+<p>Without inheritance you would copy <code>Account</code> into <code>SavingsAccount</code> and
+<code>CheckingAccount</code>, then fix every bug three times. With it, the
+validation, properties and string methods you wrote in the last
+tutorial are reused as they are, and each new class contains only the
+lines that make it different.</p>
+<p>Polymorphism is the bigger idea. It is what lets you write
+<code>account.month_end()</code> without caring which kind of account it is, and
+add a fourth kind next year without touching the code that uses them.
+Frameworks are built on it, and so is the HBnB portfolio project.</p>
+<h2 id="where-we-left-off">Where we left off<a class="headerlink" href="#where-we-left-off" title="Link to this section">&para;</a></h2>
+<figure class="h-figure" markdown="0">
+<svg viewBox="0 0 680 130" role="img" aria-labelledby="oop2-plan-title oop2-plan-desc">
+<title id="oop2-plan-title">How the wallet grows across the module</title>
+<desc id="oop2-plan-desc">Version 1, Classes, is done: the Account class. Version 2, Inheritance, is this page: savings and checking accounts. Versions 3 to 5, Abstract classes, UML and Patterns, come next.</desc>
+<defs><marker id="oop2-plan-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="var(--h-fig-line)"/></marker></defs>
+<rect x="3" y="20" width="122" height="90" rx="10" fill="var(--h-fig-box)" stroke="var(--h-fig-text)" stroke-width="1.5"/>
+<rect x="141" y="20" width="122" height="90" rx="10" fill="var(--h-cherry)"/>
+<rect x="279" y="20" width="122" height="90" rx="10" fill="var(--h-fig-box)" stroke="var(--h-fig-line)" stroke-dasharray="5 4"/>
+<rect x="417" y="20" width="122" height="90" rx="10" fill="var(--h-fig-box)" stroke="var(--h-fig-line)" stroke-dasharray="5 4"/>
+<rect x="555" y="20" width="122" height="90" rx="10" fill="var(--h-fig-box)" stroke="var(--h-fig-line)" stroke-dasharray="5 4"/>
+<g text-anchor="middle">
+<text x="64" y="44" font-size="11" font-weight="700" fill="var(--h-fig-muted)">v1 · DONE</text>
+<text x="64" y="70" font-size="14" font-weight="700" fill="var(--h-fig-text)">Classes</text>
+<text x="64" y="90" font-size="11" fill="var(--h-fig-muted)" font-family="var(--md-code-font-family, monospace)">Account</text>
+<text x="202" y="44" font-size="11" font-weight="700" fill="#ffffff" opacity="0.85">v2 · THIS PAGE</text>
+<text x="202" y="70" font-size="14" font-weight="700" fill="#ffffff">Inheritance</text>
+<text x="202" y="90" font-size="11" fill="#ffffff" opacity="0.9">savings, checking</text>
+<text x="340" y="44" font-size="11" font-weight="700" fill="var(--h-fig-muted)">v3</text>
+<text x="340" y="70" font-size="14" font-weight="700" fill="var(--h-fig-text)">Abstract</text>
+<text x="340" y="90" font-size="11" fill="var(--h-fig-muted)">contracts, mixins</text>
+<text x="478" y="44" font-size="11" font-weight="700" fill="var(--h-fig-muted)">v4</text>
+<text x="478" y="70" font-size="14" font-weight="700" fill="var(--h-fig-text)">UML</text>
+<text x="478" y="90" font-size="11" fill="var(--h-fig-muted)">draw the design</text>
+<text x="616" y="44" font-size="11" font-weight="700" fill="var(--h-fig-muted)">v5</text>
+<text x="616" y="70" font-size="14" font-weight="700" fill="var(--h-fig-text)">Patterns</text>
+<text x="616" y="90" font-size="11" fill="var(--h-fig-muted)">Strategy, Observer</text>
+</g>
+<g stroke="var(--h-fig-line)" stroke-width="2" marker-end="url(#oop2-plan-arrow)">
+<line x1="127" y1="65" x2="138" y2="65"/>
+<line x1="265" y1="65" x2="276" y2="65"/>
+<line x1="403" y1="65" x2="414" y2="65"/>
+<line x1="541" y1="65" x2="552" y2="65"/>
+</g>
+</svg>
+</figure>
+
+<p>You finished the last tutorial with an <code>Account</code> class that validates
+its input, protects its balance and prints itself clearly. Start from
+that file, or from the tag
+<a href="https://github.com/evisp/oop-wallet/tree/v1-classes"><code>v1-classes</code></a>.</p>
+<p>The wallet now has a new requirement:</p>
+<blockquote>
+<p>The wallet offers two more account types. A <strong>savings account</strong> earns
+interest every month. A <strong>checking account</strong> may go below zero, down
+to an agreed overdraft limit, and is charged a 100 lek fee for every
+month it ends overdrawn.</p>
+</blockquote>
+<h2 id="step-1-parent-and-child-classes">Step 1: Parent and child classes<a class="headerlink" href="#step-1-parent-and-child-classes" title="Link to this section">&para;</a></h2>
+<p>Both new accounts <em>are</em> accounts: they have an owner and a balance, and
+you can deposit into them. That "is a" relationship is what inheritance
+models.</p>
+<figure class="h-figure" markdown="0">
+<svg viewBox="0 0 680 306" role="img" aria-labelledby="oop2-tree-title oop2-tree-desc">
+<title id="oop2-tree-title">Account and its two subclasses</title>
+<desc id="oop2-tree-desc">Account is the parent class, with owner, balance, deposit, withdraw and month_end. SavingsAccount inherits from it, adds rate and add_interest, and overrides month_end. CheckingAccount inherits from it, adds overdraft, overrides withdraw and month_end, and extends __str__ using super.</desc>
+<g font-size="11" font-weight="700">
+<text x="3" y="20" fill="var(--h-cherry)">+ added</text>
+<text x="3" y="38" fill="var(--h-fig-text)">↻ overridden</text>
+<text x="3" y="56" fill="var(--h-fig-muted)">plain: inherited</text>
+</g>
+<text x="474" y="34" font-size="11" font-weight="700" fill="var(--h-fig-muted)">PARENT · BASE CLASS</text>
+<rect x="220" y="8" width="240" height="124" rx="10" fill="var(--h-fig-box)" stroke="var(--h-fig-text)" stroke-width="1.5"/>
+<text x="340" y="34" text-anchor="middle" font-size="15" font-weight="700" fill="var(--h-fig-text)">Account</text>
+<line x1="220" y1="46" x2="460" y2="46" stroke="var(--h-fig-line)"/>
+<g font-family="var(--md-code-font-family, monospace)" font-size="12" fill="var(--h-fig-text)">
+<text x="238" y="68">owner, balance</text>
+<text x="238" y="90">deposit(), withdraw()</text>
+<text x="238" y="112">month_end(), __str__()</text>
+</g>
+<polygon points="340,134 331,149 349,149" fill="var(--md-default-bg-color)" stroke="var(--h-fig-text)" stroke-width="1.5"/>
+<g stroke="var(--h-fig-text)" stroke-width="1.5" fill="none">
+<line x1="340" y1="149" x2="340" y2="160"/>
+<polyline points="153,178 153,160 527,160 527,178"/>
+</g>
+<text x="352" y="174" font-size="11" font-weight="600" fill="var(--h-fig-muted)">inherits from</text>
+<rect x="3" y="178" width="300" height="122" rx="10" fill="var(--h-fig-box)" stroke="var(--h-fig-line)"/>
+<rect x="377" y="178" width="300" height="122" rx="10" fill="var(--h-fig-box)" stroke="var(--h-fig-line)"/>
+<text x="153" y="206" text-anchor="middle" font-size="14" font-weight="700" fill="var(--h-fig-text)">SavingsAccount</text>
+<text x="527" y="206" text-anchor="middle" font-size="14" font-weight="700" fill="var(--h-fig-text)">CheckingAccount</text>
+<line x1="3" y1="218" x2="303" y2="218" stroke="var(--h-fig-line)"/>
+<line x1="377" y1="218" x2="677" y2="218" stroke="var(--h-fig-line)"/>
+<g font-family="var(--md-code-font-family, monospace)" font-size="12">
+<text x="21" y="240" fill="var(--h-cherry)" font-weight="700">+ rate</text>
+<text x="21" y="260" fill="var(--h-cherry)" font-weight="700">+ add_interest()</text>
+<text x="21" y="280" fill="var(--h-fig-text)">↻ month_end()</text>
+<text x="395" y="238" fill="var(--h-cherry)" font-weight="700">+ overdraft</text>
+<text x="395" y="256" fill="var(--h-fig-text)">↻ withdraw()</text>
+<text x="395" y="274" fill="var(--h-fig-text)">↻ month_end()</text>
+<text x="395" y="292" fill="var(--h-fig-text)">↻ __str__() <tspan font-family="var(--md-text-font-family, sans-serif)" font-size="10.5" fill="var(--h-fig-muted)">via super()</tspan></text>
+</g>
+</svg>
+</figure>
+
+<ul>
+<li>The <strong>parent class</strong>, also called the <strong>base class</strong> or superclass,
+  is <code>Account</code>.</li>
+<li>The <strong>child classes</strong>, or <strong>subclasses</strong>, are <code>SavingsAccount</code> and
+  <code>CheckingAccount</code>.</li>
+<li>A child <strong>inherits</strong> every attribute and method of its parent. It can
+  then <strong>add</strong> new ones and <strong>override</strong> inherited ones.</li>
+</ul>
+<p>The syntax is one pair of brackets after the class name. A subclass
+with no body at all is already a working account:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">BusinessAccount</span><span class="p">(</span><span class="n">Account</span><span class="p">):</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    <span class="k">pass</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="n">acme</span> <span class="o">=</span> <span class="n">BusinessAccount</span><span class="p">(</span><span class="s2">"Acme"</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="n">acme</span><span class="o">.</span><span class="n">deposit</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>        <span class="c1"># 100: deposit came from Account</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="nb">print</span><span class="p">(</span><span class="n">acme</span><span class="p">)</span>             <span class="c1"># Acme: 100 ALL: __str__ came from Account</span>
+</span></code></pre></div>
+<p>Every class has a parent, even when you do not write one. <code>Account</code>
+inherits from Python's built-in class <code>object</code>, which is where the
+default <code>__str__</code> and <code>__repr__</code> you saw printing
+<code>&lt;__main__.Account object at 0x...&gt;</code> came from.</p>
+<h2 id="step-2-extend-the-constructor-with-super">Step 2: Extend the constructor with <code>super()</code><a class="headerlink" href="#step-2-extend-the-constructor-with-super" title="Link to this section">&para;</a></h2>
+<p>A savings account needs everything <code>Account.__init__</code> already sets up,
+plus an interest rate. Do not copy the parent's checks. Call the
+parent's <code>__init__</code> with <code>super()</code>, then add what is new:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">SavingsAccount</span><span class="p">(</span><span class="n">Account</span><span class="p">):</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">    </span><span class="sd">"""An account that earns interest every month."""</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">owner</span><span class="p">,</span> <span class="n">balance</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">rate</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">        </span><span class="sd">"""Create a savings account; rate is monthly interest in percent."""</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">owner</span><span class="p">,</span> <span class="n">balance</span><span class="p">)</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">rate</span><span class="p">,</span> <span class="nb">bool</span><span class="p">)</span> <span class="ow">or</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">rate</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">"rate must be an integer"</span><span class="p">)</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>        <span class="k">if</span> <span class="ow">not</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">rate</span> <span class="o">&lt;=</span> <span class="mi">10</span><span class="p">:</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"rate must be between 0 and 10"</span><span class="p">)</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_rate</span> <span class="o">=</span> <span class="n">rate</span>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>    <span class="nd">@property</span>
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">rate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="w">        </span><span class="sd">"""Monthly interest rate, in whole percent."""</span>
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_rate</span>
+</span></code></pre></div>
+<p><code>super()</code> means "the parent class, for this object". The line
+<code>super().__init__(owner, balance)</code> runs all of <code>Account</code>'s validation
+and sets <code>_owner</code> and <code>_balance</code>. The next lines handle only what is
+new. The validation from the last tutorial still protects every savings
+account:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">SavingsAccount</span><span class="p">(</span><span class="s2">""</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>              <span class="c1"># ValueError: owner must not be empty</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">SavingsAccount</span><span class="p">(</span><span class="s2">"Ada"</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="n">rate</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>  <span class="c1"># ValueError: rate must be between 0 and 10</span>
+</span></code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Forget <code>super().__init__</code> and the object is half built</p>
+<p>If the subclass defines <code>__init__</code> and never calls the parent's,
+<code>Account.__init__</code> does not run. The object exists, but it has no
+<code>_owner</code> or <code>_balance</code>, and the first access fails with
+<code>AttributeError: ... has no attribute '_balance'</code>. When a subclass
+has its own <code>__init__</code>, its first line is almost always
+<code>super().__init__(...)</code>.</p>
+</div>
+<h2 id="step-3-add-new-behaviour">Step 3: Add new behaviour<a class="headerlink" href="#step-3-add-new-behaviour" title="Link to this section">&para;</a></h2>
+<p>A subclass can add methods the parent does not have. Savings accounts
+earn interest:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">add_interest</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">        </span><span class="sd">"""Add this month's interest and return the amount added."""</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>        <span class="n">interest</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_balance</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">_rate</span> <span class="o">//</span> <span class="mi">100</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_balance</span> <span class="o">+=</span> <span class="n">interest</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>        <span class="k">return</span> <span class="n">interest</span>
+</span></code></pre></div>
+<p>The rate is a whole percentage per month, and <code>//</code> keeps the interest
+in whole lek, the same reason the balance is an integer.</p>
+<p>Everything else is inherited unchanged, including the rules:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">grace</span> <span class="o">=</span> <span class="n">SavingsAccount</span><span class="p">(</span><span class="s2">"Grace"</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="n">rate</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="n">grace</span><span class="o">.</span><span class="n">deposit</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>      <span class="c1"># 1100: inherited from Account</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="n">grace</span><span class="o">.</span><span class="n">add_interest</span><span class="p">()</span>    <span class="c1"># 22: new in SavingsAccount</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="n">grace</span><span class="o">.</span><span class="n">withdraw</span><span class="p">(</span><span class="mi">5000</span><span class="p">)</span>    <span class="c1"># ValueError: insufficient funds, from Account</span>
+</span></code></pre></div>
+<h2 id="step-4-override-a-method">Step 4: Override a method<a class="headerlink" href="#step-4-override-a-method" title="Link to this section">&para;</a></h2>
+<p>A checking account must let the balance go below zero, up to its
+overdraft limit. <code>Account.withdraw</code> refuses that. So <code>CheckingAccount</code>
+defines its own <code>withdraw</code>, which <strong>overrides</strong> the parent's:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">CheckingAccount</span><span class="p">(</span><span class="n">Account</span><span class="p">):</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">    </span><span class="sd">"""An everyday account that may go below zero, up to a limit."""</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>    <span class="n">fee</span> <span class="o">=</span> <span class="mi">100</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">owner</span><span class="p">,</span> <span class="n">balance</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">overdraft</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">        </span><span class="sd">"""Create a checking account with an overdraft limit."""</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">owner</span><span class="p">,</span> <span class="n">balance</span><span class="p">)</span>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">overdraft</span><span class="p">,</span> <span class="nb">bool</span><span class="p">)</span> <span class="ow">or</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">overdraft</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">"overdraft must be an integer"</span><span class="p">)</span>
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>        <span class="k">if</span> <span class="n">overdraft</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"overdraft must not be negative"</span><span class="p">)</span>
+</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_overdraft</span> <span class="o">=</span> <span class="n">overdraft</span>
+</span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>
+</span><span id="__span-5-15"><a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a>    <span class="nd">@property</span>
+</span><span id="__span-5-16"><a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">overdraft</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="__span-5-17"><a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="w">        </span><span class="sd">"""How far below zero the balance may go."""</span>
+</span><span id="__span-5-18"><a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_overdraft</span>
+</span><span id="__span-5-19"><a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a>
+</span><span id="__span-5-20"><a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">withdraw</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">amount</span><span class="p">):</span>
+</span><span id="__span-5-21"><a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a><span class="w">        </span><span class="sd">"""Take amount out, letting the balance go down to -overdraft."""</span>
+</span><span id="__span-5-22"><a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_check_amount</span><span class="p">(</span><span class="n">amount</span><span class="p">)</span>
+</span><span id="__span-5-23"><a id="__codelineno-5-23" name="__codelineno-5-23" href="#__codelineno-5-23"></a>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_balance</span> <span class="o">-</span> <span class="n">amount</span> <span class="o">&lt;</span> <span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">_overdraft</span><span class="p">:</span>
+</span><span id="__span-5-24"><a id="__codelineno-5-24" name="__codelineno-5-24" href="#__codelineno-5-24"></a>            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"overdraft limit exceeded"</span><span class="p">)</span>
+</span><span id="__span-5-25"><a id="__codelineno-5-25" name="__codelineno-5-25" href="#__codelineno-5-25"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_balance</span> <span class="o">-=</span> <span class="n">amount</span>
+</span><span id="__span-5-26"><a id="__codelineno-5-26" name="__codelineno-5-26" href="#__codelineno-5-26"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_balance</span>
+</span></code></pre></div>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">linus</span> <span class="o">=</span> <span class="n">CheckingAccount</span><span class="p">(</span><span class="s2">"Linus"</span><span class="p">,</span> <span class="n">overdraft</span><span class="o">=</span><span class="mi">500</span><span class="p">)</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="n">linus</span><span class="o">.</span><span class="n">withdraw</span><span class="p">(</span><span class="mi">300</span><span class="p">)</span>    <span class="c1"># -300: allowed</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="n">linus</span><span class="o">.</span><span class="n">withdraw</span><span class="p">(</span><span class="mi">300</span><span class="p">)</span>    <span class="c1"># ValueError: overdraft limit exceeded</span>
+</span></code></pre></div>
+<p>Two details from the last tutorial pay off here. The new <code>withdraw</code>
+reuses the inherited <code>_check_amount</code>, so amounts are still validated in
+one place. And it can update <code>self._balance</code> directly, because we used
+a single underscore. Had we named it <code>__balance</code>, name mangling would
+have stored it as <code>_Account__balance</code>, and <code>self.__balance</code> inside
+<code>CheckingAccount</code> would have looked for <code>_CheckingAccount__balance</code>
+instead.</p>
+<h3 id="how-python-finds-a-method">How Python finds a method<a class="headerlink" href="#how-python-finds-a-method" title="Link to this section">&para;</a></h3>
+<p>When you call a method, Python searches for it starting at the
+object's own class, then moves up through the parents, and uses the
+first match it finds.</p>
+<figure class="h-figure" markdown="0">
+<svg viewBox="0 0 680 176" role="img" aria-labelledby="oop2-look-title oop2-look-desc">
+<title id="oop2-look-title">Method lookup goes from the object's class up to its parents</title>
+<desc id="oop2-look-desc">For grace.deposit, Python checks SavingsAccount, which has no deposit, then Account, which has it, so Account's deposit runs. For linus.withdraw, Python checks CheckingAccount first, which has its own withdraw, so that one runs and Account is never checked.</desc>
+<defs><marker id="oop2-look-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="var(--h-fig-line)"/></marker></defs>
+<g font-family="var(--md-code-font-family, monospace)" font-size="12.5" font-weight="700">
+<text x="3" y="16" fill="var(--h-fig-text)">grace.deposit(100)</text>
+<text x="3" y="104" fill="var(--h-fig-text)">linus.withdraw(300)</text>
+</g>
+<g font-size="12.5" font-weight="700" text-anchor="middle">
+<rect x="3" y="26" width="134" height="46" rx="8" fill="var(--h-fig-box)" stroke="var(--h-fig-line)"/>
+<text x="70" y="54" fill="var(--h-fig-text)" font-family="var(--md-code-font-family, monospace)">grace</text>
+<rect x="183" y="26" width="134" height="46" rx="8" fill="var(--h-fig-box)" stroke="var(--h-fig-line)"/>
+<text x="250" y="47" fill="var(--h-fig-text)">SavingsAccount</text>
+<text x="250" y="63" font-size="10.5" font-weight="600" fill="var(--h-fig-muted)">no deposit here</text>
+<rect x="363" y="26" width="134" height="46" rx="8" fill="var(--h-cherry)"/>
+<text x="430" y="47" fill="#ffffff">Account</text>
+<text x="430" y="63" font-size="10.5" font-weight="600" fill="#ffffff">found: this runs</text>
+<rect x="543" y="26" width="134" height="46" rx="8" fill="none" stroke="var(--h-fig-line)" stroke-dasharray="5 4"/>
+<text x="610" y="54" fill="var(--h-fig-muted)">object</text>
+<rect x="3" y="114" width="134" height="46" rx="8" fill="var(--h-fig-box)" stroke="var(--h-fig-line)"/>
+<text x="70" y="142" fill="var(--h-fig-text)" font-family="var(--md-code-font-family, monospace)">linus</text>
+<rect x="183" y="114" width="134" height="46" rx="8" fill="var(--h-cherry)"/>
+<text x="250" y="135" fill="#ffffff">CheckingAccount</text>
+<text x="250" y="151" font-size="10.5" font-weight="600" fill="#ffffff">found: this runs</text>
+<rect x="363" y="114" width="134" height="46" rx="8" fill="none" stroke="var(--h-fig-line)" stroke-dasharray="5 4"/>
+<text x="430" y="135" fill="var(--h-fig-muted)">Account</text>
+<text x="430" y="151" font-size="10.5" font-weight="600" fill="var(--h-fig-muted)">never checked</text>
+<rect x="543" y="114" width="134" height="46" rx="8" fill="none" stroke="var(--h-fig-line)" stroke-dasharray="5 4"/>
+<text x="610" y="142" fill="var(--h-fig-muted)">object</text>
+</g>
+<g stroke="var(--h-fig-line)" stroke-width="2" marker-end="url(#oop2-look-arrow)">
+<line x1="141" y1="49" x2="177" y2="49"/>
+<line x1="321" y1="49" x2="357" y2="49"/>
+<line x1="141" y1="137" x2="177" y2="137"/>
+</g>
+</svg>
+</figure>
+
+<p>That search order is called the <strong>method resolution order</strong>, or MRO.
+You can print it:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">SavingsAccount</span><span class="o">.</span><span class="n">mro</span><span class="p">()</span>    <span class="c1"># [SavingsAccount, Account, object]</span>
+</span></code></pre></div>
+<p>This is also why overriding works: the child's version is found first,
+so the parent's is never reached.</p>
+<h2 id="step-5-extend-an-inherited-method-with-super">Step 5: Extend an inherited method with <code>super()</code><a class="headerlink" href="#step-5-extend-an-inherited-method-with-super" title="Link to this section">&para;</a></h2>
+<p>Overriding replaces the parent's method. Sometimes you want to keep it
+and add to it. Call it through <code>super()</code> inside the override.</p>
+<p>A checking account should print like any account, plus its overdraft:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>        <span class="k">return</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__str__</span><span class="p">()</span><span class="si">}</span><span class="s2"> (overdraft </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">overdraft</span><span class="si">}</span><span class="s2">)"</span>
+</span></code></pre></div>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="nb">print</span><span class="p">(</span><span class="n">linus</span><span class="p">)</span>    <span class="c1"># Linus: -300 ALL (overdraft 500)</span>
+</span></code></pre></div>
+<p><code>super().__str__()</code> runs <code>Account.__str__</code> and returns
+<code>Linus: -300 ALL</code>. The override adds the rest. If the base format ever
+changes, the checking account follows automatically.</p>
+<h3 id="one-change-to-version-1">One change to version 1<a class="headerlink" href="#one-change-to-version-1" title="Link to this section">&para;</a></h3>
+<p>In version 1, <code>__repr__</code> started with the class name written out:
+<code>f"Account(owner=..."</code>. That is fine until a subclass inherits it: a
+<code>BusinessAccount</code> would then call itself <code>Account(...)</code> in every
+debugger and list, which is misleading. The fix is to ask the object
+for its real class name:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>        <span class="k">return</span> <span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">(owner=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">owner</span><span class="si">!r}</span><span class="s2">, "</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>                <span class="sa">f</span><span class="s2">"balance=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">balance</span><span class="si">}</span><span class="s2">)"</span><span class="p">)</span>
+</span></code></pre></div>
+<p><code>type(self).__name__</code> is <code>"Account"</code> for an account and
+<code>"BusinessAccount"</code> for a business account. A parent class should not
+assume it is the only class that will use its methods. The two new
+classes override <code>__repr__</code> anyway, to include their extra attribute:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="nb">repr</span><span class="p">(</span><span class="n">grace</span><span class="p">)</span>    <span class="c1"># "SavingsAccount(owner='Grace', balance=1122, rate=2)"</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="nb">repr</span><span class="p">(</span><span class="n">linus</span><span class="p">)</span>    <span class="c1"># "CheckingAccount(owner='Linus', balance=-300, overdraft=500)"</span>
+</span></code></pre></div>
+<h2 id="step-6-polymorphism-one-call-many-behaviours">Step 6: Polymorphism: one call, many behaviours<a class="headerlink" href="#step-6-polymorphism-one-call-many-behaviours" title="Link to this section">&para;</a></h2>
+<p>Every account needs some work done at the end of each month, but the
+work is different: savings accounts earn interest, checking accounts
+may be charged a fee, plain accounts do nothing. Give the parent a
+<code>month_end</code> method that does nothing, and let each child override it:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="c1"># in Account</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">month_end</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="w">        </span><span class="sd">"""Apply end-of-month rules and return the new balance.</span>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="sd">        A plain account has none.</span>
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="sd">        """</span>
+</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_balance</span>
+</span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a>
+</span><span id="__span-12-9"><a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="c1"># in SavingsAccount</span>
+</span><span id="__span-12-10"><a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">month_end</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="__span-12-11"><a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a><span class="w">        </span><span class="sd">"""Add this month's interest and return the new balance."""</span>
+</span><span id="__span-12-12"><a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">add_interest</span><span class="p">()</span>
+</span><span id="__span-12-13"><a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_balance</span>
+</span><span id="__span-12-14"><a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a>
+</span><span id="__span-12-15"><a id="__codelineno-12-15" name="__codelineno-12-15" href="#__codelineno-12-15"></a><span class="c1"># in CheckingAccount</span>
+</span><span id="__span-12-16"><a id="__codelineno-12-16" name="__codelineno-12-16" href="#__codelineno-12-16"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">month_end</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="__span-12-17"><a id="__codelineno-12-17" name="__codelineno-12-17" href="#__codelineno-12-17"></a><span class="w">        </span><span class="sd">"""Charge the monthly fee if overdrawn; return the new balance."""</span>
+</span><span id="__span-12-18"><a id="__codelineno-12-18" name="__codelineno-12-18" href="#__codelineno-12-18"></a>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_balance</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+</span><span id="__span-12-19"><a id="__codelineno-12-19" name="__codelineno-12-19" href="#__codelineno-12-19"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">_balance</span> <span class="o">-=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fee</span>
+</span><span id="__span-12-20"><a id="__codelineno-12-20" name="__codelineno-12-20" href="#__codelineno-12-20"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_balance</span>
+</span></code></pre></div>
+<p>Now the code that closes the month does not need to know which kind of
+account it holds:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="n">accounts</span> <span class="o">=</span> <span class="p">[</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>    <span class="n">Account</span><span class="p">(</span><span class="s2">"Ada"</span><span class="p">,</span> <span class="mi">500</span><span class="p">),</span>
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>    <span class="n">SavingsAccount</span><span class="p">(</span><span class="s2">"Grace"</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="n">rate</span><span class="o">=</span><span class="mi">2</span><span class="p">),</span>
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>    <span class="n">CheckingAccount</span><span class="p">(</span><span class="s2">"Linus"</span><span class="p">,</span> <span class="n">overdraft</span><span class="o">=</span><span class="mi">500</span><span class="p">),</span>
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="p">]</span>
+</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="n">accounts</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">withdraw</span><span class="p">(</span><span class="mi">300</span><span class="p">)</span>
+</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="k">for</span> <span class="n">account</span> <span class="ow">in</span> <span class="n">accounts</span><span class="p">:</span>
+</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a>    <span class="n">account</span><span class="o">.</span><span class="n">month_end</span><span class="p">()</span>
+</span><span id="__span-13-9"><a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">account</span><span class="p">)</span>
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>Ada: 500 ALL
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>Grace: 1020 ALL
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>Linus: -400 ALL (overdraft 500)
+</span></code></pre></div>
+<figure class="h-figure" markdown="0">
+<svg viewBox="0 0 680 210" role="img" aria-labelledby="oop2-poly-title oop2-poly-desc">
+<title id="oop2-poly-title">One call, three behaviours</title>
+<desc id="oop2-poly-desc">The loop calls account.month_end() on three objects. On the Account for Ada, nothing changes and the balance stays 500. On the SavingsAccount for Grace, 20 lek of interest is added, giving 1020. On the CheckingAccount for Linus, who is overdrawn, the 100 lek fee is charged, giving minus 400.</desc>
+<defs><marker id="oop2-poly-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="var(--h-fig-line)"/></marker></defs>
+<g font-size="12.5" font-weight="700">
+<rect x="3" y="10" width="180" height="52" rx="8" fill="var(--h-fig-box)" stroke="var(--h-fig-line)"/>
+<text x="18" y="32" fill="var(--h-fig-text)">Account</text>
+<text x="18" y="50" font-size="11" font-weight="400" fill="var(--h-fig-muted)" font-family="var(--md-code-font-family, monospace)">Ada, 500</text>
+<rect x="3" y="79" width="180" height="52" rx="8" fill="var(--h-fig-box)" stroke="var(--h-fig-line)"/>
+<text x="18" y="101" fill="var(--h-fig-text)">SavingsAccount</text>
+<text x="18" y="119" font-size="11" font-weight="400" fill="var(--h-fig-muted)" font-family="var(--md-code-font-family, monospace)">Grace, 1000, rate 2</text>
+<rect x="3" y="148" width="180" height="52" rx="8" fill="var(--h-fig-box)" stroke="var(--h-fig-line)"/>
+<text x="18" y="170" fill="var(--h-fig-text)">CheckingAccount</text>
+<text x="18" y="188" font-size="11" font-weight="400" fill="var(--h-fig-muted)" font-family="var(--md-code-font-family, monospace)">Linus, -300</text>
+</g>
+<rect x="250" y="75" width="180" height="60" rx="10" fill="var(--h-cherry)"/>
+<text x="340" y="102" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff" font-family="var(--md-code-font-family, monospace)">.month_end()</text>
+<text x="340" y="121" text-anchor="middle" font-size="10.5" fill="#ffffff" opacity="0.9">the same call for each</text>
+<g font-size="12.5">
+<rect x="497" y="10" width="180" height="52" rx="8" fill="var(--md-default-bg-color)" stroke="var(--h-fig-line)"/>
+<text x="512" y="32" font-weight="700" fill="var(--h-fig-text)">no change</text>
+<text x="512" y="50" font-size="11" fill="var(--h-fig-muted)" font-family="var(--md-code-font-family, monospace)">500</text>
+<rect x="497" y="79" width="180" height="52" rx="8" fill="var(--md-default-bg-color)" stroke="var(--h-fig-line)"/>
+<text x="512" y="101" font-weight="700" fill="var(--h-fig-text)">+20 interest</text>
+<text x="512" y="119" font-size="11" fill="var(--h-fig-muted)" font-family="var(--md-code-font-family, monospace)">1020</text>
+<rect x="497" y="148" width="180" height="52" rx="8" fill="var(--md-default-bg-color)" stroke="var(--h-fig-line)"/>
+<text x="512" y="170" font-weight="700" fill="var(--h-fig-text)">-100 fee</text>
+<text x="512" y="188" font-size="11" fill="var(--h-fig-muted)" font-family="var(--md-code-font-family, monospace)">-400</text>
+</g>
+<g stroke="var(--h-fig-line)" stroke-width="2" fill="none" marker-end="url(#oop2-poly-arrow)">
+<path d="M187 36 C 220 36, 215 96, 244 96"/>
+<line x1="187" y1="105" x2="244" y2="105"/>
+<path d="M187 174 C 220 174, 215 114, 244 114"/>
+<path d="M434 96 C 465 96, 460 36, 491 36"/>
+<line x1="434" y1="105" x2="491" y2="105"/>
+<path d="M434 114 C 465 114, 460 174, 491 174"/>
+</g>
+</svg>
+</figure>
+
+<p>That is <strong>polymorphism</strong>: objects of different classes respond to the
+same method call, each in its own way. The loop only relies on one
+promise, <em>every account has a <code>month_end</code> method</em>, and each class keeps
+that promise differently.</p>
+<p>Compare the version without it:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="k">for</span> <span class="n">account</span> <span class="ow">in</span> <span class="n">accounts</span><span class="p">:</span>                         <span class="c1"># don't do this</span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">account</span><span class="p">,</span> <span class="n">SavingsAccount</span><span class="p">):</span>
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>        <span class="n">account</span><span class="o">.</span><span class="n">add_interest</span><span class="p">()</span>
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">account</span><span class="p">,</span> <span class="n">CheckingAccount</span><span class="p">):</span>
+</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>        <span class="k">if</span> <span class="n">account</span><span class="o">.</span><span class="n">balance</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+</span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a>            <span class="o">...</span>                                  <span class="c1"># charge the fee somehow</span>
+</span></code></pre></div>
+<p>Every new account type would mean editing this loop, and every other
+loop like it. With polymorphism, a new type means one new class with
+its own <code>month_end</code>, and no existing code changes.</p>
+<p>You have used polymorphism since your first week: <code>print</code> works on any
+object because every class has a <code>__str__</code>, and <code>len</code> works on strings,
+lists and dictionaries alike.</p>
+<h2 id="step-7-check-relationships-with-isinstance-and-issubclass">Step 7: Check relationships with <code>isinstance</code> and <code>issubclass</code><a class="headerlink" href="#step-7-check-relationships-with-isinstance-and-issubclass" title="Link to this section">&para;</a></h2>
+<p>Sometimes you do need to ask what kind of object you have, or how two
+classes are related.</p>
+<table>
+<thead>
+<tr>
+<th>Expression</th>
+<th>Result</th>
+<th>Why</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>isinstance(grace, SavingsAccount)</code></td>
+<td><code>True</code></td>
+<td>grace was built from it</td>
+</tr>
+<tr>
+<td><code>isinstance(grace, Account)</code></td>
+<td><code>True</code></td>
+<td>a savings account <em>is an</em> account</td>
+</tr>
+<tr>
+<td><code>isinstance(ada, SavingsAccount)</code></td>
+<td><code>False</code></td>
+<td>a plain account is not a savings account</td>
+</tr>
+<tr>
+<td><code>isinstance(grace, (SavingsAccount, CheckingAccount))</code></td>
+<td><code>True</code></td>
+<td>a tuple means "any of these"</td>
+</tr>
+<tr>
+<td><code>type(grace) is SavingsAccount</code></td>
+<td><code>True</code></td>
+<td>its exact class</td>
+</tr>
+<tr>
+<td><code>type(grace) is Account</code></td>
+<td><code>False</code></td>
+<td><code>type</code> ignores parents</td>
+</tr>
+<tr>
+<td><code>issubclass(SavingsAccount, Account)</code></td>
+<td><code>True</code></td>
+<td>the child inherits from the parent</td>
+</tr>
+<tr>
+<td><code>issubclass(Account, SavingsAccount)</code></td>
+<td><code>False</code></td>
+<td>not the other way round</td>
+</tr>
+<tr>
+<td><code>issubclass(SavingsAccount, object)</code></td>
+<td><code>True</code></td>
+<td>every class inherits from <code>object</code></td>
+</tr>
+</tbody>
+</table>
+<p><code>isinstance</code> checks an <strong>object</strong> against a class, and counts parents.
+<code>issubclass</code> checks a <strong>class</strong> against a class. <code>type(x) is Y</code> checks
+the exact class only, ignoring inheritance, which is rarely what you
+want.</p>
+<p>Now the puzzle from the last tutorial has an answer:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="nb">issubclass</span><span class="p">(</span><span class="nb">bool</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>    <span class="c1"># True</span>
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="nb">isinstance</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>    <span class="c1"># True: a bool *is an* int</span>
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="nb">type</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">int</span>        <span class="c1"># False: its exact class is bool</span>
+</span></code></pre></div>
+<p><code>bool</code> is a subclass of <code>int</code>, so every <code>True</code> passes an <code>int</code> check.
+That is why <code>_check_amount</code> tests for <code>bool</code> separately.</p>
+<p>Use these checks at the edges of your program, for example to validate
+input, as the constructors do. Inside your own logic, prefer calling a
+method and letting polymorphism choose the behaviour.</p>
+<h2 id="step-8-design-simple-hierarchies">Step 8: Design simple hierarchies<a class="headerlink" href="#step-8-design-simple-hierarchies" title="Link to this section">&para;</a></h2>
+<p>A few rules keep inheritance helpful instead of tangled.</p>
+<ul>
+<li><strong>Inherit only for "is a".</strong> A savings account <em>is an</em> account. A
+  customer <em>has</em> accounts but is not one, and a transaction <em>belongs to</em>
+  an account but is not one. "Has a" relationships are modelled by
+  storing one object inside another, which you will draw in the UML
+  project.</li>
+<li><strong>Keep the parent's promises.</strong> Code written for <code>Account</code> must still
+  work when given a <code>CheckingAccount</code>. Its <code>withdraw</code> still takes an
+  amount, still validates it, still returns the new balance and still
+  raises <code>ValueError</code> when refused. Only the limit changed. This rule
+  has a name, the <em>Liskov substitution principle</em>, and breaking it is
+  the most common inheritance bug.</li>
+<li><strong>Keep hierarchies shallow.</strong> One or two levels below the base class
+  is plenty. If you find yourself five levels deep, some of those
+  classes are probably "has a" in disguise.</li>
+<li><strong>Put shared code in the parent, differences in the children.</strong> If
+  two children contain the same lines, move them up.</li>
+</ul>
+<h2 id="the-code-so-far">The code so far<a class="headerlink" href="#the-code-so-far" title="Link to this section">&para;</a></h2>
+<p>This is version 2 of the wallet, tagged
+<a href="https://github.com/evisp/oop-wallet/tree/v2-inheritance"><code>v2-inheritance</code></a>
+in the companion repository.</p>
+<details class="example">
+<summary>wallet.py · version 2</summary>
+<div class="language-python highlight"><span class="filename">wallet.py</span><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="ch">#!/usr/bin/env python3</span>
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="sd">"""A small digital wallet, built up across the OOP tutorials.</span>
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="sd">Version 2: Inheritance &amp; Polymorphism.</span>
+</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="sd">"""</span>
+</span><span id="__span-17-6"><a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a>
+</span><span id="__span-17-7"><a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a>
+</span><span id="__span-17-8"><a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a><span class="k">class</span><span class="w"> </span><span class="nc">Account</span><span class="p">:</span>
+</span><span id="__span-17-9"><a id="__codelineno-17-9" name="__codelineno-17-9" href="#__codelineno-17-9"></a><span class="w">    </span><span class="sd">"""A wallet account holding money, in whole lek."""</span>
+</span><span id="__span-17-10"><a id="__codelineno-17-10" name="__codelineno-17-10" href="#__codelineno-17-10"></a>
+</span><span id="__span-17-11"><a id="__codelineno-17-11" name="__codelineno-17-11" href="#__codelineno-17-11"></a>    <span class="n">currency</span> <span class="o">=</span> <span class="s2">"ALL"</span>
+</span><span id="__span-17-12"><a id="__codelineno-17-12" name="__codelineno-17-12" href="#__codelineno-17-12"></a>
+</span><span id="__span-17-13"><a id="__codelineno-17-13" name="__codelineno-17-13" href="#__codelineno-17-13"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">owner</span><span class="p">,</span> <span class="n">balance</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+</span><span id="__span-17-14"><a id="__codelineno-17-14" name="__codelineno-17-14" href="#__codelineno-17-14"></a><span class="w">        </span><span class="sd">"""Create an account for owner with an opening balance."""</span>
+</span><span id="__span-17-15"><a id="__codelineno-17-15" name="__codelineno-17-15" href="#__codelineno-17-15"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">owner</span> <span class="o">=</span> <span class="n">owner</span>
+</span><span id="__span-17-16"><a id="__codelineno-17-16" name="__codelineno-17-16" href="#__codelineno-17-16"></a>        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">balance</span><span class="p">,</span> <span class="nb">bool</span><span class="p">)</span> <span class="ow">or</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">balance</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+</span><span id="__span-17-17"><a id="__codelineno-17-17" name="__codelineno-17-17" href="#__codelineno-17-17"></a>            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">"balance must be an integer"</span><span class="p">)</span>
+</span><span id="__span-17-18"><a id="__codelineno-17-18" name="__codelineno-17-18" href="#__codelineno-17-18"></a>        <span class="k">if</span> <span class="n">balance</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+</span><span id="__span-17-19"><a id="__codelineno-17-19" name="__codelineno-17-19" href="#__codelineno-17-19"></a>            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"balance must not be negative"</span><span class="p">)</span>
+</span><span id="__span-17-20"><a id="__codelineno-17-20" name="__codelineno-17-20" href="#__codelineno-17-20"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_balance</span> <span class="o">=</span> <span class="n">balance</span>
+</span><span id="__span-17-21"><a id="__codelineno-17-21" name="__codelineno-17-21" href="#__codelineno-17-21"></a>
+</span><span id="__span-17-22"><a id="__codelineno-17-22" name="__codelineno-17-22" href="#__codelineno-17-22"></a>    <span class="nd">@property</span>
+</span><span id="__span-17-23"><a id="__codelineno-17-23" name="__codelineno-17-23" href="#__codelineno-17-23"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">owner</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="__span-17-24"><a id="__codelineno-17-24" name="__codelineno-17-24" href="#__codelineno-17-24"></a><span class="w">        </span><span class="sd">"""The account holder's name."""</span>
+</span><span id="__span-17-25"><a id="__codelineno-17-25" name="__codelineno-17-25" href="#__codelineno-17-25"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_owner</span>
+</span><span id="__span-17-26"><a id="__codelineno-17-26" name="__codelineno-17-26" href="#__codelineno-17-26"></a>
+</span><span id="__span-17-27"><a id="__codelineno-17-27" name="__codelineno-17-27" href="#__codelineno-17-27"></a>    <span class="nd">@owner</span><span class="o">.</span><span class="n">setter</span>
+</span><span id="__span-17-28"><a id="__codelineno-17-28" name="__codelineno-17-28" href="#__codelineno-17-28"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">owner</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+</span><span id="__span-17-29"><a id="__codelineno-17-29" name="__codelineno-17-29" href="#__codelineno-17-29"></a>        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+</span><span id="__span-17-30"><a id="__codelineno-17-30" name="__codelineno-17-30" href="#__codelineno-17-30"></a>            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">"owner must be a string"</span><span class="p">)</span>
+</span><span id="__span-17-31"><a id="__codelineno-17-31" name="__codelineno-17-31" href="#__codelineno-17-31"></a>        <span class="k">if</span> <span class="ow">not</span> <span class="n">value</span><span class="o">.</span><span class="n">strip</span><span class="p">():</span>
+</span><span id="__span-17-32"><a id="__codelineno-17-32" name="__codelineno-17-32" href="#__codelineno-17-32"></a>            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"owner must not be empty"</span><span class="p">)</span>
+</span><span id="__span-17-33"><a id="__codelineno-17-33" name="__codelineno-17-33" href="#__codelineno-17-33"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_owner</span> <span class="o">=</span> <span class="n">value</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+</span><span id="__span-17-34"><a id="__codelineno-17-34" name="__codelineno-17-34" href="#__codelineno-17-34"></a>
+</span><span id="__span-17-35"><a id="__codelineno-17-35" name="__codelineno-17-35" href="#__codelineno-17-35"></a>    <span class="nd">@property</span>
+</span><span id="__span-17-36"><a id="__codelineno-17-36" name="__codelineno-17-36" href="#__codelineno-17-36"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">balance</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="__span-17-37"><a id="__codelineno-17-37" name="__codelineno-17-37" href="#__codelineno-17-37"></a><span class="w">        </span><span class="sd">"""The current balance. Read-only: use deposit and withdraw."""</span>
+</span><span id="__span-17-38"><a id="__codelineno-17-38" name="__codelineno-17-38" href="#__codelineno-17-38"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_balance</span>
+</span><span id="__span-17-39"><a id="__codelineno-17-39" name="__codelineno-17-39" href="#__codelineno-17-39"></a>
+</span><span id="__span-17-40"><a id="__codelineno-17-40" name="__codelineno-17-40" href="#__codelineno-17-40"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">deposit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">amount</span><span class="p">):</span>
+</span><span id="__span-17-41"><a id="__codelineno-17-41" name="__codelineno-17-41" href="#__codelineno-17-41"></a><span class="w">        </span><span class="sd">"""Add amount to the balance and return the new balance."""</span>
+</span><span id="__span-17-42"><a id="__codelineno-17-42" name="__codelineno-17-42" href="#__codelineno-17-42"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_check_amount</span><span class="p">(</span><span class="n">amount</span><span class="p">)</span>
+</span><span id="__span-17-43"><a id="__codelineno-17-43" name="__codelineno-17-43" href="#__codelineno-17-43"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_balance</span> <span class="o">+=</span> <span class="n">amount</span>
+</span><span id="__span-17-44"><a id="__codelineno-17-44" name="__codelineno-17-44" href="#__codelineno-17-44"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_balance</span>
+</span><span id="__span-17-45"><a id="__codelineno-17-45" name="__codelineno-17-45" href="#__codelineno-17-45"></a>
+</span><span id="__span-17-46"><a id="__codelineno-17-46" name="__codelineno-17-46" href="#__codelineno-17-46"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">withdraw</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">amount</span><span class="p">):</span>
+</span><span id="__span-17-47"><a id="__codelineno-17-47" name="__codelineno-17-47" href="#__codelineno-17-47"></a><span class="w">        </span><span class="sd">"""Take amount from the balance and return the new balance."""</span>
+</span><span id="__span-17-48"><a id="__codelineno-17-48" name="__codelineno-17-48" href="#__codelineno-17-48"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_check_amount</span><span class="p">(</span><span class="n">amount</span><span class="p">)</span>
+</span><span id="__span-17-49"><a id="__codelineno-17-49" name="__codelineno-17-49" href="#__codelineno-17-49"></a>        <span class="k">if</span> <span class="n">amount</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">_balance</span><span class="p">:</span>
+</span><span id="__span-17-50"><a id="__codelineno-17-50" name="__codelineno-17-50" href="#__codelineno-17-50"></a>            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"insufficient funds"</span><span class="p">)</span>
+</span><span id="__span-17-51"><a id="__codelineno-17-51" name="__codelineno-17-51" href="#__codelineno-17-51"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_balance</span> <span class="o">-=</span> <span class="n">amount</span>
+</span><span id="__span-17-52"><a id="__codelineno-17-52" name="__codelineno-17-52" href="#__codelineno-17-52"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_balance</span>
+</span><span id="__span-17-53"><a id="__codelineno-17-53" name="__codelineno-17-53" href="#__codelineno-17-53"></a>
+</span><span id="__span-17-54"><a id="__codelineno-17-54" name="__codelineno-17-54" href="#__codelineno-17-54"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">_check_amount</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">amount</span><span class="p">):</span>
+</span><span id="__span-17-55"><a id="__codelineno-17-55" name="__codelineno-17-55" href="#__codelineno-17-55"></a><span class="w">        </span><span class="sd">"""Raise if amount is not a positive whole number."""</span>
+</span><span id="__span-17-56"><a id="__codelineno-17-56" name="__codelineno-17-56" href="#__codelineno-17-56"></a>        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">amount</span><span class="p">,</span> <span class="nb">bool</span><span class="p">)</span> <span class="ow">or</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">amount</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+</span><span id="__span-17-57"><a id="__codelineno-17-57" name="__codelineno-17-57" href="#__codelineno-17-57"></a>            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">"amount must be an integer"</span><span class="p">)</span>
+</span><span id="__span-17-58"><a id="__codelineno-17-58" name="__codelineno-17-58" href="#__codelineno-17-58"></a>        <span class="k">if</span> <span class="n">amount</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+</span><span id="__span-17-59"><a id="__codelineno-17-59" name="__codelineno-17-59" href="#__codelineno-17-59"></a>            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"amount must be positive"</span><span class="p">)</span>
+</span><span id="__span-17-60"><a id="__codelineno-17-60" name="__codelineno-17-60" href="#__codelineno-17-60"></a>
+</span><span id="__span-17-61"><a id="__codelineno-17-61" name="__codelineno-17-61" href="#__codelineno-17-61"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">month_end</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="__span-17-62"><a id="__codelineno-17-62" name="__codelineno-17-62" href="#__codelineno-17-62"></a><span class="w">        </span><span class="sd">"""Apply end-of-month rules and return the new balance.</span>
+</span><span id="__span-17-63"><a id="__codelineno-17-63" name="__codelineno-17-63" href="#__codelineno-17-63"></a>
+</span><span id="__span-17-64"><a id="__codelineno-17-64" name="__codelineno-17-64" href="#__codelineno-17-64"></a><span class="sd">        A plain account has none.</span>
+</span><span id="__span-17-65"><a id="__codelineno-17-65" name="__codelineno-17-65" href="#__codelineno-17-65"></a><span class="sd">        """</span>
+</span><span id="__span-17-66"><a id="__codelineno-17-66" name="__codelineno-17-66" href="#__codelineno-17-66"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_balance</span>
+</span><span id="__span-17-67"><a id="__codelineno-17-67" name="__codelineno-17-67" href="#__codelineno-17-67"></a>
+</span><span id="__span-17-68"><a id="__codelineno-17-68" name="__codelineno-17-68" href="#__codelineno-17-68"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="__span-17-69"><a id="__codelineno-17-69" name="__codelineno-17-69" href="#__codelineno-17-69"></a>        <span class="k">return</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">owner</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">balance</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">currency</span><span class="si">}</span><span class="s2">"</span>
+</span><span id="__span-17-70"><a id="__codelineno-17-70" name="__codelineno-17-70" href="#__codelineno-17-70"></a>
+</span><span id="__span-17-71"><a id="__codelineno-17-71" name="__codelineno-17-71" href="#__codelineno-17-71"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="__span-17-72"><a id="__codelineno-17-72" name="__codelineno-17-72" href="#__codelineno-17-72"></a>        <span class="k">return</span> <span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">(owner=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">owner</span><span class="si">!r}</span><span class="s2">, "</span>
+</span><span id="__span-17-73"><a id="__codelineno-17-73" name="__codelineno-17-73" href="#__codelineno-17-73"></a>                <span class="sa">f</span><span class="s2">"balance=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">balance</span><span class="si">}</span><span class="s2">)"</span><span class="p">)</span>
+</span><span id="__span-17-74"><a id="__codelineno-17-74" name="__codelineno-17-74" href="#__codelineno-17-74"></a>
+</span><span id="__span-17-75"><a id="__codelineno-17-75" name="__codelineno-17-75" href="#__codelineno-17-75"></a>
+</span><span id="__span-17-76"><a id="__codelineno-17-76" name="__codelineno-17-76" href="#__codelineno-17-76"></a><span class="k">class</span><span class="w"> </span><span class="nc">SavingsAccount</span><span class="p">(</span><span class="n">Account</span><span class="p">):</span>
+</span><span id="__span-17-77"><a id="__codelineno-17-77" name="__codelineno-17-77" href="#__codelineno-17-77"></a><span class="w">    </span><span class="sd">"""An account that earns interest every month."""</span>
+</span><span id="__span-17-78"><a id="__codelineno-17-78" name="__codelineno-17-78" href="#__codelineno-17-78"></a>
+</span><span id="__span-17-79"><a id="__codelineno-17-79" name="__codelineno-17-79" href="#__codelineno-17-79"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">owner</span><span class="p">,</span> <span class="n">balance</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">rate</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+</span><span id="__span-17-80"><a id="__codelineno-17-80" name="__codelineno-17-80" href="#__codelineno-17-80"></a><span class="w">        </span><span class="sd">"""Create a savings account; rate is monthly interest in percent."""</span>
+</span><span id="__span-17-81"><a id="__codelineno-17-81" name="__codelineno-17-81" href="#__codelineno-17-81"></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">owner</span><span class="p">,</span> <span class="n">balance</span><span class="p">)</span>
+</span><span id="__span-17-82"><a id="__codelineno-17-82" name="__codelineno-17-82" href="#__codelineno-17-82"></a>        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">rate</span><span class="p">,</span> <span class="nb">bool</span><span class="p">)</span> <span class="ow">or</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">rate</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+</span><span id="__span-17-83"><a id="__codelineno-17-83" name="__codelineno-17-83" href="#__codelineno-17-83"></a>            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">"rate must be an integer"</span><span class="p">)</span>
+</span><span id="__span-17-84"><a id="__codelineno-17-84" name="__codelineno-17-84" href="#__codelineno-17-84"></a>        <span class="k">if</span> <span class="ow">not</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">rate</span> <span class="o">&lt;=</span> <span class="mi">10</span><span class="p">:</span>
+</span><span id="__span-17-85"><a id="__codelineno-17-85" name="__codelineno-17-85" href="#__codelineno-17-85"></a>            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"rate must be between 0 and 10"</span><span class="p">)</span>
+</span><span id="__span-17-86"><a id="__codelineno-17-86" name="__codelineno-17-86" href="#__codelineno-17-86"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_rate</span> <span class="o">=</span> <span class="n">rate</span>
+</span><span id="__span-17-87"><a id="__codelineno-17-87" name="__codelineno-17-87" href="#__codelineno-17-87"></a>
+</span><span id="__span-17-88"><a id="__codelineno-17-88" name="__codelineno-17-88" href="#__codelineno-17-88"></a>    <span class="nd">@property</span>
+</span><span id="__span-17-89"><a id="__codelineno-17-89" name="__codelineno-17-89" href="#__codelineno-17-89"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">rate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="__span-17-90"><a id="__codelineno-17-90" name="__codelineno-17-90" href="#__codelineno-17-90"></a><span class="w">        </span><span class="sd">"""Monthly interest rate, in whole percent."""</span>
+</span><span id="__span-17-91"><a id="__codelineno-17-91" name="__codelineno-17-91" href="#__codelineno-17-91"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_rate</span>
+</span><span id="__span-17-92"><a id="__codelineno-17-92" name="__codelineno-17-92" href="#__codelineno-17-92"></a>
+</span><span id="__span-17-93"><a id="__codelineno-17-93" name="__codelineno-17-93" href="#__codelineno-17-93"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">add_interest</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="__span-17-94"><a id="__codelineno-17-94" name="__codelineno-17-94" href="#__codelineno-17-94"></a><span class="w">        </span><span class="sd">"""Add this month's interest and return the amount added."""</span>
+</span><span id="__span-17-95"><a id="__codelineno-17-95" name="__codelineno-17-95" href="#__codelineno-17-95"></a>        <span class="n">interest</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_balance</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">_rate</span> <span class="o">//</span> <span class="mi">100</span>
+</span><span id="__span-17-96"><a id="__codelineno-17-96" name="__codelineno-17-96" href="#__codelineno-17-96"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_balance</span> <span class="o">+=</span> <span class="n">interest</span>
+</span><span id="__span-17-97"><a id="__codelineno-17-97" name="__codelineno-17-97" href="#__codelineno-17-97"></a>        <span class="k">return</span> <span class="n">interest</span>
+</span><span id="__span-17-98"><a id="__codelineno-17-98" name="__codelineno-17-98" href="#__codelineno-17-98"></a>
+</span><span id="__span-17-99"><a id="__codelineno-17-99" name="__codelineno-17-99" href="#__codelineno-17-99"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">month_end</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="__span-17-100"><a id="__codelineno-17-100" name="__codelineno-17-100" href="#__codelineno-17-100"></a><span class="w">        </span><span class="sd">"""Add this month's interest and return the new balance."""</span>
+</span><span id="__span-17-101"><a id="__codelineno-17-101" name="__codelineno-17-101" href="#__codelineno-17-101"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">add_interest</span><span class="p">()</span>
+</span><span id="__span-17-102"><a id="__codelineno-17-102" name="__codelineno-17-102" href="#__codelineno-17-102"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_balance</span>
+</span><span id="__span-17-103"><a id="__codelineno-17-103" name="__codelineno-17-103" href="#__codelineno-17-103"></a>
+</span><span id="__span-17-104"><a id="__codelineno-17-104" name="__codelineno-17-104" href="#__codelineno-17-104"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="__span-17-105"><a id="__codelineno-17-105" name="__codelineno-17-105" href="#__codelineno-17-105"></a>        <span class="k">return</span> <span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">(owner=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">owner</span><span class="si">!r}</span><span class="s2">, "</span>
+</span><span id="__span-17-106"><a id="__codelineno-17-106" name="__codelineno-17-106" href="#__codelineno-17-106"></a>                <span class="sa">f</span><span class="s2">"balance=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">balance</span><span class="si">}</span><span class="s2">, rate=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">rate</span><span class="si">}</span><span class="s2">)"</span><span class="p">)</span>
+</span><span id="__span-17-107"><a id="__codelineno-17-107" name="__codelineno-17-107" href="#__codelineno-17-107"></a>
+</span><span id="__span-17-108"><a id="__codelineno-17-108" name="__codelineno-17-108" href="#__codelineno-17-108"></a>
+</span><span id="__span-17-109"><a id="__codelineno-17-109" name="__codelineno-17-109" href="#__codelineno-17-109"></a><span class="k">class</span><span class="w"> </span><span class="nc">CheckingAccount</span><span class="p">(</span><span class="n">Account</span><span class="p">):</span>
+</span><span id="__span-17-110"><a id="__codelineno-17-110" name="__codelineno-17-110" href="#__codelineno-17-110"></a><span class="w">    </span><span class="sd">"""An everyday account that may go below zero, up to a limit."""</span>
+</span><span id="__span-17-111"><a id="__codelineno-17-111" name="__codelineno-17-111" href="#__codelineno-17-111"></a>
+</span><span id="__span-17-112"><a id="__codelineno-17-112" name="__codelineno-17-112" href="#__codelineno-17-112"></a>    <span class="n">fee</span> <span class="o">=</span> <span class="mi">100</span>
+</span><span id="__span-17-113"><a id="__codelineno-17-113" name="__codelineno-17-113" href="#__codelineno-17-113"></a>
+</span><span id="__span-17-114"><a id="__codelineno-17-114" name="__codelineno-17-114" href="#__codelineno-17-114"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">owner</span><span class="p">,</span> <span class="n">balance</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">overdraft</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+</span><span id="__span-17-115"><a id="__codelineno-17-115" name="__codelineno-17-115" href="#__codelineno-17-115"></a><span class="w">        </span><span class="sd">"""Create a checking account with an overdraft limit."""</span>
+</span><span id="__span-17-116"><a id="__codelineno-17-116" name="__codelineno-17-116" href="#__codelineno-17-116"></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">owner</span><span class="p">,</span> <span class="n">balance</span><span class="p">)</span>
+</span><span id="__span-17-117"><a id="__codelineno-17-117" name="__codelineno-17-117" href="#__codelineno-17-117"></a>        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">overdraft</span><span class="p">,</span> <span class="nb">bool</span><span class="p">)</span> <span class="ow">or</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">overdraft</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+</span><span id="__span-17-118"><a id="__codelineno-17-118" name="__codelineno-17-118" href="#__codelineno-17-118"></a>            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">"overdraft must be an integer"</span><span class="p">)</span>
+</span><span id="__span-17-119"><a id="__codelineno-17-119" name="__codelineno-17-119" href="#__codelineno-17-119"></a>        <span class="k">if</span> <span class="n">overdraft</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+</span><span id="__span-17-120"><a id="__codelineno-17-120" name="__codelineno-17-120" href="#__codelineno-17-120"></a>            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"overdraft must not be negative"</span><span class="p">)</span>
+</span><span id="__span-17-121"><a id="__codelineno-17-121" name="__codelineno-17-121" href="#__codelineno-17-121"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_overdraft</span> <span class="o">=</span> <span class="n">overdraft</span>
+</span><span id="__span-17-122"><a id="__codelineno-17-122" name="__codelineno-17-122" href="#__codelineno-17-122"></a>
+</span><span id="__span-17-123"><a id="__codelineno-17-123" name="__codelineno-17-123" href="#__codelineno-17-123"></a>    <span class="nd">@property</span>
+</span><span id="__span-17-124"><a id="__codelineno-17-124" name="__codelineno-17-124" href="#__codelineno-17-124"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">overdraft</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="__span-17-125"><a id="__codelineno-17-125" name="__codelineno-17-125" href="#__codelineno-17-125"></a><span class="w">        </span><span class="sd">"""How far below zero the balance may go."""</span>
+</span><span id="__span-17-126"><a id="__codelineno-17-126" name="__codelineno-17-126" href="#__codelineno-17-126"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_overdraft</span>
+</span><span id="__span-17-127"><a id="__codelineno-17-127" name="__codelineno-17-127" href="#__codelineno-17-127"></a>
+</span><span id="__span-17-128"><a id="__codelineno-17-128" name="__codelineno-17-128" href="#__codelineno-17-128"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">withdraw</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">amount</span><span class="p">):</span>
+</span><span id="__span-17-129"><a id="__codelineno-17-129" name="__codelineno-17-129" href="#__codelineno-17-129"></a><span class="w">        </span><span class="sd">"""Take amount out, letting the balance go down to -overdraft."""</span>
+</span><span id="__span-17-130"><a id="__codelineno-17-130" name="__codelineno-17-130" href="#__codelineno-17-130"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_check_amount</span><span class="p">(</span><span class="n">amount</span><span class="p">)</span>
+</span><span id="__span-17-131"><a id="__codelineno-17-131" name="__codelineno-17-131" href="#__codelineno-17-131"></a>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_balance</span> <span class="o">-</span> <span class="n">amount</span> <span class="o">&lt;</span> <span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">_overdraft</span><span class="p">:</span>
+</span><span id="__span-17-132"><a id="__codelineno-17-132" name="__codelineno-17-132" href="#__codelineno-17-132"></a>            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"overdraft limit exceeded"</span><span class="p">)</span>
+</span><span id="__span-17-133"><a id="__codelineno-17-133" name="__codelineno-17-133" href="#__codelineno-17-133"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_balance</span> <span class="o">-=</span> <span class="n">amount</span>
+</span><span id="__span-17-134"><a id="__codelineno-17-134" name="__codelineno-17-134" href="#__codelineno-17-134"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_balance</span>
+</span><span id="__span-17-135"><a id="__codelineno-17-135" name="__codelineno-17-135" href="#__codelineno-17-135"></a>
+</span><span id="__span-17-136"><a id="__codelineno-17-136" name="__codelineno-17-136" href="#__codelineno-17-136"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">month_end</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="__span-17-137"><a id="__codelineno-17-137" name="__codelineno-17-137" href="#__codelineno-17-137"></a><span class="w">        </span><span class="sd">"""Charge the monthly fee if overdrawn; return the new balance."""</span>
+</span><span id="__span-17-138"><a id="__codelineno-17-138" name="__codelineno-17-138" href="#__codelineno-17-138"></a>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_balance</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+</span><span id="__span-17-139"><a id="__codelineno-17-139" name="__codelineno-17-139" href="#__codelineno-17-139"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">_balance</span> <span class="o">-=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fee</span>
+</span><span id="__span-17-140"><a id="__codelineno-17-140" name="__codelineno-17-140" href="#__codelineno-17-140"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_balance</span>
+</span><span id="__span-17-141"><a id="__codelineno-17-141" name="__codelineno-17-141" href="#__codelineno-17-141"></a>
+</span><span id="__span-17-142"><a id="__codelineno-17-142" name="__codelineno-17-142" href="#__codelineno-17-142"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="__span-17-143"><a id="__codelineno-17-143" name="__codelineno-17-143" href="#__codelineno-17-143"></a>        <span class="k">return</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__str__</span><span class="p">()</span><span class="si">}</span><span class="s2"> (overdraft </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">overdraft</span><span class="si">}</span><span class="s2">)"</span>
+</span><span id="__span-17-144"><a id="__codelineno-17-144" name="__codelineno-17-144" href="#__codelineno-17-144"></a>
+</span><span id="__span-17-145"><a id="__codelineno-17-145" name="__codelineno-17-145" href="#__codelineno-17-145"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="__span-17-146"><a id="__codelineno-17-146" name="__codelineno-17-146" href="#__codelineno-17-146"></a>        <span class="k">return</span> <span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">(owner=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">owner</span><span class="si">!r}</span><span class="s2">, "</span>
+</span><span id="__span-17-147"><a id="__codelineno-17-147" name="__codelineno-17-147" href="#__codelineno-17-147"></a>                <span class="sa">f</span><span class="s2">"balance=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">balance</span><span class="si">}</span><span class="s2">, overdraft=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">overdraft</span><span class="si">}</span><span class="s2">)"</span><span class="p">)</span>
+</span><span id="__span-17-148"><a id="__codelineno-17-148" name="__codelineno-17-148" href="#__codelineno-17-148"></a>
+</span><span id="__span-17-149"><a id="__codelineno-17-149" name="__codelineno-17-149" href="#__codelineno-17-149"></a>
+</span><span id="__span-17-150"><a id="__codelineno-17-150" name="__codelineno-17-150" href="#__codelineno-17-150"></a><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+</span><span id="__span-17-151"><a id="__codelineno-17-151" name="__codelineno-17-151" href="#__codelineno-17-151"></a>    <span class="n">accounts</span> <span class="o">=</span> <span class="p">[</span>
+</span><span id="__span-17-152"><a id="__codelineno-17-152" name="__codelineno-17-152" href="#__codelineno-17-152"></a>        <span class="n">Account</span><span class="p">(</span><span class="s2">"Ada"</span><span class="p">,</span> <span class="mi">500</span><span class="p">),</span>
+</span><span id="__span-17-153"><a id="__codelineno-17-153" name="__codelineno-17-153" href="#__codelineno-17-153"></a>        <span class="n">SavingsAccount</span><span class="p">(</span><span class="s2">"Grace"</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="n">rate</span><span class="o">=</span><span class="mi">2</span><span class="p">),</span>
+</span><span id="__span-17-154"><a id="__codelineno-17-154" name="__codelineno-17-154" href="#__codelineno-17-154"></a>        <span class="n">CheckingAccount</span><span class="p">(</span><span class="s2">"Linus"</span><span class="p">,</span> <span class="n">overdraft</span><span class="o">=</span><span class="mi">500</span><span class="p">),</span>
+</span><span id="__span-17-155"><a id="__codelineno-17-155" name="__codelineno-17-155" href="#__codelineno-17-155"></a>    <span class="p">]</span>
+</span><span id="__span-17-156"><a id="__codelineno-17-156" name="__codelineno-17-156" href="#__codelineno-17-156"></a>    <span class="n">accounts</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">withdraw</span><span class="p">(</span><span class="mi">300</span><span class="p">)</span>
+</span><span id="__span-17-157"><a id="__codelineno-17-157" name="__codelineno-17-157" href="#__codelineno-17-157"></a>    <span class="k">for</span> <span class="n">account</span> <span class="ow">in</span> <span class="n">accounts</span><span class="p">:</span>
+</span><span id="__span-17-158"><a id="__codelineno-17-158" name="__codelineno-17-158" href="#__codelineno-17-158"></a>        <span class="n">account</span><span class="o">.</span><span class="n">month_end</span><span class="p">()</span>
+</span><span id="__span-17-159"><a id="__codelineno-17-159" name="__codelineno-17-159" href="#__codelineno-17-159"></a>        <span class="nb">print</span><span class="p">(</span><span class="n">account</span><span class="p">)</span>
+</span><span id="__span-17-160"><a id="__codelineno-17-160" name="__codelineno-17-160" href="#__codelineno-17-160"></a>    <span class="n">total</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">account</span><span class="o">.</span><span class="n">balance</span> <span class="k">for</span> <span class="n">account</span> <span class="ow">in</span> <span class="n">accounts</span><span class="p">)</span>
+</span><span id="__span-17-161"><a id="__codelineno-17-161" name="__codelineno-17-161" href="#__codelineno-17-161"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Total: </span><span class="si">{</span><span class="n">total</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">Account</span><span class="o">.</span><span class="n">currency</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</span></code></pre></div>
+</details>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>./wallet.py
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>Ada: 500 ALL
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>Grace: 1020 ALL
+</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>Linus: -400 ALL (overdraft 500)
+</span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a>Total: 1120 ALL
+</span></code></pre></div>
+<div class="admonition ai">
+<p class="admonition-title">AI in the loop</p>
+<p>Before adding a class to a hierarchy, describe the new account type
+to an assistant and ask: <em>"Should this inherit from <code>Account</code>, or
+hold an <code>Account</code> instead? What promises of <code>Account</code> would it
+break?"</em> Then argue with the answer. Deciding <em>is a</em> versus <em>has a</em>
+is a design judgement, and it is exactly the kind of question your
+peers will ask in a code review.</p>
+</div>
+<h2 id="when-something-goes-wrong">When something goes wrong<a class="headerlink" href="#when-something-goes-wrong" title="Link to this section">&para;</a></h2>
+<details class="note">
+<summary><code>AttributeError: 'SavingsAccount' object has no attribute '_balance'</code></summary>
+<p>The subclass has its own <code>__init__</code> and does not call
+<code>super().__init__(...)</code>, so the parent never set <code>_balance</code> up. Add
+the call as the first line.</p>
+</details>
+<details class="note">
+<summary>My override never runs; the parent's method runs instead</summary>
+<p>The names do not match exactly. A typo such as <code>month_End</code> creates a
+new, separate method, and Python keeps finding the parent's
+<code>month_end</code>. Copy the name from the parent.</p>
+</details>
+<details class="note">
+<summary><code>TypeError: SavingsAccount.__init__() takes from 2 to 4 positional arguments but 5 were given</code></summary>
+<p>The subclass's <code>__init__</code> has its own parameters. Check them, and
+pass extra values by name for clarity: <code>SavingsAccount("Ada", 100, rate=2)</code>.</p>
+</details>
+<details class="note">
+<summary><code>AttributeError: 'CheckingAccount' object has no attribute '_CheckingAccount__balance'</code></summary>
+<p>The parent stores the value with two underscores, so it is
+name-mangled to the parent's class. Use a single underscore for
+attributes subclasses need, as the wallet does.</p>
+</details>
+<details class="note">
+<summary><code>RecursionError</code> inside an overridden method</summary>
+<p>The override calls itself, for example <code>self.withdraw(amount)</code>
+inside <code>withdraw</code>. To reach the parent's version, call
+<code>super().withdraw(amount)</code>.</p>
+</details>
+<h2 id="explain-it-to-someone">Explain it to someone<a class="headerlink" href="#explain-it-to-someone" title="Link to this section">&para;</a></h2>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> How inheritance lets a class reuse another class's behaviour</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Which class is the parent and which is the child, and what each inherits</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> How to create a subclass that adds attributes and methods</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> What <code>super().__init__(...)</code> does, and what happens without it</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> The difference between overriding a method and extending it with <code>super()</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> How Python finds a method: the method resolution order</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> What polymorphism is, and why it beats a chain of <code>isinstance</code> checks</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> The difference between <code>isinstance</code>, <code>issubclass</code> and <code>type(x) is Y</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Why <code>isinstance(True, int)</code> is <code>True</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> How to decide between "is a" and "has a" when designing a hierarchy</li>
+</ul>
+<h2 id="quick-reference">Quick reference<a class="headerlink" href="#quick-reference" title="Link to this section">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>class Child(Parent):</code></td>
+<td>Define a subclass</td>
+</tr>
+<tr>
+<td><code>super().__init__(...)</code></td>
+<td>Run the parent's initialiser</td>
+</tr>
+<tr>
+<td><code>def method(self):</code> in the child</td>
+<td>Override the parent's method</td>
+</tr>
+<tr>
+<td><code>super().method()</code></td>
+<td>Call the parent's version inside an override</td>
+</tr>
+<tr>
+<td><code>type(self).__name__</code></td>
+<td>The object's actual class name</td>
+</tr>
+<tr>
+<td><code>Class.mro()</code></td>
+<td>The order Python searches for methods</td>
+</tr>
+<tr>
+<td><code>isinstance(obj, Class)</code></td>
+<td>Is <code>obj</code> a <code>Class</code>, or a subclass of it?</td>
+</tr>
+<tr>
+<td><code>issubclass(A, B)</code></td>
+<td>Does class <code>A</code> inherit from <code>B</code>?</td>
+</tr>
+</tbody>
+</table>
+<h2 id="next">Next<a class="headerlink" href="#next" title="Link to this section">&para;</a></h2>
+<p><code>Account</code> can still be created on its own, and nothing forces a new
+account type to define <code>month_end</code>. Next you turn the base class into a
+contract that every account type must fulfil.</p>
+<p><a class="h-button" href="../">Object-Oriented Design</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../classes/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Classes &amp; Object Model">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Classes & Object Model
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../../03-software-development/" class="md-footer__link md-footer__link--next" aria-label="Next: Software Development">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Software Development
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    
+    <div class="h-tagline">Don't learn tech. <span class="h-tagline__accent">Build it.</span></div>
+  
+  
+    <div class="md-copyright__highlight">&copy; 2026 Holberton School Albania</div>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://github.com/evisp" target="_blank" rel="noopener" title="GitHub" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.indexes", "navigation.path", "navigation.top", "navigation.tracking", "navigation.footer", "toc.follow", "search.highlight", "search.share", "search.suggest", "content.code.copy", "content.code.annotate", "content.tabs.link", "content.action.edit"], "search": "../../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.c21346df.min.js"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

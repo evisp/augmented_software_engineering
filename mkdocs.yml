@@ -162,7 +162,9 @@ nav:
           - Functions & Modularity: 02-foundations/python/functions.md
           - Core Data Structures: 02-foundations/python/data-structures.md
           - Exception Handling: 02-foundations/python/exceptions.md
-      - Object-Oriented Design: 02-foundations/oop/index.md
+      - Object-Oriented Design:
+          - 02-foundations/oop/index.md
+          - Classes & Object Model: 02-foundations/oop/classes.md
 
   - Software Development:
       - 03-software-development/index.md

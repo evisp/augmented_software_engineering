@@ -167,6 +167,8 @@ nav:
           - Classes & Object Model: 02-foundations/oop/classes.md
           - Inheritance & Polymorphism: 02-foundations/oop/inheritance.md
           - Abstract Classes & Interfaces: 02-foundations/oop/abstract-classes.md
+          - Introduction to UML Modeling: 02-foundations/oop/uml.md
+          - Introduction to Design Patterns: 02-foundations/oop/design-patterns.md
 
   - Software Development:
       - 03-software-development/index.md

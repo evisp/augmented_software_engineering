@@ -673,4 +673,4 @@ One kind of account is not enough for a real wallet. Next you create
 savings and checking accounts that reuse everything `Account` already
 does.
 
-[Object-Oriented Design](index.md){ .h-button }
+[Inheritance & Polymorphism](inheritance.md){ .h-button }

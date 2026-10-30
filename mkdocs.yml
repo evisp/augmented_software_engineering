@@ -165,6 +165,7 @@ nav:
       - Object-Oriented Design:
           - 02-foundations/oop/index.md
           - Classes & Object Model: 02-foundations/oop/classes.md
+          - Inheritance & Polymorphism: 02-foundations/oop/inheritance.md
 
   - Software Development:
       - 03-software-development/index.md

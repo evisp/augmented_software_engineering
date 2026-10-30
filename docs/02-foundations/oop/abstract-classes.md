@@ -29,7 +29,7 @@ contracts is what lets you plug your code into someone else's.
 <figure class="h-figure" markdown="0">
 <svg viewBox="0 0 680 130" role="img" aria-labelledby="oop3-plan-title oop3-plan-desc">
 <title id="oop3-plan-title">How the wallet grows across the module</title>
-<desc id="oop3-plan-desc">Version 1, Classes, and version 2, Inheritance, are done. Version 3, Abstract classes, is this page: contracts and mixins. Versions 4 and 5, UML and Patterns, come next.</desc>
+<desc id="oop3-plan-desc">Version 1, Classes: the Account class: done. Version 2, Inheritance: savings and checking accounts: done. Version 3, Abstract classes: contracts and mixins: this page. Version 4, UML: drawing the design: coming next. Version 5, Patterns: Factory, Observer and Decorator: coming next.</desc>
 <defs><marker id="oop3-plan-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="var(--h-fig-line)"/></marker></defs>
 <rect x="3" y="20" width="122" height="90" rx="10" fill="var(--h-fig-box)" stroke="var(--h-fig-text)" stroke-width="1.5"/>
 <rect x="141" y="20" width="122" height="90" rx="10" fill="var(--h-fig-box)" stroke="var(--h-fig-text)" stroke-width="1.5"/>
@@ -51,7 +51,7 @@ contracts is what lets you plug your code into someone else's.
 <text x="478" y="90" font-size="11" fill="var(--h-fig-muted)">draw the design</text>
 <text x="616" y="44" font-size="11" font-weight="700" fill="var(--h-fig-muted)">v5</text>
 <text x="616" y="70" font-size="14" font-weight="700" fill="var(--h-fig-text)">Patterns</text>
-<text x="616" y="90" font-size="11" fill="var(--h-fig-muted)">Strategy, Observer</text>
+<text x="616" y="90" font-size="11" fill="var(--h-fig-muted)">three patterns</text>
 </g>
 <g stroke="var(--h-fig-line)" stroke-width="2" marker-end="url(#oop3-plan-arrow)">
 <line x1="127" y1="65" x2="138" y2="65"/>
@@ -985,4 +985,4 @@ The wallet now has eight classes, two functions and several kinds of
 relationship between them. Next you learn to draw that design as a UML
 class diagram, so you can plan and discuss a design before writing it.
 
-[Object-Oriented Design](index.md){ .h-button }
+[Introduction to UML Modeling](uml.md){ .h-button }

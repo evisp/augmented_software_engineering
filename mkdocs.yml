@@ -172,7 +172,10 @@ nav:
 
   - Software Development:
       - 03-software-development/index.md
-      - Data & APIs: 03-software-development/data-and-apis/index.md
+      - Data & APIs:
+          - 03-software-development/data-and-apis/index.md
+          - From Script to Application: 03-software-development/data-and-apis/script-to-application.md
+          - File Handling: 03-software-development/data-and-apis/files.md
       - Web Front-end: 03-software-development/web-frontend/index.md
       - JavaScript & Node.js: 03-software-development/javascript-node/index.md
 

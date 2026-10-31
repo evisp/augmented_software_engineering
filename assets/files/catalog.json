@@ -1,0 +1,44 @@
+[
+  {
+    "title": "Kronikë në gur",
+    "author": "Ismail Kadare",
+    "year": 1971,
+    "available": true,
+    "tags": ["albanian", "novel"]
+  },
+  {
+    "title": "The Little Prince",
+    "author": "Antoine de Saint-Exupéry",
+    "year": 1943,
+    "available": false,
+    "tags": ["classic", "children"]
+  },
+  {
+    "title": "Nineteen Eighty-Four",
+    "author": "George Orwell",
+    "year": 1949,
+    "available": true,
+    "tags": ["classic", "dystopia"]
+  },
+  {
+    "title": "Dune",
+    "author": "Frank Herbert",
+    "year": 1965,
+    "available": false,
+    "tags": ["sci-fi"]
+  },
+  {
+    "title": "Pride and Prejudice",
+    "author": "Jane Austen",
+    "year": 1813,
+    "available": true,
+    "tags": ["classic", "romance"]
+  },
+  {
+    "title": "The Hobbit",
+    "author": "J. R. R. Tolkien",
+    "year": 1937,
+    "available": true,
+    "tags": ["fantasy", "children"]
+  }
+]

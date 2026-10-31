@@ -9,8 +9,8 @@ over the web through a REST API.
 <span class="badge">6 projects</span>
 <span class="badge">Needs: Object-Oriented Design</span>
 
-<p class="h-progress-label"><span>Tutorials published</span><span>4 of 6</span></p>
-<div class="h-progress" role="img" aria-label="4 of 6 tutorials published"><span style="width: 67%"></span></div>
+<p class="h-progress-label"><span>Tutorials published</span><span>6 of 6</span></p>
+<div class="h-progress" role="img" aria-label="6 of 6 tutorials published"><span style="width: 100%"></span></div>
 
 ## How these tutorials work
 
@@ -56,6 +56,7 @@ whenever you break something.
 | SQL: CRUD Operations | [`books.sql`](../../assets/sql/books.sql), one table of 20 books |
 | SQL: Joins & Relationships | [`library.sql`](../../assets/sql/library.sql), authors, books, members, cards, loans and tags |
 | Database Design & Normalization | [`loans_sheet.sql`](../../assets/sql/loans_sheet.sql), the library's old loans spreadsheet |
+| Object-Relational Mapping, RESTful API | [`library.sql`](../../assets/sql/library.sql) again, through Python classes and then over HTTP |
 
 !!! tip "What you need"
 
@@ -128,8 +129,10 @@ whenever you break something.
     Map classes to tables, and work with the database through Python
     objects.
 
-    <span class="badge badge--soon">Coming soon</span>
+    <span class="badge badge--ready">Ready</span>
     <span class="badge">24 h</span>
+
+    [:octicons-arrow-right-24: Start](orm.md)
 
 -   :material-api: **6 · RESTful API**
 
@@ -137,8 +140,10 @@ whenever you break something.
 
     Serve data over HTTP: endpoints, methods, status codes and JSON.
 
-    <span class="badge badge--soon">Coming soon</span>
+    <span class="badge badge--ready">Ready</span>
     <span class="badge">8 h</span>
+
+    [:octicons-arrow-right-24: Start](rest-api.md)
 
 </div>
 

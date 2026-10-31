@@ -178,6 +178,8 @@ nav:
           - "SQL: CRUD Operations": 03-software-development/data-and-apis/sql-crud.md
           - "SQL: Joins & Relationships": 03-software-development/data-and-apis/sql-joins.md
           - Database Design & Normalization: 03-software-development/data-and-apis/database-design.md
+          - Object-Relational Mapping: 03-software-development/data-and-apis/orm.md
+          - RESTful API: 03-software-development/data-and-apis/rest-api.md
       - Web Front-end: 03-software-development/web-frontend/index.md
       - JavaScript & Node.js: 03-software-development/javascript-node/index.md
 

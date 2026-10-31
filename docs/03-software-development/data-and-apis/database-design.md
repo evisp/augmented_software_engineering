@@ -1068,4 +1068,4 @@ You can now design a database, fill it and query it. Next, you connect
 it to Python properly: instead of writing SQL strings by hand, you map
 tables to classes and work with rows as objects, with an **ORM**.
 
-[Data & APIs](index.md){ .h-button }
+[Object-Relational Mapping](orm.md){ .h-button }

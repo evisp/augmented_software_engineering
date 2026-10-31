@@ -9,8 +9,58 @@ over the web through a REST API.
 <span class="badge">6 projects</span>
 <span class="badge">Needs: Object-Oriented Design</span>
 
-<p class="h-progress-label"><span>Tutorials published</span><span>0 of 6</span></p>
-<div class="h-progress" role="img" aria-label="0 of 6 tutorials published"><span style="width: 0%"></span></div>
+<p class="h-progress-label"><span>Tutorials published</span><span>1 of 6</span></p>
+<div class="h-progress" role="img" aria-label="1 of 6 tutorials published"><span style="width: 17%"></span></div>
+
+## How these tutorials work
+
+The projects on the Holberton intranet are where you build. These
+tutorials are where you learn the basics first, and practise them on
+small examples until they feel natural.
+
+<div class="grid cards cols-3" markdown>
+
+-   :material-stairs: **Learn step by step**
+
+    ---
+
+    One idea per step, each with a short example and the real output it
+    prints. Run every example yourself.
+
+-   :material-pencil-box-outline: **Try it**
+
+    ---
+
+    Most steps end with a short exercise. Write your answer first, then
+    open the collapsed answer to compare.
+
+-   :material-dumbbell: **Practise**
+
+    ---
+
+    Each tutorial ends with a practice set, from easy to harder, on the
+    same data you used along the way.
+
+</div>
+
+## The practice data: a small library
+
+Every tutorial in this module uses the same theme: a small library with
+books, authors and the people who borrow them. You download the files
+you need at the start of each tutorial, and you can download them again
+whenever you break something.
+
+| Tutorial | Practice data |
+|---|---|
+| File Handling | [`books.txt`](../../assets/files/books.txt), a list of ten books; [`catalog.json`](../../assets/files/catalog.json), the same kind of data as JSON |
+| SQL tutorials | A SQLite database of the library: books, authors, members and loans |
+
+!!! tip "What you need"
+
+    Python 3, a WSL terminal and VS Code, as set up in
+    [Tools](../../01-tools/index.md) and
+    [Python Fundamentals](../../02-foundations/python/index.md).
+    The SQL tutorials show you how to install SQLite.
 
 ## The path
 
@@ -24,8 +74,10 @@ over the web through a REST API.
 
     Open, write, read and close files safely, and save data as JSON.
 
-    <span class="badge badge--soon">Coming soon</span>
+    <span class="badge badge--ready">Ready</span>
     <span class="badge">4 h</span>
+
+    [:octicons-arrow-right-24: Start](files.md)
 
 -   :material-table-edit: **2 · SQL: CRUD Operations**
 

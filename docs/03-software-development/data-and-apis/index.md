@@ -9,8 +9,8 @@ over the web through a REST API.
 <span class="badge">6 projects</span>
 <span class="badge">Needs: Object-Oriented Design</span>
 
-<p class="h-progress-label"><span>Tutorials published</span><span>1 of 6</span></p>
-<div class="h-progress" role="img" aria-label="1 of 6 tutorials published"><span style="width: 17%"></span></div>
+<p class="h-progress-label"><span>Tutorials published</span><span>4 of 6</span></p>
+<div class="h-progress" role="img" aria-label="4 of 6 tutorials published"><span style="width: 67%"></span></div>
 
 ## How these tutorials work
 
@@ -53,7 +53,9 @@ whenever you break something.
 | Tutorial | Practice data |
 |---|---|
 | File Handling | [`books.txt`](../../assets/files/books.txt), a list of ten books; [`catalog.json`](../../assets/files/catalog.json), the same kind of data as JSON |
-| SQL tutorials | A SQLite database of the library: books, authors, members and loans |
+| SQL: CRUD Operations | [`books.sql`](../../assets/sql/books.sql), one table of 20 books |
+| SQL: Joins & Relationships | [`library.sql`](../../assets/sql/library.sql), authors, books, members, cards, loans and tags |
+| Database Design & Normalization | [`loans_sheet.sql`](../../assets/sql/loans_sheet.sql), the library's old loans spreadsheet |
 
 !!! tip "What you need"
 
@@ -85,8 +87,10 @@ whenever you break something.
 
     Tables and rows: create, read, update and delete data with SQL.
 
-    <span class="badge badge--soon">Coming soon</span>
+    <span class="badge badge--ready">Ready</span>
     <span class="badge">8 h</span>
+
+    [:octicons-arrow-right-24: Start](sql-crud.md)
 
 -   :material-table-network: **3 · SQL: Joins & Relationships**
 
@@ -95,8 +99,10 @@ whenever you break something.
     Link related tables with keys, and answer questions that span
     several of them.
 
-    <span class="badge badge--soon">Coming soon</span>
+    <span class="badge badge--ready">Ready</span>
     <span class="badge">8 h</span>
+
+    [:octicons-arrow-right-24: Start](sql-joins.md)
 
 -   :material-database-cog-outline: **4 · Database Design & Normalization**
 
@@ -104,8 +110,10 @@ whenever you break something.
 
     Design tables with keys, and remove duplicated data.
 
-    <span class="badge badge--soon">Coming soon</span>
+    <span class="badge badge--ready">Ready</span>
     <span class="badge">8 h</span>
+
+    [:octicons-arrow-right-24: Start](database-design.md)
 
 </div>
 

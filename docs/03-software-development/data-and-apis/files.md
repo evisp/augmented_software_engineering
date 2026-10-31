@@ -1508,4 +1508,4 @@ Files are perfect for a list or a settings file. But when you need to
 find, sort, count and change thousands of records, and keep them correct
 while several programs use them, you need a **database**. Next, SQL.
 
-[Data & APIs](index.md){ .h-button }
+[SQL: CRUD Operations](sql-crud.md){ .h-button }

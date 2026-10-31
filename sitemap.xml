@@ -2,130 +2,138 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://evisp.github.io/augmented_software_engineering/</loc>
-         <lastmod>2026-10-30</lastmod>
+         <lastmod>2026-10-31</lastmod>
     </url>
     <url>
          <loc>https://evisp.github.io/augmented_software_engineering/roadmap/</loc>
-         <lastmod>2026-10-30</lastmod>
+         <lastmod>2026-10-31</lastmod>
     </url>
     <url>
          <loc>https://evisp.github.io/augmented_software_engineering/01-tools/</loc>
-         <lastmod>2026-10-30</lastmod>
+         <lastmod>2026-10-31</lastmod>
     </url>
     <url>
          <loc>https://evisp.github.io/augmented_software_engineering/01-tools/ai-assistant/</loc>
-         <lastmod>2026-10-30</lastmod>
+         <lastmod>2026-10-31</lastmod>
     </url>
     <url>
          <loc>https://evisp.github.io/augmented_software_engineering/01-tools/git-and-github/</loc>
-         <lastmod>2026-10-30</lastmod>
+         <lastmod>2026-10-31</lastmod>
     </url>
     <url>
          <loc>https://evisp.github.io/augmented_software_engineering/01-tools/github-flow/</loc>
-         <lastmod>2026-10-30</lastmod>
+         <lastmod>2026-10-31</lastmod>
     </url>
     <url>
          <loc>https://evisp.github.io/augmented_software_engineering/01-tools/shell-permissions/</loc>
-         <lastmod>2026-10-30</lastmod>
+         <lastmod>2026-10-31</lastmod>
     </url>
     <url>
          <loc>https://evisp.github.io/augmented_software_engineering/01-tools/shell/</loc>
-         <lastmod>2026-10-30</lastmod>
+         <lastmod>2026-10-31</lastmod>
     </url>
     <url>
          <loc>https://evisp.github.io/augmented_software_engineering/01-tools/vscode-setup/</loc>
-         <lastmod>2026-10-30</lastmod>
+         <lastmod>2026-10-31</lastmod>
     </url>
     <url>
          <loc>https://evisp.github.io/augmented_software_engineering/01-tools/wsl-setup/</loc>
-         <lastmod>2026-10-30</lastmod>
+         <lastmod>2026-10-31</lastmod>
     </url>
     <url>
          <loc>https://evisp.github.io/augmented_software_engineering/01-tools/zero-day/</loc>
-         <lastmod>2026-10-30</lastmod>
+         <lastmod>2026-10-31</lastmod>
     </url>
     <url>
          <loc>https://evisp.github.io/augmented_software_engineering/02-foundations/</loc>
-         <lastmod>2026-10-30</lastmod>
+         <lastmod>2026-10-31</lastmod>
     </url>
     <url>
          <loc>https://evisp.github.io/augmented_software_engineering/02-foundations/oop/</loc>
-         <lastmod>2026-10-30</lastmod>
+         <lastmod>2026-10-31</lastmod>
     </url>
     <url>
          <loc>https://evisp.github.io/augmented_software_engineering/02-foundations/oop/abstract-classes/</loc>
-         <lastmod>2026-10-30</lastmod>
+         <lastmod>2026-10-31</lastmod>
     </url>
     <url>
          <loc>https://evisp.github.io/augmented_software_engineering/02-foundations/oop/classes/</loc>
-         <lastmod>2026-10-30</lastmod>
+         <lastmod>2026-10-31</lastmod>
     </url>
     <url>
          <loc>https://evisp.github.io/augmented_software_engineering/02-foundations/oop/design-patterns/</loc>
-         <lastmod>2026-10-30</lastmod>
+         <lastmod>2026-10-31</lastmod>
     </url>
     <url>
          <loc>https://evisp.github.io/augmented_software_engineering/02-foundations/oop/inheritance/</loc>
-         <lastmod>2026-10-30</lastmod>
+         <lastmod>2026-10-31</lastmod>
     </url>
     <url>
          <loc>https://evisp.github.io/augmented_software_engineering/02-foundations/oop/uml/</loc>
-         <lastmod>2026-10-30</lastmod>
+         <lastmod>2026-10-31</lastmod>
     </url>
     <url>
          <loc>https://evisp.github.io/augmented_software_engineering/02-foundations/python/</loc>
-         <lastmod>2026-10-30</lastmod>
+         <lastmod>2026-10-31</lastmod>
     </url>
     <url>
          <loc>https://evisp.github.io/augmented_software_engineering/02-foundations/python/control-flow/</loc>
-         <lastmod>2026-10-30</lastmod>
+         <lastmod>2026-10-31</lastmod>
     </url>
     <url>
          <loc>https://evisp.github.io/augmented_software_engineering/02-foundations/python/data-structures/</loc>
-         <lastmod>2026-10-30</lastmod>
+         <lastmod>2026-10-31</lastmod>
     </url>
     <url>
          <loc>https://evisp.github.io/augmented_software_engineering/02-foundations/python/environment/</loc>
-         <lastmod>2026-10-30</lastmod>
+         <lastmod>2026-10-31</lastmod>
     </url>
     <url>
          <loc>https://evisp.github.io/augmented_software_engineering/02-foundations/python/exceptions/</loc>
-         <lastmod>2026-10-30</lastmod>
+         <lastmod>2026-10-31</lastmod>
     </url>
     <url>
          <loc>https://evisp.github.io/augmented_software_engineering/02-foundations/python/functions/</loc>
-         <lastmod>2026-10-30</lastmod>
+         <lastmod>2026-10-31</lastmod>
     </url>
     <url>
          <loc>https://evisp.github.io/augmented_software_engineering/02-foundations/python/hello-world/</loc>
-         <lastmod>2026-10-30</lastmod>
+         <lastmod>2026-10-31</lastmod>
     </url>
     <url>
          <loc>https://evisp.github.io/augmented_software_engineering/03-software-development/</loc>
-         <lastmod>2026-10-30</lastmod>
+         <lastmod>2026-10-31</lastmod>
     </url>
     <url>
          <loc>https://evisp.github.io/augmented_software_engineering/03-software-development/data-and-apis/</loc>
-         <lastmod>2026-10-30</lastmod>
+         <lastmod>2026-10-31</lastmod>
+    </url>
+    <url>
+         <loc>https://evisp.github.io/augmented_software_engineering/03-software-development/data-and-apis/files/</loc>
+         <lastmod>2026-10-31</lastmod>
+    </url>
+    <url>
+         <loc>https://evisp.github.io/augmented_software_engineering/03-software-development/data-and-apis/script-to-application/</loc>
+         <lastmod>2026-10-31</lastmod>
     </url>
     <url>
          <loc>https://evisp.github.io/augmented_software_engineering/03-software-development/javascript-node/</loc>
-         <lastmod>2026-10-30</lastmod>
+         <lastmod>2026-10-31</lastmod>
     </url>
     <url>
          <loc>https://evisp.github.io/augmented_software_engineering/03-software-development/web-frontend/</loc>
-         <lastmod>2026-10-30</lastmod>
+         <lastmod>2026-10-31</lastmod>
     </url>
     <url>
          <loc>https://evisp.github.io/augmented_software_engineering/04-portfolio/</loc>
-         <lastmod>2026-10-30</lastmod>
+         <lastmod>2026-10-31</lastmod>
     </url>
     <url>
          <loc>https://evisp.github.io/augmented_software_engineering/04-portfolio/ai-builds/</loc>
-         <lastmod>2026-10-30</lastmod>
+         <lastmod>2026-10-31</lastmod>
     </url>
     <url>
          <loc>https://evisp.github.io/augmented_software_engineering/04-portfolio/hbnb/</loc>
-         <lastmod>2026-10-30</lastmod>
+         <lastmod>2026-10-31</lastmod>
     </url>
 </urlset>

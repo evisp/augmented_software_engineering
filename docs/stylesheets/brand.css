@@ -346,6 +346,19 @@
   background: rgba(255, 255, 255, 0.08);
 }
 
+/* A ghost button outside the hero sits on the page background:
+   outline it in the brand colour so it stays visible in both schemes. */
+.md-typeset > p > .h-button--ghost {
+  color: var(--h-cherry);
+  box-shadow: inset 0 0 0 1.5px var(--h-cherry);
+}
+
+.md-typeset > p > .h-button--ghost:hover,
+.md-typeset > p > .h-button--ghost:focus-visible {
+  background: rgba(227, 28, 63, 0.08);
+  color: var(--h-cherry);
+}
+
 /* --------------------------------------------------------------------------
    6. Cards
    -------------------------------------------------------------------------- */

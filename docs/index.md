@@ -20,13 +20,6 @@ assistant at your side.
 [Start here](01-tools/index.md){ .h-button }
 [View roadmap](roadmap.md){ .h-button .h-button--ghost }
 
-<div class="h-stats">
-  <div><strong>4</strong><span>stages</span></div>
-  <div><strong>9</strong><span>modules</span></div>
-  <div><strong>43</strong><span>projects</span></div>
-  <div><strong>776</strong><span>hours</span></div>
-</div>
-
 </div>
 
 ## The journey
@@ -159,3 +152,5 @@ leave able to explain and present what you built.
     mock interviews to prepare for the real thing.
 
 </div>
+
+[Read the Holberton Way](holberton-way.md){ .h-button .h-button--ghost }

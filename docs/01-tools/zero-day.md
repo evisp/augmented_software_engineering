@@ -24,6 +24,8 @@ submission in week two.
 You learn by building. Every concept arrives as a project with a
 deadline, and you work out how to solve it with your peers, the
 documentation and your AI tools. The project is the lesson.
+The [Holberton Way](../holberton-way.md) page explains the method in
+full: who does what, and what to do when you are stuck.
 
 <figure class="h-figure" markdown="0">
 <svg viewBox="0 0 680 186" role="img" aria-labelledby="zd-loop-title zd-loop-desc">

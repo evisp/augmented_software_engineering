@@ -137,6 +137,7 @@ validation:
 
 nav:
   - Home: index.md
+  - Holberton Way: holberton-way.md
   - Roadmap: roadmap.md
 
   - Tools:
